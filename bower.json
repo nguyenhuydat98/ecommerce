@@ -1,0 +1,21 @@
+{
+  "name": "ecommerce",
+  "description": "",
+  "main": "",
+  "authors": [
+    "DatNguyen <dat.nguyen.d16ptit@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bower_ecommerce": "git@github.com:nguyenhuydat98/bower_ecommerce.git"
+  }
+}

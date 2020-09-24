@@ -13,8 +13,9 @@ class Product extends Model
         'name',
         'brand',
         'description',
+        'original_price',
+        'current_price',
         'rate',
-        'image_link',
     ];
 
     public $timestamps = true;
@@ -22,6 +23,11 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 
     public function orders()

@@ -17,11 +17,14 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('blog_id');
+            $table->foreignId('comment_id')->nullable();
             $table->string('content');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('blog_id')->references('id')->on('blogs');
+            $table->foreign('comment_id')->references('id')->on('comments');
+
         });
     }
 

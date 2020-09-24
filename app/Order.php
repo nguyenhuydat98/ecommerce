@@ -10,8 +10,9 @@ class Order extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'amount',
-        'message',
+        'total',
+        'payment',
+        'note',
     ];
 
     public $timestamps = true;

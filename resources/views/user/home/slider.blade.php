@@ -1,6 +1,6 @@
 <div class="slider-area ">
     <div class="slider-active">
-        <div class="single-slider slider-height" data-background="assets/img/hero/h1_hero.jpg">
+        <div class="single-slider slider-height" data-background="">
             <div class="container">
                 <div class="row d-flex align-items-center justify-content-between">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">

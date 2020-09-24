@@ -15,13 +15,15 @@ class Comment extends Model
 
     public $timestamps = true;
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function blog()
     {
         return $this->belongsTo(Blog::class);
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // chưa xử lí comment_id (reply comment)
 }

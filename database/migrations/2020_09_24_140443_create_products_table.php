@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('description')->nullable();
             $table->integer('original_price');
             $table->integer('current_price');
-            $table->enum('rate', [1, 2, 3, 4, 5])->nullable();
+            $table->decimal('rate', 8, 1)->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('category_id')->references('id')->on('categories');

@@ -19,6 +19,7 @@ class CreateOrderProductTable extends Migration
             $table->foreignId('product_id');
             $table->integer('quantity');
             $table->integer('unit_price');
+            $table->enum('rate', [0, 1, 2, 3, 4, 5]);
             $table->timestamps();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('product_id')->references('id')->on('products');

@@ -20,9 +20,13 @@ use Illuminate\Support\Str;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'address' => $faker->country,
+        'phone' => $faker->phoneNumber,
         'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'password' => '7C222FB2927D828AF22F592134E8932480637C0D', // HASH encode of 12345678
+        'roles' =>$faker->randomNumber($min = 1, max = 2),
         'remember_token' => Str::random(10),
+        'created_at' => new DateTime,
+        'updated_at' => new DateTime
     ];
 });

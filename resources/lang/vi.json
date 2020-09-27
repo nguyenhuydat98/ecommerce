@@ -2,6 +2,7 @@
     "admin.header.logout": "Đăng xuất",
     "admin.header.website": "Trang Chủ",
     "admin.login.email": "Nhập email",
+    "admin.login.forgot_password": "Quên mật khẩu",
     "admin.login.password": "Nhập mật khẩu",
     "admin.login.remember_me": "Nhớ mật khẩu",
     "admin.login.submit": "Đăng nhập",

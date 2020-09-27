@@ -19,8 +19,13 @@ Route::group(['middleware' => 'localization'], function() {
     Route::get('lang/{language}', 'LocalizationController@changeLanguage')->name('change-language');
 
     Route::group(['prefix' => 'admin'], function() {
-        Route::get('/', 'Admin\HomeController@home')->name('admin.home');
-        Route::get('login', 'Admin\AuthController@getLogin')->name('admin.getLogin');
+        Route::get('login', 'Admin\LoginController@getLogin')->name('admin.getLogin');
+        Route::post('login', 'Admin\LoginController@postLogin')->name('admin.postLogin');
+        Route::get('logout', 'Admin\LoginController@logout')->name('admin.logout');
+
+        Route::group(['middleware' => 'checkAdminLogin'], function() {
+            Route::get('/', 'Admin\HomeController@home')->name('admin.home');
+        });
     });
 
     Route::get('/', 'HomeController@home')->name('user.home');

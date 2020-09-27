@@ -2,6 +2,7 @@
     "admin.header.logout": "Logout",
     "admin.header.website": "Website",
     "admin.login.email": "Email",
+    "admin.login.forgot_password": "Forgot password",
     "admin.login.password": "Password",
     "admin.login.remember_me": "Remember me",
     "admin.login.submit": "Login",

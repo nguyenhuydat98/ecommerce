@@ -16,5 +16,6 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.styles([
     'resources/css/admin_nav.css',
+    'resources/css/admin_login.css',
     ], 'public/css/all.css'
 );

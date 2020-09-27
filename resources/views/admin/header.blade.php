@@ -41,7 +41,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#"><i class="fa fa-sign-out fa-fw"></i> {{ trans('admin.header.logout') }}</a>
+                    <a href="{{ route('admin.logout') }}"><i class="fa fa-sign-out fa-fw"></i> {{ trans('admin.header.logout') }}</a>
                 </li>
             </ul>
         </li>

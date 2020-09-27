@@ -37,7 +37,7 @@
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li>
-                    <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <a href="{{ route('admin.getChangePassword') }}"><i class="fa fa-key" aria-hidden="true"></i> {{ trans('admin.login.change_password') }}</a>
                 </li>
                 <li class="divider"></li>
                 <li>

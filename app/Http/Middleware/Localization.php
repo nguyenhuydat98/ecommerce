@@ -17,17 +17,10 @@ class Localization
      */
     public function handle($request, Closure $next)
     {
-        $language = Session::get('language', config('app.locale'));
-        $english    = config('app.language.en');
-        $vietnamese = config('app.language.vi');
-        switch ($language) {
-            case $english:
-                $language = $english;
-                break;
-            default:
-                $language = $vietnamese;
+        if (Session::has('language')) {
+            $language = Session::get('language');
+            App::setLocale($language);
         }
-        App::setLocale($language);
 
         return $next($request);
     }

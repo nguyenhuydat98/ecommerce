@@ -23,7 +23,6 @@ class LoginController extends Controller
         if (Auth::attempt($account)) {
             return redirect()->route('admin.home');
         } else {
-            dd('account not correct');
             return redirect()->route('admin.getLogin');
         }
     }

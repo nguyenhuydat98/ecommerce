@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <a href="#">
-                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.blog_management') }}
+                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.post_management') }}
                     </a>
                 </li>
                 {{-- <li>

@@ -46,7 +46,7 @@
                                                 <li><a href="#"> Product</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">{{ trans('user.header.blog') }}</a></li>
+                                        <li><a href="#">{{ trans('user.header.post') }}</a></li>
                                         <li><a href="#">{{ trans('user.header.contact') }}</a></li>
                                     </ul>
                                 </nav>

@@ -29,7 +29,11 @@
 <body>
     <div id="wrapper">
         @include('admin.header')
-        @include('admin.menu')
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                @yield('content')
+            </div>
+        </div>
     </div>
 
 

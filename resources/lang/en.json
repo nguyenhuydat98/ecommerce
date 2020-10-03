@@ -17,6 +17,8 @@
     "admin.menu.search": "Search ..",
     "admin.menu.summary_report": "Summary Report",
     "admin.menu.user_management": "User Management",
+    "admin.summary_report.title": "Summary Report",
+    "admin.title": "Admin Ecommerce",
 
     "language": "Language",
     "language.english": "English",
@@ -33,7 +35,6 @@
     "user.footer.category": "Category",
     "user.footer.category.accessories": "Accessories",
     "user.footer.category.smartphone": "Smartphone",
-
     "user.header.about": "About",
     "user.header.blog": "Blog",
     "user.header.contact": "Contact",

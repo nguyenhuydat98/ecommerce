@@ -20,10 +20,13 @@ class Comment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function blog()
+    public function post()
     {
-        return $this->belongsTo(Blog::class);
+        return $this->belongsTo(Post::class);
     }
 
-    // chưa xử lí comment_id (reply comment)
+    public function replies()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

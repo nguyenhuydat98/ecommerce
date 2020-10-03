@@ -5,14 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Blog extends Model
+class Post extends Model
 {
     use SoftDeletes;
 
     protected $fillable = [
         'title',
         'content',
-        'image_link',
     ];
 
     public $timestamps = true;
@@ -20,5 +19,10 @@ class Blog extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
     }
 }

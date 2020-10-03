@@ -15,14 +15,13 @@ class CreateOrderProductTable extends Migration
     {
         Schema::create('order_product', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id');
-            $table->foreignId('product_id');
+            $table->integer('order_id')->unsigned();
+            $table->integer('product_id')->unsigned();
             $table->integer('quantity');
             $table->integer('unit_price');
-            $table->enum('rate', [0, 1, 2, 3, 4, 5]);
+            $table->tinyInteger('status')->default(config('migration.status.pending'));
+            $table->tinyInteger('rate');
             $table->timestamps();
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

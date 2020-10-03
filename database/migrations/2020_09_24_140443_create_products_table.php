@@ -15,16 +15,15 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id');
+            $table->integer('category_id')->unsigned();
             $table->string('name');
             $table->string('brand')->nullable();
             $table->string('description')->nullable();
             $table->integer('original_price');
             $table->integer('current_price');
-            $table->decimal('rate', 8, 1)->nullable();
+            $table->float('rate')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

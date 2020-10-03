@@ -10,8 +10,8 @@
                                 {{ trans('language') }}
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('change-language', ['en']) }}">{{ trans('language.english') }}</a>
-                                <a class="dropdown-item" href="{{ route('change-language', ['vi']) }}">{{ trans('language.vietnamese') }}</a>
+                                <a class="dropdown-item" href="{{ route('localization', ['en']) }}">{{ trans('language.english') }}</a>
+                                <a class="dropdown-item" href="{{ route('localization', ['vi']) }}">{{ trans('language.vietnamese') }}</a>
                             </div>
                         </li>
                     </ul>

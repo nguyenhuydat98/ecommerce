@@ -25,13 +25,13 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function images()
-    {
-        return $this->hasMany(Image::class);
-    }
-
     public function orders()
     {
         return $this->belongsToMany(Order::class);
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
     }
 }

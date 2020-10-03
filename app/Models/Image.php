@@ -15,8 +15,8 @@ class Image extends Model
 
     public $timestamps = true;
 
-    public function product()
+    public function imageable()
     {
-        return $this->belongsTo(Product::class);
+        return $this->morphTo();
     }
 }

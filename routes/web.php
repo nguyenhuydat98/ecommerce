@@ -16,18 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['middleware' => 'localization'], function() {
-    Route::get('lang/{language}', 'LocalizationController@changeLanguage')->name('change-language');
+    Route::get('lang/{language}', 'LocalizationController@changeLanguage')->name('localization');
 
     Route::group(['prefix' => 'admin'], function() {
         Route::get('login', 'Admin\LoginController@getLogin')->name('admin.getLogin');
         Route::post('login', 'Admin\LoginController@postLogin')->name('admin.postLogin');
         Route::get('logout', 'Admin\LoginController@logout')->name('admin.logout');
-
         Route::get('change_password', 'Admin\ChangePasswordController@getChangePassword')->name('admin.getChangePassword');
         Route::post('change_password', 'Admin\ChangePasswordController@postChangePassword')->name('admin.postChangePassword');
 
         Route::group(['middleware' => 'checkAdminLogin'], function() {
-            Route::get('/', 'Admin\HomeController@home')->name('admin.home');
+            Route::get('/', 'Admin\HomeController@dashboard')->name('admin.dashboard');
         });
     });
 

@@ -1,4 +1,3 @@
-<!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="navbar-header">
         <span class="navbar-brand">Admin Ecommerce</span>
@@ -18,7 +17,6 @@
             </a>
         </li>
     </ul>
-
     <ul class="nav navbar-right navbar-top-links">
         <!-- language -->
         <li class="dropdown">
@@ -26,14 +24,13 @@
                 {{ trans('language') }}
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{ route('change-language', ['en']) }}">{{ trans('language.english') }}</a>
-                <a class="dropdown-item" href="{{ route('change-language', ['vi']) }}">{{ trans('language.vietnamese') }}</a>
+                <a class="dropdown-item" href="{{ route('localization', ['en']) }}">{{ trans('language.english') }}</a>
+                <a class="dropdown-item" href="{{ route('localization', ['vi']) }}">{{ trans('language.vietnamese') }}</a>
             </div>
         </li>
-
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
+                <i class="fa fa-user fa-fw"></i><b class="caret"></b>
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li>
@@ -46,4 +43,5 @@
             </ul>
         </li>
     </ul>
+    @include('admin.menu')
 </nav>

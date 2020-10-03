@@ -11,7 +11,6 @@ class Category extends Model
 
     protected $fillable = [
         'name',
-        'lever',
     ];
 
     public $timestamps = true;
@@ -19,6 +18,11 @@ class Category extends Model
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function children()
+    {
+        return $this->hasmany(Category::class);
     }
 
 }

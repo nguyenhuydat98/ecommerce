@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function home()
+    public function dashboard()
     {
-        return view('admin.layouts.app');
+        return view('admin.pages.summary_report');
     }
 }

@@ -24,12 +24,12 @@
     <link rel="stylesheet" href="{{asset('bower_components/bower_ecommerce/user/css/style.css') }}">
 </head>
 <body>
-    @include('user.preload')
-    @include('user.header')
+    @include('user.elements.preload')
+    @include('user.elements.header')
 
     @yield('content')
 
-    @include('user.footer')
+    @include('user.elements.footer')
 
     <!-- All JS Custom Plugins Link Here here -->
     <script src="{{asset('bower_components/bower_ecommerce/user/js/vendor/modernizr-3.5.0.min.js') }}"></script>

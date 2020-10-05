@@ -3,7 +3,7 @@
         <div class="main-header ">
             <!-- Backgroud Black -->
             <div class="header-top top-bg d-none d-lg-block">
-                <div class="container-fluid">
+                <div class="container">
                     <ul>
                         <li class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="language">
@@ -20,7 +20,7 @@
 
             <!-- Main header -->
             <div class="header-bottom  header-sticky">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="row align-items-center">
                         <!-- Logo -->
                         <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
@@ -57,7 +57,7 @@
                             <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
                                 <li class="d-none d-xl-block"> <!-- Search -->
                                     <div class="form-box f-right ">
-                                        <input type="text" name="search" placeholder="{{ trans('user.header.search_product') }}">
+                                        <input type="text" name="search" placeholder="{{ trans('user.header.search') }}">
                                         <div class="search-icon">
                                             <i class="fas fa-search special-tag"></i>
                                         </div>
@@ -69,8 +69,13 @@
                                     </div>
                                 </li>
                                 <li class="d-none d-lg-block"> <!-- Login / Register -->
-                                    <a href="#" class="btn header-btn">{{ trans('user.header.login') }}</a>
+                                    @if(Auth::check())
+                                        <a href="#" class="btn header-btn">{{ trans('user.header.logout') }}</a>
+                                    @else
+                                        <a href="#" class="btn header-btn">{{ trans('user.header.login') }}</a>
+                                    @endif
                                 </li>
+
                             </ul>
                         </div>
                     </div>

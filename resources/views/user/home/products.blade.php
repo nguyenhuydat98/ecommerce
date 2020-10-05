@@ -27,7 +27,56 @@
             <!-- card one -->
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="single-product mb-60">
+                            <div class="product-img">
+                                <img src="{{ asset('storage/slider.jpg') }}" alt="">
+                                <div class="new-product">
+                                    <span>New</span>
+                                </div>
+                            </div>
+                            <div class="product-caption">
+                                <div class="product-ratting">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                </div>
+                                <h4><a href="#">Green Dress with details</a></h4>
+                                <div class="price">
+                                    <ul>
+                                        <li>40.00</li>
+                                        <li class="discount">60.00</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="single-product mb-60">
+                            <div class="product-img">
+                                <img src="{{ asset('storage/slider.jpg') }}" alt="">
+                            </div>
+                            <div class="product-caption">
+                                <div class="product-ratting">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                </div>
+                                <h4><a href="#">Green Dress with details</a></h4>
+                                <div class="price">
+                                    <ul>
+                                        <li>$40.00</li>
+                                        <li class="discount">$60.00</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/slider.jpg') }}" alt="">
@@ -53,7 +102,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/slider.jpg') }}" alt="">
@@ -76,33 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-product mb-60">
-                            <div class="product-img">
-                                <img src="{{ asset('storage/slider.jpg') }}" alt="">
-                                <div class="new-product">
-                                    <span>New</span>
-                                </div>
-                            </div>
-                            <div class="product-caption">
-                                <div class="product-ratting">
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                </div>
-                                <h4><a href="#">Green Dress with details</a></h4>
-                                <div class="price">
-                                    <ul>
-                                        <li>$40.00</li>
-                                        <li class="discount">$60.00</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/slider.jpg') }}" alt="">
@@ -125,30 +148,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-product mb-60">
-                            <div class="product-img">
-                                <img src="{{ asset('storage/slider.jpg') }}" alt="">
-                            </div>
-                            <div class="product-caption">
-                                <div class="product-ratting">
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                </div>
-                                <h4><a href="#">Green Dress with details</a></h4>
-                                <div class="price">
-                                    <ul>
-                                        <li>$40.00</li>
-                                        <li class="discount">$60.00</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/slider.jpg') }}" alt="">
@@ -180,7 +180,7 @@
             <!-- Card two -->
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/slider_02.jpg') }}" alt="">
@@ -203,7 +203,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/slider_02.jpg') }}" alt="">
@@ -226,56 +226,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-product mb-60">
-                            <div class="product-img">
-                                <img src="{{ asset('storage/slider_02.jpg') }}" alt="">
-                                <div class="new-product">
-                                    <span>New</span>
-                                </div>
-                            </div>
-                            <div class="product-caption">
-                                <div class="product-ratting">
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                </div>
-                                <h4><a href="#">Green Dress with details</a></h4>
-                                <div class="price">
-                                    <ul>
-                                        <li>$40.00</li>
-                                        <li class="discount">$60.00</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-product mb-60">
-                            <div class="product-img">
-                                <img src="{{ asset('storage/slider_02.jpg') }}" alt="">
-                            </div>
-                            <div class="product-caption">
-                                <div class="product-ratting">
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                </div>
-                                <h4><a href="#">Green Dress with details</a></h4>
-                                <div class="price">
-                                    <ul>
-                                        <li>$40.00</li>
-                                        <li class="discount">$60.00</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/slider_02.jpg') }}" alt="">
@@ -301,7 +252,56 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="single-product mb-60">
+                            <div class="product-img">
+                                <img src="{{ asset('storage/slider_02.jpg') }}" alt="">
+                            </div>
+                            <div class="product-caption">
+                                <div class="product-ratting">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                </div>
+                                <h4><a href="#">Green Dress with details</a></h4>
+                                <div class="price">
+                                    <ul>
+                                        <li>$40.00</li>
+                                        <li class="discount">$60.00</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="single-product mb-60">
+                            <div class="product-img">
+                                <img src="{{ asset('storage/slider_02.jpg') }}" alt="">
+                                <div class="new-product">
+                                    <span>New</span>
+                                </div>
+                            </div>
+                            <div class="product-caption">
+                                <div class="product-ratting">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                </div>
+                                <h4><a href="#">Green Dress with details</a></h4>
+                                <div class="price">
+                                    <ul>
+                                        <li>$40.00</li>
+                                        <li class="discount">$60.00</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/slider_02.jpg') }}" alt="">
@@ -333,7 +333,7 @@
             <!-- Card three -->
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/ip6S_01.jpg') }}" alt="">
@@ -356,33 +356,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-product mb-60">
-                            <div class="product-img">
-                                <img src="{{ asset('storage/ip6S_01.jpg') }}" alt="">
-                                <div class="new-product">
-                                    <span>New</span>
-                                </div>
-                            </div>
-                            <div class="product-caption">
-                                <div class="product-ratting">
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                </div>
-                                <h4><a href="#">Green Dress with details</a></h4>
-                                <div class="price">
-                                    <ul>
-                                        <li>$40.00</li>
-                                        <li class="discount">$60.00</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/ip6S_01.jpg') }}" alt="">
@@ -408,30 +382,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-product mb-60">
-                            <div class="product-img">
-                                <img src="{{ asset('storage/ip6S_01.jpg') }}" alt="">
-                            </div>
-                            <div class="product-caption">
-                                <div class="product-ratting">
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                    <i class="far fa-star low-star"></i>
-                                </div>
-                                <h4><a href="#">Green Dress with details</a></h4>
-                                <div class="price">
-                                    <ul>
-                                        <li>$40.00</li>
-                                        <li class="discount">$60.00</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/ip6S_01.jpg') }}" alt="">
@@ -457,7 +408,56 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="single-product mb-60">
+                            <div class="product-img">
+                                <img src="{{ asset('storage/ip6S_01.jpg') }}" alt="">
+                            </div>
+                            <div class="product-caption">
+                                <div class="product-ratting">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                </div>
+                                <h4><a href="#">Green Dress with details</a></h4>
+                                <div class="price">
+                                    <ul>
+                                        <li>$40.00</li>
+                                        <li class="discount">$60.00</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="single-product mb-60">
+                            <div class="product-img">
+                                <img src="{{ asset('storage/ip6S_01.jpg') }}" alt="">
+                                <div class="new-product">
+                                    <span>New</span>
+                                </div>
+                            </div>
+                            <div class="product-caption">
+                                <div class="product-ratting">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                </div>
+                                <h4><a href="#">Green Dress with details</a></h4>
+                                <div class="price">
+                                    <ul>
+                                        <li>$40.00</li>
+                                        <li class="discount">$60.00</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3">
                         <div class="single-product mb-60">
                             <div class="product-img">
                                 <img src="{{ asset('storage/ip6S_01.jpg') }}" alt="">

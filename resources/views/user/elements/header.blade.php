@@ -37,7 +37,7 @@
                                     <ul id="navigation">
                                         <li><a href="#">{{ trans('user.header.home') }}</a></li>
                                         <li><a href="#">{{ trans('user.header.about') }}</a></li>
-                                        <li class="hot">
+                                        <li>
                                             <a href="#">{{ trans('user.header.product') }}</a>
                                             <ul class="submenu">
                                                 <li><a href="#"> Product</a></li>

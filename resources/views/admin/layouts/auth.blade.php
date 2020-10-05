@@ -13,6 +13,7 @@
     <link href="{{ asset('bower_components/bower_ecommerce/admin/css/startmin.css') }}" rel="stylesheet">
     <link href="{{ asset('bower_components/bower_ecommerce/admin/css/morris.css') }}" rel="stylesheet">
     <link href="{{ asset('bower_components/bower_ecommerce/admin/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -21,7 +22,7 @@
         </div>
         <ul class="nav navbar-nav navbar-left navbar-top-links">
             <li>
-                <a href="#"><i class="fa fa-home fa-fw"></i> {{ trans('admin.header.website') }}</a>
+                <a href="{{ route('user.home') }}"><i class="fa fa-home fa-fw"></i> {{ trans('admin.header.website') }}</a>
             </li>
         </ul>
 
@@ -57,6 +58,5 @@
     {{-- <script src="{{ asset('bower_components/bower_ecommerce/admin/js/morris-data.js') }}"></script> --}}
     <script src="{{ asset('bower_components/bower_ecommerce/admin/js/startmin.js') }}"></script>
 
-    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
 </body>
 </html>

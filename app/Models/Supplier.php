@@ -1,22 +1,24 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Image extends Model
+class Supplier extends Model
 {
     use SoftDeletes;
 
     protected $fillable = [
-        'image_link',
+        'name',
+        'address',
+        'phone',
     ];
 
     public $timestamps = true;
 
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 }

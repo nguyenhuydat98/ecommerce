@@ -10,8 +10,8 @@ class Order extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'total',
-        'payment',
+        'total_price',
+        'status',
         'note',
     ];
 
@@ -22,8 +22,8 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function products()
+    public function productDetails()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(ProductDetail::class);
     }
 }

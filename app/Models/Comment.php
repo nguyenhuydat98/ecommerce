@@ -10,6 +10,7 @@ class Comment extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'rate',
         'content'
     ];
 
@@ -20,9 +21,9 @@ class Comment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function post()
+    public function product()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Product::class);
     }
 
     public function replies()

@@ -1,16 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Image extends Model
+class ProductDetail extends Model
 {
-    use SoftDeletes;
-
     protected $fillable = [
-        'image_link',
+        'color',
+        'quantity',
     ];
 
     public $timestamps = true;
@@ -18,5 +16,10 @@ class Image extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function orders()
+    {
+        return $this->belongsTomany(Order::class);
     }
 }

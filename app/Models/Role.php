@@ -1,22 +1,22 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Image extends Model
+class Role extends Model
 {
     use SoftDeletes;
 
     protected $fillable = [
-        'image_link',
+        'name',
     ];
 
     public $timestamps = true;
 
-    public function product()
+    public function users()
     {
-        return $this->belongsTo(Product::class);
+        return $this->hasmany(User::class);
     }
 }

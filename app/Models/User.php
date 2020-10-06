@@ -24,6 +24,11 @@ class User extends Authenticatable
 
     public $timestamps = true;
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
     public function orders()
     {
         return $this->hasMany(Order::class);

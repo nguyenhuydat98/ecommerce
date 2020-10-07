@@ -39,7 +39,16 @@
     "user.header.contact": "Liên hệ",
     "user.header.home": "Trang chủ",
     "user.header.login": "Đăng nhập",
+    "user.header.logout": "Đăng xuất",
     "user.header.post": "Tin tức",
     "user.header.product": "Sản phẩm",
-    "user.header.search": "Tìm kiếm.."
+    "user.header.search": "Tìm kiếm..",
+    "user.login.email": "E-mail",
+    "user.login.forgot_password": "Quên mật khẩu",
+    "user.login.password": "Mật khẩu",
+    "user.login.register_an_account": "Đăng ký tài khoản",
+    "user.login.remember_me": "Nhớ mật khẩu",
+    "user.login.submit": "Đăng nhập",
+    "user.login.title": "Hãy đăng nhập",
+    "user.login.welcome": "Chào mừng đến với Estore !"
 }

@@ -39,7 +39,17 @@
     "user.header.contact": "Contact",
     "user.header.home": "Home",
     "user.header.login": "Login",
+    "user.header.logout": "Logout",
     "user.header.post": "Post",
     "user.header.product": "Product",
-    "user.header.search": "Search.."
+    "user.header.search": "Search..",
+    "user.login.email": "E-mail",
+    "user.login.forgot_password": "Forgot password",
+    "user.login.password": "Password",
+    "user.login.register_an_account": "Register an account",
+    "user.login.remember_me": "Remember me",
+    "user.login.submit": "Login",
+    "user.login.title": "Please Login",
+    "user.login.welcome": "Welcome to Estore !"
+
 }

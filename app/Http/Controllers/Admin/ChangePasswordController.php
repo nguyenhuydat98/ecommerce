@@ -24,6 +24,6 @@ class ChangePasswordController extends Controller
             $user->save();
         }
 
-        return redirect()->route('admin.home');
+        return redirect()->route('admin.dashboard');
     }
 }

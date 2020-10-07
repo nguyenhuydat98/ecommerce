@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->role != 0) {
+            if ($user->role_id != 1) {
                 Auth::logout();
             }
         }

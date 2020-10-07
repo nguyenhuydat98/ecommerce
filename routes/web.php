@@ -19,17 +19,20 @@ Route::group(['middleware' => 'localization'], function() {
     Route::get('lang/{language}', 'LocalizationController@changeLanguage')->name('localization');
 
     Route::group(['prefix' => 'admin'], function() {
-        Route::get('login', 'Admin\LoginController@getLogin')->name('admin.getLogin');
-        Route::post('login', 'Admin\LoginController@postLogin')->name('admin.postLogin');
-        Route::get('logout', 'Admin\LoginController@logout')->name('admin.logout');
-        Route::get('change_password', 'Admin\ChangePasswordController@getChangePassword')->name('admin.getChangePassword');
-        Route::post('change_password', 'Admin\ChangePasswordController@postChangePassword')->name('admin.postChangePassword');
-
-        Route::group(['middleware' => 'checkAdminLogin'], function() {
-            Route::get('/', 'Admin\HomeController@dashboard')->name('admin.dashboard');
+        Route::name('admin.')->group(function() {
+            Route::get('login', 'Admin\LoginController@getLogin')->name('getLogin');
+            Route::post('login', 'Admin\LoginController@postLogin')->name('postLogin');
+            Route::group(['middleware' => 'checkAdminLogin'], function() {
+                Route::get('logout', 'Admin\LoginController@logout')->name('logout');
+                Route::get('change_password', 'Admin\ChangePasswordController@getChangePassword')->name('getChangePassword');
+                Route::post('change_password', 'Admin\ChangePasswordController@postChangePassword')->name('postChangePassword');
+                Route::get('/', 'Admin\HomeController@dashboard')->name('dashboard');
+            });
         });
     });
 
-    Route::get('/', 'HomeController@home')->name('user.home');
-    Route::get('product', 'ProductController@index')->name('user.product');
+    Route::name('user.')->group(function() {
+        Route::get('/', 'HomeController@home')->name('home');
+        Route::get('product', 'ProductController@index')->name('product');
+    });
 });

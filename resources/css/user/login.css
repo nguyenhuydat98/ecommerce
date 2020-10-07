@@ -1,0 +1,15 @@
+.wrap-user-login-page .forgot {
+    display: inline;
+    color: #777777;
+    float: left;
+}
+
+.wrap-user-login-page .register {
+    display: inline;
+    color: #777777;
+    float: right;
+}
+
+.wrap-user-login-page .custom a:hover {
+    color: blue;
+}

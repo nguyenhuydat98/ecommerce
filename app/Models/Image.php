@@ -10,6 +10,7 @@ class Image extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'product_id',
         'image_link',
     ];
 

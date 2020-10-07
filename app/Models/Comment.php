@@ -10,6 +10,9 @@ class Comment extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'user_id',
+        'product_id',
+        'parent_id',
         'rate',
         'content',
         'status',

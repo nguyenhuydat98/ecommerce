@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CategorySeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,43 +11,43 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
+        DB::table('roles')->insert([
             [
-                'name' => 'Smartphone',
-                'parent_id' => null,
+                'name' => 'User',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
             [
-                'name' => 'Iphone',
-                'parent_id' => 1,
+                'name' => 'Management Admin',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
             [
-                'name' => 'Samsung',
-                'parent_id' => 1,
+                'name' => 'Admin User',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
             [
-                'name' => 'Oppo',
-                'parent_id' => 1,
+                'name' => 'Admin Product',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
             [
-                'name' => 'Vivo',
-                'parent_id' => 1,
+                'name' => 'Admin Order',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
             [
-                'name' => 'Bphone',
-                'parent_id' => 1,
+                'name' => 'Admin Store',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
+            [
+                'name' => 'Admin Supplier',
+                'created_at' => new DateTime,
+                'updated_at' => new DateTime,
+            ],
+
         ]);
     }
 }

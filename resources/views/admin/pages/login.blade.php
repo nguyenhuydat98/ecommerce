@@ -22,6 +22,11 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember">{{ trans('admin.login.remember_me') }}
+                            </label>
+                        </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary btn-block" value="{{ trans('admin.login.submit') }}">
                         </div>

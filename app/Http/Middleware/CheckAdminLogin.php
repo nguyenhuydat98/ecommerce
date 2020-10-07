@@ -18,7 +18,7 @@ class CheckAdminLogin
     {
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->role == 1) {     // role is admin (1)
+            if ($user->role_id != 1) {
                 return $next($request);
             } else {
                 Auth::logout();

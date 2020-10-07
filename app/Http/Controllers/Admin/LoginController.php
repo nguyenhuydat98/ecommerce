@@ -18,13 +18,13 @@ class LoginController extends Controller
     {
         $account = [
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
         ];
-        if (Auth::attempt($account)) {
+        if (Auth::attempt($account, $request->remember)) {
             return redirect()->route('admin.dashboard');
-        } else {
-            return redirect()->route('admin.getLogin');
         }
+
+        return redirect()->route('admin.getLogin');
     }
 
     public function logout()

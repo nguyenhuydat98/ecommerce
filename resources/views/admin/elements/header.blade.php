@@ -12,7 +12,7 @@
 
     <ul class="nav navbar-nav navbar-left navbar-top-links">
         <li>
-            <a href="{{ route('user.home') }}">
+            <a href="{{ route('home') }}">
                 <i class="fa fa-home fa-fw"></i> {{ trans('admin.header.website') }}
             </a>
         </li>

@@ -2,8 +2,13 @@
 
 return [
     'role' => [
-        'user' => 0,
-        'admin' => 1,
+        'user' => 1,
+        'admin' => 2,
+        'admin_user' => 3,
+        'admin_product' => 4,
+        'admin_order' => 5,
+        'admin_store' => 6,
+        'admin_supplier' => 7,
     ],
 
     'status' => [

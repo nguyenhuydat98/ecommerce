@@ -50,6 +50,15 @@
     "user.login.remember_me": "Remember me",
     "user.login.submit": "Login",
     "user.login.title": "Please Login",
-    "user.login.welcome": "Welcome to Estore !"
+    "user.login.welcome": "Welcome to Estore !",
+
+    "user.register.back_to_login": "Back to login",
+    "user.register.email": "E-mail",
+    "user.register.name": "Name",
+    "user.register.password": "Password",
+    "user.register.repeat_password": "Repeat password",
+    "user.register.submit": "Register",
+    "user.register.title": "Create An Account",
+    "user.register.welcome": "Welcome to Estore !"
 
 }

@@ -19,5 +19,6 @@ mix.styles([
     'resources/css/admin/login.css',
     'resources/css/user/header.css',
     'resources/css/user/login.css',
+    'resources/css/user/register.css',
     ], 'public/css/all.css'
 );

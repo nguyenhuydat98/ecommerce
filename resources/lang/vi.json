@@ -50,5 +50,14 @@
     "user.login.remember_me": "Nhớ mật khẩu",
     "user.login.submit": "Đăng nhập",
     "user.login.title": "Hãy đăng nhập",
-    "user.login.welcome": "Chào mừng đến với Estore !"
+    "user.login.welcome": "Chào mừng đến với Estore !",
+
+    "user.register.back_to_login": "Quay lại đăng nhập",
+    "user.register.email": "E-mail",
+    "user.register.name": "Tên người dùng",
+    "user.register.password": "Mật khẩu",
+    "user.register.repeat_password": "Nhập lại mật khẩu",
+    "user.register.submit": "Đăng ký",
+    "user.register.title": "Tạo Tài Khoản",
+    "user.register.welcome": "Chào mừng đến với Estore !"
 }

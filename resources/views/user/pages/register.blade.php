@@ -1,7 +1,7 @@
 @extends('user.layouts.auth')
 
 @section('content')
-<div class="wrap-user-login-page">
+<div class="wrap-user-register-page">
     <section class="login_part">
         <div class="container">
             <div class="row align-items-center">
@@ -18,30 +18,37 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="login_part_form">
                         <div class="login_part_form_iner">
-                            <h3>{{ trans('user.login.welcome') }}<br>{{ trans('user.login.title') }}</h3>
-                            <form action="{{ route('postLogin') }}" method="POST" class="row contact_form" >
+                            <h3>{{ trans('user.register.welcome') }}<br>{{ trans('user.register.title') }}</h3>
+                            <form action="{{ route('postRegister') }}" method="POST" class="row contact_form" >
                                 @csrf
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="email" class="form-control" name="email" placeholder="{{ trans('user.login.email') }}" autofocus="" required>
+                                    <input type="text" class="form-control" name="name" placeholder="{{ trans('user.register.name') }}" autofocus="" required>
+                                    @error('name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="email" class="form-control" name="email" placeholder="{{ trans('user.register.email') }}" required>
                                     @error('email')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" name="password" placeholder="{{ trans('user.login.password') }}" required>
+                                    <input type="password" class="form-control" name="password" placeholder="{{ trans('user.register.password') }}" required>
                                     @error('password')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="password" class="form-control" name="repeat_password" placeholder="{{ trans('user.register.repeat_password') }}" required>
+                                    @error('repeat_password')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                                 <div class="col-md-12 form-group">
-                                    <div class="creat_account d-flex align-items-center">
-                                        <input type="checkbox" id="f-option" name="remember">
-                                        <label for="f-option">{{ trans('user.login.remember_me') }}</label>
-                                    </div>
-                                    <input type="submit" class="btn_3" value="{{ trans('user.login.submit') }}">
+                                    <input type="submit" class="btn_3" value="{{ trans('user.register.submit') }}">
                                     <div class="custom">
-                                        <a class="forgot" href="#">{{ trans('user.login.forgot_password') }}</a>
-                                        <a class="register" href="{{ route('getRegister') }}">{{ trans('user.login.register_an_account') }}</a>
+                                        <a class="back-login" href="{{ route('getLogin') }}">{{ trans('user.register.back_to_login') }}</a>
                                     </div>
                                 </div>
                             </form>

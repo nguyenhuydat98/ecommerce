@@ -21,5 +21,6 @@ mix.styles([
     'resources/css/user/login.css',
     'resources/css/user/register.css',
     'resources/css/user/menu.css',
+    'resources/css/user/product.css',
     ], 'public/css/all.css'
 );

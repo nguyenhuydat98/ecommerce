@@ -1,0 +1,29 @@
+.wrap-user-product-page .product-info {
+    padding-top: 15px;
+    padding-left: 20px;
+}
+
+.wrap-user-product-page .product-info .product-name {
+    padding-bottom: 2px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.wrap-user-product-page .product-info .product-brand {
+    padding-bottom: 2px;
+    font-size: 13px;
+    font-weight: 300;
+    color: #848484;
+}
+
+.wrap-user-product-page .product-info .product-original {
+    padding-bottom: 2px;
+    font-size: 13px;
+    text-decoration: line-through;
+}
+
+.wrap-user-product-page .product-info .product-current {
+    font-weight: 600;
+    font-size: 14px;
+    color: #FA5858;
+}

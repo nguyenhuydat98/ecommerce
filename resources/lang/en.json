@@ -30,7 +30,6 @@
     "user.footer.link.about": "About",
     "user.footer.link.contact": "Contact",
     "user.footer.link.home": "Home",
-    "user.footer.link.post": "Post",
     "user.footer.link.product": "Product",
     "user.footer.category": "Category",
     "user.footer.category.accessories": "Accessories",
@@ -53,7 +52,8 @@
     "user.menu.logout": "Logout",
     "user.menu.my_profile": "My Profile",
     "user.menu.product": "Product",
-    "user.menu.search": "Search",
+
+    "user.product.search": "Search",
 
     "user.register.back_to_login": "Back to login",
     "user.register.email": "E-mail",

@@ -30,7 +30,6 @@
     "user.footer.link.about": "Giới thiệu",
     "user.footer.link.contact": "Liên hệ",
     "user.footer.link.home": "Trang chủ",
-    "user.footer.link.post": "Tin tức",
     "user.footer.link.product": "Sản phẩm",
     "user.footer.category": "Danh mục",
     "user.footer.category.accessories": "Phụ kiện",
@@ -53,7 +52,8 @@
     "user.menu.logout": "Đăng xuất",
     "user.menu.my_profile": "Thông tin cá nhân",
     "user.menu.product": "Sản phẩm",
-    "user.menu.search": "Tìm kiếm",
+
+    "user.product.search": "Tìm kiếm",
 
     "user.register.back_to_login": "Quay lại đăng nhập",
     "user.register.email": "E-mail",

@@ -13,16 +13,16 @@
                     <div class="main-menu f-right d-none d-lg-block">
                         <nav>
                             <ul id="navigation">
-                                <li><a href="#">{{ trans('user.menu.home') }}</a></li>
+                                <li><a href="{{ route('home') }}">{{ trans('user.menu.home') }}</a></li>
                                 <li><a href="#">{{ trans('user.menu.about') }}</a></li>
                                 <li>
-                                    <a href="#">{{ trans('user.menu.product') }}</a>
-                                    <ul class="submenu">
+                                    <a href="{{ route('product') }}">{{ trans('user.menu.product') }}</a>
+                                    {{-- <ul class="submenu">
                                         <li><a href="#"> Product</a></li>
                                         <li><a href="#"> Product</a></li>
                                         <li><a href="#"> Product</a></li>
                                         <li><a href="#"> Product</a></li>
-                                    </ul>
+                                    </ul> --}}
                                 </li>
                                 <li><a href="#">{{ trans('user.menu.contact') }}</a></li>
                             </ul>
@@ -32,14 +32,6 @@
 
                 <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
                     <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
-                        <li class="d-none d-xl-block"> <!-- Search -->
-                            <div class="form-box f-right ">
-                                <input type="text" name="search" placeholder="{{ trans('user.menu.search') }}">
-                                <div class="search-icon">
-                                    <i class="fas fa-search special-tag"></i>
-                                </div>
-                            </div>
-                        </li>
                         <li> <!-- Cart -->
                             <div class="shopping-card">
                                 <a href="#"><i class="fas fa-shopping-cart"></i></a>

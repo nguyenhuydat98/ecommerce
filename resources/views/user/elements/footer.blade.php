@@ -26,7 +26,6 @@
                             <li><a href="#">{{ trans('user.footer.link.home') }}</a></li>
                             <li><a href="#">{{ trans('user.footer.link.about') }}</a></li>
                             <li><a href="#">{{ trans('user.footer.link.product') }}</a></li>
-                            <li><a href="#">{{ trans('user.footer.link.post') }}</a></li>
                             <li><a href="#">{{ trans('user.footer.link.contact') }}</a></li>
                         </ul>
                     </div>

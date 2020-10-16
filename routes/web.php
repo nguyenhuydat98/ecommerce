@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 Route::group(['middleware' => 'localization'], function() {
     Route::get('lang/{language}', 'LocalizationController@changeLanguage')->name('localization');
 
@@ -42,5 +40,4 @@ Route::group(['middleware' => 'localization'], function() {
     Route::group(['middleware' => 'checkUserLogin'], function() {
 
     });
-
 });

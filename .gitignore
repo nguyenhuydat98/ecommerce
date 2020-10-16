@@ -11,8 +11,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
-.bowerrc
-public/bower_components/*
+public/bower_components/
 public/css
 public/js
 public/mix-manifest.json

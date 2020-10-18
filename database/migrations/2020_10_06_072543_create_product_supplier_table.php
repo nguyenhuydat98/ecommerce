@@ -17,12 +17,14 @@ class CreateProductSupplierTable extends Migration
             $table->id();
             $table->foreignId('product_id');
             $table->foreignId('supplier_id');
+            $table->foreignId('user_id');
             $table->integer('unit_price');
             $table->integer('quantity');
             $table->tinyInteger('color');
             $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('supplier_id')->references('id')->on('suppliers');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

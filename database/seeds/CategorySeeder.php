@@ -36,18 +36,6 @@ class CategorySeeder extends Seeder
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
-            [
-                'name' => 'Vivo',
-                'parent_id' => 1,
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-            ],
-            [
-                'name' => 'Bphone',
-                'parent_id' => 1,
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-            ],
         ]);
     }
 }

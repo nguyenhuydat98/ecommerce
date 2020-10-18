@@ -19,7 +19,6 @@ class CreateOrderProductDetailTable extends Migration
             $table->foreignId('product_detail_id');
             $table->integer('quantity');
             $table->integer('unit_price');
-            $table->integer('discount')->default(0);
             $table->timestamps();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('product_detail_id')->references('id')->on('product_details');

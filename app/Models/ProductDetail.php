@@ -8,8 +8,8 @@ class ProductDetail extends Model
 {
     protected $fillable = [
         'product_id',
-        'color',
         'quantity',
+        'color',
     ];
 
     public $timestamps = true;

@@ -18,12 +18,7 @@ class RoleSeeder extends Seeder
                 'updated_at' => new DateTime,
             ],
             [
-                'name' => 'Management Admin',
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-            ],
-            [
-                'name' => 'Admin User',
+                'name' => 'Management',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
@@ -37,17 +32,6 @@ class RoleSeeder extends Seeder
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
-            [
-                'name' => 'Admin Store',
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-            ],
-            [
-                'name' => 'Admin Supplier',
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-            ],
-
         ]);
     }
 }

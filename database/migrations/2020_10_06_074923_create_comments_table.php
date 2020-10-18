@@ -17,7 +17,6 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('product_id');
-            $table->foreignId('parent_id')->nullable();
             $table->tinyInteger('rate');
             $table->string('content');
             $table->tinyInteger('status');
@@ -25,7 +24,6 @@ class CreateCommentsTable extends Migration
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('parent_id')->references('id')->on('comments');
         });
     }
 

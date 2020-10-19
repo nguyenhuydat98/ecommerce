@@ -4,6 +4,11 @@
 <div class="wrap-user-product-page">
     <section class="product_list">
         <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active"><a href="{{ route('product')}}">{{ trans('user.product.all_product') }}</a></li>
+                </ol>
+            </nav>
             <div class="row">
                 <div class="col-md-2">
                     <div class="product_sidebar">
@@ -16,7 +21,7 @@
                         @foreach($categories as $category)
                             <div class="single_sedebar">
                                 <div class="select_option">
-                                    <div class="select_option_list">{{ $category->name }} <i class="right fas fa-caret-down"></i> </div>
+                                    <div class="select_option_list">{{ $category->name }}</div>
                                     <div class="select_option_dropdown">
                                         @foreach ($children as $child)
                                             @if ($child->parent_id == $category->id)

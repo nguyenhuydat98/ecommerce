@@ -22,18 +22,16 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.product_management') }}
-                    </a>
+                    <a href="#"><i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.product_management') }} <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="#">{{ trans('admin.menu.product_management.category') }}</a></li>
+                        <li><a href="#">{{ trans('admin.menu.product_management.product') }}</a></li>
+                        <li><a href="#">{{ trans('admin.menu.product_management.supplier') }}</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#">
                         <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.order_management') }}
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.post_management') }}
                     </a>
                 </li>
                 {{-- <li>

@@ -11,12 +11,17 @@
     "admin.login.repeat_password": "Nhập lại mật khẩu",
     "admin.login.submit": "Đăng nhập",
     "admin.login.title": "Đăng Nhập",
+
     "admin.menu.order_management": "Quản lí đơn hàng",
     "admin.menu.post_management": "Quản lí tin tức",
     "admin.menu.product_management": "Quản lí sản phẩm",
+    "admin.menu.product_management.category": "Danh mục",
+    "admin.menu.product_management.product": "Sản phẩm",
+    "admin.menu.product_management.supplier": "Nhà cung cấp",
     "admin.menu.search": "Tìm kiếm ..",
     "admin.menu.summary_report": "Báo cáo tổng hợp",
     "admin.menu.user_management": "Quản lí người dùng",
+
     "admin.summary_report.title": "Báo Cáo Tổng Hợp",
     "admin.title": "Admin Ecommerce",
 
@@ -53,6 +58,7 @@
     "user.menu.my_profile": "Thông tin cá nhân",
     "user.menu.product": "Sản phẩm",
 
+    "user.product.all_product": "Tất cả",
     "user.product.search": "Tìm kiếm",
 
     "user.register.back_to_login": "Quay lại đăng nhập",

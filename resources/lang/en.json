@@ -11,12 +11,17 @@
     "admin.login.repeat_password": "Repeat Pasword",
     "admin.login.submit": "Login",
     "admin.login.title": "Login",
+
     "admin.menu.order_management": "Order Management",
     "admin.menu.post_management": "Post Management",
     "admin.menu.product_management": "Product Management",
+    "admin.menu.product_management.category": "Category",
+    "admin.menu.product_management.product": "Product",
+    "admin.menu.product_management.supplier": "Supplier",
     "admin.menu.search": "Search ..",
     "admin.menu.summary_report": "Summary Report",
     "admin.menu.user_management": "User Management",
+
     "admin.summary_report.title": "Summary Report",
     "admin.title": "Admin Ecommerce",
 
@@ -53,6 +58,7 @@
     "user.menu.my_profile": "My Profile",
     "user.menu.product": "Product",
 
+    "user.product.all_product": "All product",
     "user.product.search": "Search",
 
     "user.register.back_to_login": "Back to login",

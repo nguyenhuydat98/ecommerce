@@ -29,6 +29,7 @@
         </div>
     </header>
     @yield('content')
+    @include('sweetalert::alert')
 
     <script src="{{ asset('bower_components/bower_ecommerce/user/js/vendor/modernizr-3.5.0.min.js') }}"></script>
     <script src="{{ asset('bower_components/bower_ecommerce/user/js/vendor/jquery-1.12.4.min.js') }}"></script>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,7 +11,6 @@ class Category extends Model
 
     protected $fillable = [
         'name',
-        'parent_id',
     ];
 
     public $timestamps = true;
@@ -19,11 +18,6 @@ class Category extends Model
     public function products()
     {
         return $this->hasMany(Product::class);
-    }
-
-    public function children()
-    {
-        return $this->hasmany(Category::class);
     }
 
 }

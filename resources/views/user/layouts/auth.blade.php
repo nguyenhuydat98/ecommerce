@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
 </head>
 <body>
-    @include('user.elements.preload')
     <header>
         <div class="header-area">
             <div class="main-header ">

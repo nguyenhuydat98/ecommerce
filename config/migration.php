@@ -2,22 +2,23 @@
 
 return [
     'role' => [
-        'user' => 1,
-        'management' => 2,
+        'user'          => 1,
+        'management'    => 2,
         'admin_product' => 3,
-        'admin_order' => 4,
+        'admin_order'   => 4,
     ],
 
     'status' => [
-        'pending'   => 0,
-        'approved'  => 1,
-        'rejected'  => 2,
-        'cancelled' => 3,
+        'pending'   => 1,
+        'approved'  => 2,
+        'rejected'  => 3,
+        'cancelled' => 4,
     ],
 
     'color' => [
-        'black'  => 0,
-        'white'  => 1,
-        'sliver' => 2,
+        'black'  => 1,
+        'white'  => 2,
+        'gold'   => 3,
+        'pink'   => 4,
     ],
 ];

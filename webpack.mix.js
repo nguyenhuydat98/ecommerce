@@ -14,6 +14,9 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js');
 mix.sass('resources/sass/app.scss', 'public/css');
 
+mix.js('resources/js/user_product_detail.js', 'public/js');
+mix.js('resources/js/admin_dataTables.js', 'public/js');
+
 mix.styles([
     'resources/css/admin/nav.css',
     'resources/css/admin/login.css',

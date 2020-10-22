@@ -25,6 +25,17 @@
     "admin.summary_report.title": "Summary Report",
     "admin.title": "Admin Ecommerce",
 
+    "admin.user_management.address": "Address",
+    "admin.user_management.email": "Email",
+    "admin.user_management.name": "Name",
+    "admin.user_management.phone": "Phone",
+    "admin.user_management.role": "Role",
+    "admin.user_management.role_admin_order": "Admin order",
+    "admin.user_management.role_admin_product": "Admin product",
+    "admin.user_management.role_management": "Management",
+    "admin.user_management.role_user": "User",
+    "admin.user_management.title": "List User",
+
     "language": "Language",
     "language.english": "English",
     "language.vietnamese": "Vietnamese",
@@ -60,7 +71,21 @@
 
     "user.product": "Product",
     "user.product.all_product": "All product",
+    "user.product.category": "Category",
     "user.product.search": "Search",
+
+    "user.product_detail": "Product detail",
+    "user.product_detail.add_to_cart": "Add to cart",
+    "user.product_detail.available": "Available",
+    "user.product_detail.brand": "Brand",
+    "user.product_detail.buy_now": "Buy now",
+    "user.product_detail.color.black": "Black",
+    "user.product_detail.color.gold": "Gold",
+    "user.product_detail.color.pink": "Pink",
+    "user.product_detail.color.white": "White",
+    "user.product_detail.description": "Description",
+    "user.product_detail.name": "Name product",
+    "user.product_detail.quantity": "Quantity",
 
     "user.register.back_to_login": "Back to login",
     "user.register.email": "E-mail",
@@ -70,5 +95,4 @@
     "user.register.submit": "Register",
     "user.register.title": "Create An Account",
     "user.register.welcome": "Welcome to Estore !"
-
 }

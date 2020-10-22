@@ -13,11 +13,11 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#" class="active">
+                    <a href="{{ route('admin.dashboard') }}" class="active">
                         <i class="fa fa-dashboard fa-fw"></i> {{ trans('admin.menu.summary_report') }} </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admin.users.index') }}">
                         <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.user_management') }}
                     </a>
                 </li>

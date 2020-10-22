@@ -16,15 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'localization'], function() {
     Route::get('lang/{language}', 'LocalizationController@changeLanguage')->name('localization');
 
-    Route::group(['prefix' => 'admin'], function() {
+    Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
         Route::name('admin.')->group(function() {
-            Route::get('login', 'Admin\LoginController@getLogin')->name('getLogin');
-            Route::post('login', 'Admin\LoginController@postLogin')->name('postLogin');
-            Route::get('logout', 'Admin\LoginController@logout')->name('logout');
+            Route::get('login', 'LoginController@getLogin')->name('getLogin');
+            Route::post('login', 'LoginController@postLogin')->name('postLogin');
+            Route::get('logout', 'LoginController@logout')->name('logout');
             Route::group(['middleware' => 'checkAdminLogin'], function() {
-                Route::get('change_password', 'Admin\ChangePasswordController@getChangePassword')->name('getChangePassword');
-                Route::post('change_password', 'Admin\ChangePasswordController@postChangePassword')->name('postChangePassword');
-                Route::get('/', 'Admin\HomeController@dashboard')->name('dashboard');
+                Route::get('change_password', 'ChangePasswordController@getChangePassword')->name('getChangePassword');
+                Route::post('change_password', 'ChangePasswordController@postChangePassword')->name('postChangePassword');
+                Route::get('/', 'HomeController@dashboard')->name('dashboard');
+
+                Route::get('users', 'UserController@index')->name('users.index');
             });
         });
     });
@@ -36,6 +38,7 @@ Route::group(['middleware' => 'localization'], function() {
     Route::post('register', 'RegisterController@postRegister')->name('postRegister');
     Route::get('/', 'HomeController@home')->name('home');
     Route::get('product', 'ProductController@index')->name('product');
+    Route::get('product/{id}', 'ProductController@getProductDetail')->name('productDetail');
 
     Route::group(['middleware' => 'checkUserLogin'], function() {
 

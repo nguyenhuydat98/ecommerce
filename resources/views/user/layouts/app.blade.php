@@ -65,5 +65,7 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src="{{ asset('bower_components/bower_ecommerce/user/js/plugins.js') }}"></script>
     <script src="{{ asset('bower_components/bower_ecommerce/user/js/main.js') }}"></script>
+
+    @yield('js')
 </body>
 </html>

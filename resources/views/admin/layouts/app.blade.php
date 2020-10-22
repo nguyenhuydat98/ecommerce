@@ -14,22 +14,23 @@
     <link href="{{ asset('bower_components/bower_ecommerce/admin/css/morris.css') }}" rel="stylesheet">
     <link href="{{ asset('bower_components/bower_ecommerce/admin/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('bower_components/bower_ecommerce/admin/css/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('bower_components/bower_ecommerce/admin/css/dataTables/dataTables.responsive.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="wrapper">
         @include('admin.elements.header')
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                @yield('content')
-            </div>
-        </div>
+        @yield('content')
     </div>
     <script src="{{ asset('bower_components/bower_ecommerce/admin/js/jquery.min.js') }}"></script>
     <script src="{{ asset('bower_components/bower_ecommerce/admin/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('bower_components/bower_ecommerce/admin/js/metisMenu.min.js') }}"></script>
     <script src="{{ asset('bower_components/bower_ecommerce/admin/js/raphael.min.js') }}"></script>
-    {{-- <script src="{{ asset('bower_components/bower_ecommerce/admin/js/morris.min.js') }}"></script> --}}
-    {{-- <script src="{{ asset('bower_components/bower_ecommerce/admin/js/morris-data.js') }}"></script> --}}
     <script src="{{ asset('bower_components/bower_ecommerce/admin/js/startmin.js') }}"></script>
+    <script src="{{ asset('bower_components/bower_ecommerce/admin/js/dataTables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('bower_components/bower_ecommerce/admin/js/dataTables/dataTables.bootstrap.min.js') }}"></script>
+
+    @yield('js')
 </body>
 </html>

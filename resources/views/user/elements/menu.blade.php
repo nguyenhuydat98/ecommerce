@@ -34,7 +34,14 @@
                     <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
                         <li> <!-- Cart -->
                             <div class="shopping-card">
-                                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="#">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    @if (Session::has('numberOfItemInCart'))
+                                        <span class="badge badge-pill badge-primary">{{ Session::get('numberOfItemInCart') }}</span>
+                                    @else
+                                        <span class="badge badge-pill badge-primary">0</span>
+                                    @endif
+                                </a>
                             </div>
                         </li>
                         <li class="d-none d-lg-block"> <!-- Login / Register -->

@@ -22,12 +22,10 @@ $(document).ready(function () {
             success : function (data) {
                 let productDetail = JSON.parse(data);
                 $('#available').text(productDetail.quantity);
+                $("#choose-color").val(productDetail.color);
             },
             error : function ($data) {
                 alert('Fail');
-            },
-            complete : function () {
-                
             }
         });
     });

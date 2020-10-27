@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductDetail;
 use App\Models\Category;
 
 class ProductController extends Controller
@@ -23,6 +24,21 @@ class ProductController extends Controller
             $images = $product->images;
 
             return view('user.pages.product_detail', compact('product', 'images'));
+        } catch (Exception $e) {
+            dd("ProductController: " . $e->getMessage());
+        }
+    }
+
+    public function getQuantityOfProductDetail($id)
+    {
+        try {
+            $productDetail = ProductDetail::findOrFail($id);
+            $data = [
+                'quantity' => $productDetail->quantity,
+                'size' => $productDetail->size,
+            ];
+
+            return json_encode($data);
         } catch (Exception $e) {
             dd("ProductController: " . $e->getMessage());
         }

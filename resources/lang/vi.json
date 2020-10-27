@@ -76,8 +76,8 @@
 
     "user.product_detail": "Chi tiết sản phẩm",
     "user.product_detail.add_to_cart": "Thêm vào giỏ hàng",
-    "user.product_detail.available": "Sản phẩm có sẵn",
-    "user.product_detail.brand": "Thương hiệu",
+    "user.product_detail.available": "Hiện có sẵn",
+    "user.product_detail.brand": "Nhãn hiệu",
     "user.product_detail.buy_now": "Mua ngay",
     "user.product_detail.color.black": "Đen",
     "user.product_detail.color.gold": "Gold",
@@ -85,6 +85,7 @@
     "user.product_detail.color.white": "Trắng",
     "user.product_detail.description": "Mô tả sản phẩm",
     "user.product_detail.name": "Tên sản phẩm",
+    "user.product_detail.price": "Giá bán",
     "user.product_detail.quantity": "Số lượng",
 
     "user.register.back_to_login": "Quay lại đăng nhập",

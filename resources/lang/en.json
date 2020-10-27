@@ -85,6 +85,7 @@
     "user.product_detail.color.white": "White",
     "user.product_detail.description": "Description",
     "user.product_detail.name": "Name product",
+    "user.product_detail.price": "Price",
     "user.product_detail.quantity": "Quantity",
 
     "user.register.back_to_login": "Back to login",

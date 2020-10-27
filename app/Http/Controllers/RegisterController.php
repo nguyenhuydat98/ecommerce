@@ -21,7 +21,7 @@ class RegisterController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'role_id' => 1,
+                'role_id' => config('setting.role.user'),
             ]);
 
             return redirect()->route('getLogin');

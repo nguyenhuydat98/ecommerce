@@ -16,15 +16,7 @@ class UserSeeder extends Seeder
                 'name' => 'User',
                 'email' => 'user@gmail.com',
                 'password' => '$2y$10$fSz9qggDZ2LYzXFzYHLTmOGEUzUmmO5bmBuHaBf7fPX3wppSareEG',
-                'role_id' => 1,
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-            ],
-            [
-                'name' => 'Management',
-                'email' => 'management@gmail.com',
-                'password' => '$2y$10$fSz9qggDZ2LYzXFzYHLTmOGEUzUmmO5bmBuHaBf7fPX3wppSareEG',
-                'role_id' => 2,
+                'role_id' => config('setting.role.user'),
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
@@ -32,7 +24,7 @@ class UserSeeder extends Seeder
                 'name' => 'Admin Product',
                 'email' => 'admin.product@gmail.com',
                 'password' => '$2y$10$fSz9qggDZ2LYzXFzYHLTmOGEUzUmmO5bmBuHaBf7fPX3wppSareEG',
-                'role_id' => 3,
+                'role_id' => config('setting.role.admin_product'),
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
@@ -40,11 +32,18 @@ class UserSeeder extends Seeder
                 'name' => 'Admin Order',
                 'email' => 'admin.order@gmail.com',
                 'password' => '$2y$10$fSz9qggDZ2LYzXFzYHLTmOGEUzUmmO5bmBuHaBf7fPX3wppSareEG',
-                'role_id' => 4,
+                'role_id' => config('setting.role.admin_order'),
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
-
+            [
+                'name' => 'Management',
+                'email' => 'management@gmail.com',
+                'password' => '$2y$10$fSz9qggDZ2LYzXFzYHLTmOGEUzUmmO5bmBuHaBf7fPX3wppSareEG',
+                'role_id' => config('setting.role.management'),
+                'created_at' => new DateTime,
+                'updated_at' => new DateTime,
+            ],
         ]);
     }
 }

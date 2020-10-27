@@ -18,7 +18,7 @@ class LoginController extends Controller
         $account = [
             'email' => $request->email,
             'password' => $request->password,
-            'role_id' => config('migration.role.user'),
+            'role_id' => config('setting.role.user'),
         ];
         if (Auth::attempt($account, $request->remember)) {
             return redirect()->route('home');

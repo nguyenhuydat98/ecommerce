@@ -3,16 +3,16 @@
 return [
     'role' => [
         'user'          => 1,
-        'management'    => 2,
-        'admin_product' => 3,
-        'admin_order'   => 4,
+        'admin_product' => 2,
+        'admin_order'   => 3,
+        'management'    => 4,
     ],
 
     'status' => [
         'pending'   => 1,
         'approved'  => 2,
         'rejected'  => 3,
-        'cancelled' => 4,
+        'canceled'  => 4,
     ],
 
     'color' => [
@@ -20,5 +20,9 @@ return [
         'white'  => 2,
         'gold'   => 3,
         'pink'   => 4,
+    ],
+
+    'paginate' => [
+        'product' => 12,
     ],
 ];

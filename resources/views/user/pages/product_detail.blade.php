@@ -56,21 +56,22 @@
                         <div class="wrap-color">
                             @foreach ($product->productDetails as $productDetail)
                                 @switch ($productDetail->color)
-                                    @case (config('migration.color.black'))
+                                    @case (config('setting.color.black'))
                                         <span class="color">{{ trans('user.product_detail.color.black') }}</span>
                                         @break
 
-                                    @case (config('migration.color.white'))
+                                    @case (config('setting.color.white'))
                                         <span class="color">{{ trans('user.product_detail.color.white') }}</span>
                                         @break
 
-                                    @case (config('migration.color.gold'))
+                                    @case (config('setting.color.gold'))
                                         <span class="color">{{ trans('user.product_detail.color.gold') }}</span>
                                         @break
 
-                                    @case (config('migration.color.pink'))
+                                    @case (config('setting.color.pink'))
                                         <span class="color">{{ trans('user.product_detail.color.pink') }}</span>
                                         @break
+
                                 @endswitch
                             @endforeach
                         </div>

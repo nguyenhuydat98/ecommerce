@@ -95,5 +95,10 @@
     "user.register.repeat_password": "Nhập lại mật khẩu",
     "user.register.submit": "Đăng ký",
     "user.register.title": "Tạo Tài Khoản",
-    "user.register.welcome": "Chào mừng đến với Estore !"
+    "user.register.welcome": "Chào mừng đến với Estore !",
+
+    "user.sweetalert.add_to_cart": "Đã thêm vào giỏ hàng",
+    "user.sweetalert.done": "Xong",
+    "user.sweetalert.quantity_not_enough": "Không đủ số lượng có sẵn",
+    "user.sweetalert.whoops": "Rất tiếc"
 }

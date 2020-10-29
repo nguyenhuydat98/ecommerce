@@ -1,7 +1,6 @@
 @extends('user.layouts.app')
 
 @section('content')
-    @include('user.elements.preload')
     <div class="wrap-user-product-detail-page">
         <div class="slider-area ">
             <div class="single-slider slider-height2 d-flex align-items-center" data-background="{{ asset('storage/background.jpg') }}">
@@ -89,21 +88,25 @@
                             <span class="text">{{ trans('user.product_detail.available') }}</span>
                             <span id="available"></span>
                         </div>
-
-                        <div class="card_area hide-quantity">
-                            <div class="product_count_area">
-                                <div class="text">{{ trans('user.product_detail.quantity') }}</div>
-                                <div class="product_count">
-                                    <span class="product_count_item" id="sub-quantity"><i class="ti-minus"></i></span>
-                                    <input type="text" class="product_count_item" id="quantity" value="1" min="1" readonly>
-                                    <span class="product_count_item" id="add-quantity"><i class="ti-plus"></i></span>
+                        <form action="{{ route('addToCart') }}" method="POST">
+                            @csrf
+                            <div class="card_area hide-quantity">
+                                <div class="product_count_area">
+                                    <div class="text">{{ trans('user.product_detail.quantity') }}</div>
+                                    <div class="product_count">
+                                        <span class="product_count_item" id="sub-quantity"><i class="ti-minus"></i></span>
+                                        <input type="text" class="product_count_item" name="quantity" id="quantity" value="1" min="1" readonly>
+                                        <span class="product_count_item" id="add-quantity"><i class="ti-plus"></i></span>
+                                    </div>
+                                </div>
+                                <div class="add_to_cart">
+                                    <input type="hidden" name="color" id="choose-color">
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <input type="submit" class="btn_3" value="{{ trans('user.product_detail.add_to_cart') }}">
+                                    <a href="#" class="btn_3 buy-now">{{ trans('user.product_detail.buy_now') }}</a>
                                 </div>
                             </div>
-                            <div class="add_to_cart">
-                                <a href="#" class="btn_3">{{ trans('user.product_detail.add_to_cart') }}</a>
-                                <a href="#" class="btn_3 buy-now">{{ trans('user.product_detail.buy_now') }}</a>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
 

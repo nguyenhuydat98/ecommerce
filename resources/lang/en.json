@@ -95,5 +95,10 @@
     "user.register.repeat_password": "Repeat password",
     "user.register.submit": "Register",
     "user.register.title": "Create An Account",
-    "user.register.welcome": "Welcome to Estore !"
+    "user.register.welcome": "Welcome to Estore !",
+
+    "user.sweetalert.add_to_cart": "Added to your cart",
+    "user.sweetalert.done": "Done",
+    "user.sweetalert.quantity_not_enough": "The available quantity is not enough",
+    "user.sweetalert.whoops": "Whoops"
 }

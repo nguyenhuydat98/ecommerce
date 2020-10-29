@@ -35,7 +35,7 @@ class ProductController extends Controller
             $productDetail = ProductDetail::findOrFail($id);
             $data = [
                 'quantity' => $productDetail->quantity,
-                'size' => $productDetail->size,
+                'color' => $productDetail->color,
             ];
 
             return json_encode($data);

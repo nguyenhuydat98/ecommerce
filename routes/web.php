@@ -40,6 +40,7 @@ Route::group(['middleware' => 'localization'], function() {
     Route::get('product', 'ProductController@index')->name('product');
     Route::get('product/{id}', 'ProductController@getProductDetail')->name('productDetail');
     Route::get('product/quantity/{id}', 'ProductController@getQuantityOfProductDetail')->name('quantity');
+    Route::post('add-to-cart', 'CartController@addToCart')->name('addToCart');
 
     Route::group(['middleware' => 'checkUserLogin'], function() {
 

@@ -34,7 +34,7 @@
                     <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
                         <li> <!-- Cart -->
                             <div class="shopping-card">
-                                <a href="#">
+                                <a href="{{ route('viewCart') }}">
                                     <i class="fas fa-shopping-cart"></i>
                                     @if (Session::has('numberOfItemInCart'))
                                         <span class="badge badge-pill badge-primary">{{ Session::get('numberOfItemInCart') }}</span>

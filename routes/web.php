@@ -41,6 +41,9 @@ Route::group(['middleware' => 'localization'], function() {
     Route::get('product/{id}', 'ProductController@getProductDetail')->name('productDetail');
     Route::get('product/quantity/{id}', 'ProductController@getQuantityOfProductDetail')->name('quantity');
     Route::post('add-to-cart', 'CartController@addToCart')->name('addToCart');
+    Route::get('cart', 'CartController@cart')->name('viewCart');
+    Route::post('delete-one', 'CartController@deleteOneItem')->name('deleteOneItem');
+    Route::get('delete-all', 'CartController@deleteAllItem')->name('deleteAllItem');
 
     Route::group(['middleware' => 'checkUserLogin'], function() {
 

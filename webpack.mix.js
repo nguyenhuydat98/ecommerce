@@ -15,7 +15,7 @@ mix.js('resources/js/app.js', 'public/js');
 mix.js('resources/js/user_product_detail.js', 'public/js');
 mix.js('resources/js/admin_dataTables.js', 'public/js');
 
-mix.sass('resources/sass/app.scss', 'public/css');
+// mix.sass('resources/sass/app.scss', 'public/css');
 
 mix.styles([
     'resources/css/admin/nav.css',
@@ -26,5 +26,6 @@ mix.styles([
     'resources/css/user/menu.css',
     'resources/css/user/product.css',
     'resources/css/user/product_detail.css',
+    'resources/css/user/cart.css',
     ], 'public/css/all.css'
 );

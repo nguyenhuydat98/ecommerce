@@ -95,7 +95,7 @@
                                     <a href="{{ route('deleteAllItem') }}" class="btn_1 delete-all">{{ trans('user.cart.delete_all') }}</a>
                                 </span>
                                 <span>
-                                    <a class="btn_1" href="#">{{ trans('user.cart.checkout') }}</a>
+                                    <a class="btn_1" href="{{ route('getListItem') }}">{{ trans('user.cart.checkout') }}</a>
                                 </span>
                             </div>
                         @endif

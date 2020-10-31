@@ -18,7 +18,6 @@ class CreateOrderProductDetailTable extends Migration
             $table->foreignId('order_id');
             $table->foreignId('product_detail_id');
             $table->integer('quantity');
-            $table->tinyInteger('color');
             $table->integer('unit_price');
             $table->timestamps();
             $table->foreign('order_id')->references('id')->on('orders');

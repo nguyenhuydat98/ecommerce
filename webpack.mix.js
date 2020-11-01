@@ -27,5 +27,6 @@ mix.styles([
     'resources/css/user/product.css',
     'resources/css/user/product_detail.css',
     'resources/css/user/cart.css',
+    'resources/css/user/checkout.css',
     ], 'public/css/all.css'
 );

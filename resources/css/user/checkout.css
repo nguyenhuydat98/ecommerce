@@ -1,0 +1,39 @@
+.wrap-user-checkout-page .product-detail {
+    padding-bottom: 170px;
+}
+
+.wrap-user-checkout-page .left {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    text-align: left;
+    color: #888888;
+}
+
+.wrap-user-checkout-page .content {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    text-align: right;
+    font-weight: 500;
+}
+
+.wrap-user-checkout-page .total-payment {
+    display: block;
+    float: right;
+}
+
+.wrap-user-checkout-page .content-payment {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    text-align: right;
+    color: #ff0000;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.wrap-user-checkout-page .btn-payment {
+    width: 100%;
+    margin-top: 30px;
+}

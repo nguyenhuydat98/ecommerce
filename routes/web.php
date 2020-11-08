@@ -28,6 +28,7 @@ Route::group(['middleware' => 'localization'], function() {
 
                 Route::get('users', 'UserController@index')->name('users.index');
                 Route::resource('categories', 'CategoryController');
+                Route::resource('suppliers', 'SupplierController');
             });
         });
     });

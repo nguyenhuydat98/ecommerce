@@ -27,6 +27,7 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::get('/', 'HomeController@dashboard')->name('dashboard');
 
                 Route::get('users', 'UserController@index')->name('users.index');
+                Route::resource('categories', 'CategoryController');
             });
         });
     });

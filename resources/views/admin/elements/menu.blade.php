@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admin.categories.index') }}">
                         <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.category_management') }}
                     </a>
                 </li>

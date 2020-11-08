@@ -1,6 +1,26 @@
 {
+    "admin.category_management.title": "Danh sách danh mục",
+    "admin.category_management.created_at": "Thời gian tạo",
+    "admin.category_management.create_new_category": "Thêm mới",
+    "admin.category_management.create.back": "Quay lại",
+    "admin.category_management.create.name": "Tên danh mục",
+    "admin.category_management.create.submit": "Lưu danh mục",
+    "admin.category_management.create.title": "Thêm mới danh mục",
+    "admin.category_management.edit.back": "Quay lại",
+    "admin.category_management.edit.name": "Tên danh mục",
+    "admin.category_management.edit.submit": "Lưu thay đổi",
+    "admin.category_management.edit.title": "Chỉnh sửa danh mục",
+    "admin.category_management.name": "Tên danh mục",
+    "admin.category_management.updated_at": "Thời gian cập nhật",
+
+    "admin.modal_delete_category.back": "Trở lại",
+    "admin.modal_delete_category.title": "Xoá danh mục",
+    "admin.modal_delete_category.confirm_delete": "Bạn có chắc muốn xóa danh mục này không?",
+    "admin.modal_delete_category.delete": "Xác nhận xóa",
+
     "admin.header.logout": "Đăng xuất",
     "admin.header.website": "Trang Chủ",
+
     "admin.login.change_password": "Đổi mật khẩu",
     "admin.login.current_password": "Mật khẩu hiện tại",
     "admin.login.email": "Nhập email",

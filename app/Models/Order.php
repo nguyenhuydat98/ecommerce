@@ -14,6 +14,7 @@ class Order extends Model
         'name',
         'address',
         'phone',
+        'sale_id',
         'total_payment',
         'status',
         'note',
@@ -29,5 +30,10 @@ class Order extends Model
     public function productDetails()
     {
         return $this->belongsToMany(ProductDetail::class);
+    }
+
+    public function sale()
+    {
+        return $this->belongsTo(Sale::class);
     }
 }

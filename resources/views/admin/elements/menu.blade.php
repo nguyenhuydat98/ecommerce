@@ -17,17 +17,34 @@
                         <i class="fa fa-dashboard fa-fw"></i> {{ trans('admin.menu.summary_report') }} </a>
                 </li>
                 <li>
+                    <a href="#">
+                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.admin_management') }}
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('admin.users.index') }}">
                         <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.user_management') }}
                     </a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.product_management') }} <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="#">{{ trans('admin.menu.product_management.category') }}</a></li>
-                        <li><a href="#">{{ trans('admin.menu.product_management.product') }}</a></li>
-                        <li><a href="#">{{ trans('admin.menu.product_management.supplier') }}</a></li>
-                    </ul>
+                    <a href="#">
+                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.category_management') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.product_management') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.sale_management') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.supplier_management') }}
+                    </a>
                 </li>
                 <li>
                     <a href="#">

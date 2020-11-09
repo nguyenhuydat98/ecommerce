@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admin.suppliers.index') }}">
                         <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.supplier_management') }}
                     </a>
                 </li>

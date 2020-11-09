@@ -13,11 +13,6 @@
     "admin.category_management.name": "Tên danh mục",
     "admin.category_management.updated_at": "Thời gian cập nhật",
 
-    "admin.modal_delete_category.back": "Trở lại",
-    "admin.modal_delete_category.title": "Xoá danh mục",
-    "admin.modal_delete_category.confirm_delete": "Bạn có chắc muốn xóa danh mục này không?",
-    "admin.modal_delete_category.delete": "Xác nhận xóa",
-
     "admin.header.logout": "Đăng xuất",
     "admin.header.website": "Trang Chủ",
 
@@ -42,7 +37,38 @@
     "admin.menu.summary_report": "Báo cáo tổng hợp",
     "admin.menu.user_management": "Quản lí người dùng",
 
+    "admin.modal_delete_category.back": "Trở lại",
+    "admin.modal_delete_category.title": "Xoá danh mục",
+    "admin.modal_delete_category.confirm_delete": "Bạn có chắc muốn xóa danh mục này không?",
+    "admin.modal_delete_category.delete": "Xác nhận xóa",
+
+    "admin.modal_delete_supplier.back": "Trở lại",
+    "admin.modal_delete_supplier.title": "Xoá nhà cung cấp",
+    "admin.modal_delete_supplier.confirm_delete": "Bạn có chắc muốn xóa nhà cung cấp này không?",
+    "admin.modal_delete_supplier.delete": "Xác nhận xóa",
+
     "admin.summary_report.title": "Báo Cáo Tổng Hợp",
+
+    "admin.supplier_management.address": "Địa chỉ",
+    "admin.supplier_management.created_at": "Thòi gian tạo",
+    "admin.supplier_management.create_new": "Thêm mới",
+    "admin.supplier_management.create.address": "Địa chỉ",
+    "admin.supplier_management.create.back": "Quay lại",
+    "admin.supplier_management.create.name": "Tên nhà cung cấp",
+    "admin.supplier_management.create.phone": "Điện thoại",
+    "admin.supplier_management.create.submit": "Lưu nhà cung cấp",
+    "admin.supplier_management.create.title": "Thêm mới nhà cung cấp",
+    "admin.supplier_management.edit.address": "Địa chỉ",
+    "admin.supplier_management.edit.back": "Quay lại",
+    "admin.supplier_management.edit.name": "Tên nhà cung cấp",
+    "admin.supplier_management.edit.phone": "Điện thoại",
+    "admin.supplier_management.edit.submit": "Lưu thay đổi",
+    "admin.supplier_management.edit.title": "Chỉnh sửa nhà cung cấp",
+    "admin.supplier_management.name": "Tên nhà cung cấp",
+    "admin.supplier_management.phone": "Điện thoại",
+    "admin.supplier_management.title": "Danh sách nhà cung cấp",
+    "admin.supplier_management.updated_at": "Thời gian cập nhật",
+
     "admin.title": "Admin Ecommerce",
 
     "admin.user_management.address": "Địa chỉ",

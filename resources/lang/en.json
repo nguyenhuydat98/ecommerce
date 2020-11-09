@@ -13,11 +13,6 @@
     "admin.category_management.name": "Name",
     "admin.category_management.updated_at": "Update Time",
 
-    "admin.modal_delete_category.back": "Back",
-    "admin.modal_delete_category.title": "Delete Category",
-    "admin.modal_delete_category.confirm_delete": "Do you want to delete this category?",
-    "admin.modal_delete_category.delete": "Delete",
-
     "admin.header.logout": "Logout",
     "admin.header.website": "Website",
 
@@ -42,7 +37,38 @@
     "admin.menu.summary_report": "Summary Report",
     "admin.menu.user_management": "User Management",
 
+    "admin.modal_delete_category.back": "Back",
+    "admin.modal_delete_category.title": "Delete Category",
+    "admin.modal_delete_category.confirm_delete": "Do you want to delete this category?",
+    "admin.modal_delete_category.delete": "Delete",
+
+    "admin.modal_delete_supplier.back": "Back",
+    "admin.modal_delete_supplier.title": "Delete Supplier",
+    "admin.modal_delete_supplier.confirm_delete": "Do you want to delete this supplier?",
+    "admin.modal_delete_supplier.delete": "Delete",
+
     "admin.summary_report.title": "Summary Report",
+
+    "admin.supplier_management.address": "Address",
+    "admin.supplier_management.created_at": "Create Time",
+    "admin.supplier_management.create_new": "Create New",
+    "admin.supplier_management.create.address": "Address",
+    "admin.supplier_management.create.back": "Back",
+    "admin.supplier_management.create.name": "Name",
+    "admin.supplier_management.create.phone": "Phone",
+    "admin.supplier_management.create.submit": "Create",
+    "admin.supplier_management.create.title": "Create New Supplier",
+    "admin.supplier_management.edit.address": "Address",
+    "admin.supplier_management.edit.back": "Back",
+    "admin.supplier_management.edit.name": "Name",
+    "admin.supplier_management.edit.phone": "Phone",
+    "admin.supplier_management.edit.submit": "Update",
+    "admin.supplier_management.edit.title": "Edit Supplier",
+    "admin.supplier_management.name": "Name",
+    "admin.supplier_management.phone": "Phone",
+    "admin.supplier_management.title": "List Supplier",
+    "admin.supplier_management.updated_at": "Update Time",
+
     "admin.title": "Admin Ecommerce",
 
     "admin.user_management.address": "Address",

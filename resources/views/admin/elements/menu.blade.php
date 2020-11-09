@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admin.products.index') }}">
                         <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.product_management') }}
                     </a>
                 </li>

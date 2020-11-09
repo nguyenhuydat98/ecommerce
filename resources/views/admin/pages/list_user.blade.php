@@ -57,9 +57,9 @@
                                             <td>{{ $user->address }}</td>
                                             <td>{{ $user->phone }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-info"><i class="fa fa-fw fa-lg">&#xf05a</i></a>
-                                                <a href="#" class="btn btn-primary"><i class="fa fa-fw fa-lg">&#xf044</i></a>
-                                                <a href="#" class="btn btn-danger"><i class="fa fa-fw fa-lg">&#xf014</i></a>
+                                                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e</i></a>
+                                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044</i></a>
+                                                <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-lg">&#xf014</i></a>
                                             </td>
                                         </tr>
                                         @endforeach

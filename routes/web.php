@@ -25,10 +25,10 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::get('change_password', 'ChangePasswordController@getChangePassword')->name('getChangePassword');
                 Route::post('change_password', 'ChangePasswordController@postChangePassword')->name('postChangePassword');
                 Route::get('/', 'HomeController@dashboard')->name('dashboard');
-
                 Route::get('users', 'UserController@index')->name('users.index');
                 Route::resource('categories', 'CategoryController');
                 Route::resource('suppliers', 'SupplierController');
+                Route::resource('products', 'ProductController');
             });
         });
     });

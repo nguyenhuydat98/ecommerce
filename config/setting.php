@@ -25,4 +25,9 @@ return [
     'paginate' => [
         'product' => 12,
     ],
+
+    'sale_type' => [
+        'percent' => 1,
+        'amount' => 2,
+    ],
 ];

@@ -40,7 +40,7 @@
                                                 <td>{{ $supplier->created_at }}</td>
                                                 <td>{{ $supplier->updated_at }}</td>
                                                 <td>
-                                                    <a href="{{ route('admin.suppliers.edit', [$supplier->id]) }}" class="btn btn-primary"><i class="fa fa-fw fa-lg">&#xf044</i></a>
+                                                    <a href="{{ route('admin.suppliers.edit', [$supplier->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044</i></a>
                                                     @include('admin.modals.delete_supplier')
                                                 </td>
                                             </tr>

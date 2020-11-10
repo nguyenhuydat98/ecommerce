@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteCategory-{{ $category->id }}">
+<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCategory-{{ $category->id }}">
     <i class="fa fa-fw fa-lg" aria-hidden="true">&#xf014;</i>
 </button>
 <div class="wrap-modal-delete-category">

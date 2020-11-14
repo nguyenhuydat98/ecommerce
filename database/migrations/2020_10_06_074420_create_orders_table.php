@@ -19,14 +19,12 @@ class CreateOrdersTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('phone');
-            $table->foreignId('sale_id');
             $table->integer('total_payment');
             $table->tinyInteger('status');
             $table->string('note')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('sale_id')->references('id')->on('sales');
         });
     }
 

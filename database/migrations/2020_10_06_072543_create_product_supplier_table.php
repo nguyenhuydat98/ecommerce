@@ -20,7 +20,6 @@ class CreateProductSupplierTable extends Migration
             $table->foreignId('user_id');
             $table->integer('import_price');
             $table->integer('quantity');
-            $table->tinyInteger('color');
             $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('supplier_id')->references('id')->on('suppliers');

@@ -30,6 +30,7 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
+        dd($request->all());
         $productDetail = ProductDetail::where('product_id', $request->product_id)
             ->where('color', $request->color)
             ->first();

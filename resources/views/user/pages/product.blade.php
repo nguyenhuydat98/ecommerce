@@ -27,23 +27,23 @@
                     <div class="col-md-10">
                         <div class="product_list">
                             <div class="row">
-                                @foreach ($products as $product)
+                                @foreach ($productInformations as $productInformation)
                                 <div class="col-lg-3 col-sm-3">
                                     <div class="single_product_item">
-                                        <a href="{{ route('productDetail', $product->id) }}">
-                                            <img src="{{ asset($product->images->first()->image_link) }}" alt="" class="img-fluid">
+                                        <a href="{{ route('productDetail', [$productInformation->id] )}}">
+                                            <img src="{{ asset($productInformation->products->first()->images->first()->image_link) }}" class="img-fluid">
                                         </a>
                                         <div class="product-info">
-                                            <div class="product-name">{{ $product->name }}</div>
-                                            <div class="product-brand">{{ $product->brand }}</div>
-                                            <div class="product-original">{{ number_format($product->original_price) . " VND" }}</div>
-                                            <div class="product-current">{{ number_format($product->current_price) . " VND" }}</div>
+                                            <div class="product-name">{{ $productInformation->name }}</div>
+                                            <div class="product-brand">{{ $productInformation->brand }}</div>
+                                            {{-- <div class="product-original"></div> --}}
+                                            <div class="product-current">{{ number_format($productInformation->products->first()->unit_price) . " VND" }}</div>
                                         </div>
                                     </div>
                                 </div>
                                 @endforeach
                             </div>
-                            <div class="paginate">{{ $products->links() }}</div>
+                            <div class="paginate">{{ $productInformations->links() }}</div>
                         </div>
                     </div>
                     <div class="col-md-2">

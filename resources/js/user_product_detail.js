@@ -20,9 +20,11 @@ $(document).ready(function () {
             url : url,
             type : "GET",
             success : function (data) {
-                let productDetail = JSON.parse(data);
-                $('#available').text(productDetail.quantity);
-                $("#choose-color").val(productDetail.color);
+                let product = JSON.parse(data);
+                $('#unit_price').text(product.unit_price);
+                $('#available').text(product.quantity);
+                $("#choose-color").val(product.color);
+                $("#choose-product-id").val(product.id);
             },
             error : function ($data) {
                 alert('Fail');

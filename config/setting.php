@@ -15,18 +15,18 @@ return [
         'canceled'  => 4,
     ],
 
-    'color' => [
-        'black'  => 1,
-        'white'  => 2,
-        'gold'   => 3,
-        'pink'   => 4,
-    ],
+    // 'color' => [
+    //     'black'  => 1,
+    //     'white'  => 2,
+    //     'gold'   => 3,
+    //     'pink'   => 4,
+    // ],
 
     'paginate' => [
         'product' => 12,
     ],
 
-    'sale_type' => [
+    'formality' => [
         'percent' => 1,
         'amount' => 2,
     ],

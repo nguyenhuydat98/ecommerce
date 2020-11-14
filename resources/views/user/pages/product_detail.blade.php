@@ -20,13 +20,13 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('product') }}">{{ trans('user.product.all_product') }}</a></li>
-                        <li class="breadcrumb-item"><a href="#">{{ $product->category->name }}</a></li>
-                        <li class="breadcrumb-item active"><a href="">{{ $product->name }}</a></li>
+                        <li class="breadcrumb-item"><a href="#">{{ $productInformation->products->first()->category->name }}</a></li>
+                        <li class="breadcrumb-item active"><a href="">{{ $productInformation->name }}</a></li>
                     </ol>
                 </nav>
                 <div class="row">
                     <div class="col-xl-5">
-                        <img src="{{ asset($images->first()->image_link) }}" class="imgage-product" alt="" id="image-show">
+                        <img src="{{ asset($images[0]->image_link) }}" class="imgage-product" id="image-show">
                         <div class="row">
                             @foreach ($images as $image)
                                 <div class="col-xl-3">
@@ -38,49 +38,26 @@
                     <div class="col-xl-6">
                         <div class="group-info">
                             <span class="text">{{ trans('user.product_detail.name') }}</span>
-                            <span class="content name">{{ $product->name }}</span>
+                            <span class="content name">{{ $productInformation->name }}</span>
                         </div>
                         <div class="group-info">
                             <span class="text">{{ trans('user.product_detail.brand') }}</span>
-                            <span class="content">{{ $product->brand }}</span>
+                            <span class="content">{{ $productInformation->brand }}</span>
                         </div>
                         <div class="group-info">
                             <span class="text">{{ trans('user.product_detail.description') }}</span>
-                            <span class="content">{{ $product->description }}</span>
+                            <span class="content">{{ $productInformation->description }}</span>
                         </div>
                         <div class="wrap-price">
                             <span class="text">{{ trans('user.product_detail.price') }}</span>
-                            <span class="original-price">{{ number_format($product->original_price) . " VND" }}</span>
-                            <span class="current-price">{{ number_format($product->current_price) . " VND" }}</span>
+                            {{-- <span class="original-price"></span> --}}
+                            <span class="current-price" id="unit_price">
+                                {{ number_format($productInformation->products->first()->unit_price) . " VND" }}
+                            </span>
                         </div>
                         <div class="wrap-color">
-                            @foreach ($product->productDetails as $productDetail)
-                                @switch ($productDetail->color)
-                                    @case (config('setting.color.black'))
-                                        <span class="color" data-url="{{ route('quantity', $productDetail->id) }}">
-                                            {{ trans('user.product_detail.color.black') }}
-                                        </span>
-                                        @break
-
-                                    @case (config('setting.color.white'))
-                                        <span class="color" data-url="{{ route('quantity', $productDetail->id) }}">
-                                            {{ trans('user.product_detail.color.white') }}
-                                        </span>
-                                        @break
-
-                                    @case (config('setting.color.gold'))
-                                        <span class="color" data-url="{{ route('quantity', $productDetail->id) }}">
-                                            {{ trans('user.product_detail.color.gold') }}
-                                        </span>
-                                        @break
-
-                                    @case (config('setting.color.pink'))
-                                        <span class="color" data-url="{{ route('quantity', $productDetail->id) }}">
-                                            {{ trans('user.product_detail.color.pink') }}
-                                        </span>
-                                        @break
-
-                                @endswitch
+                            @foreach ($productInformation->products as $product)
+                                <span class="color" data-url="{{ route('quantity', $product->id) }}">{{ $product->color->name }}</span>
                             @endforeach
                         </div>
 
@@ -101,7 +78,7 @@
                                 </div>
                                 <div class="add_to_cart">
                                     <input type="hidden" name="color" id="choose-color">
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <input type="hidden" name="product_id" id="choose-product-id">
                                     <input type="submit" class="btn_3" value="{{ trans('user.product_detail.add_to_cart') }}">
                                     <a href="#" class="btn_3 buy-now">{{ trans('user.product_detail.buy_now') }}</a>
                                 </div>

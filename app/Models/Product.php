@@ -11,12 +11,12 @@ class Product extends Model
 
     protected $fillable = [
         'category_id',
-        'name',
-        'brand',
-        'description',
-        'original_price',
-        'current_price',
+        'product_information_id',
+        'color_id',
+        'quantity',
+        'unit_price',
         'rate',
+        'sale_id',
     ];
 
     public $timestamps = true;
@@ -26,14 +26,24 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function color()
+    {
+        return $this->belongsTo(Color::class);
+    }
+
+    public function productInformation()
+    {
+        return $this->belongsTo(ProductInformation::class);
+    }
+
+    public function sale()
+    {
+        return $this->belongsTo(Sale::class);
+    }
+
     public function images()
     {
         return $this->hasMany(Image::class);
-    }
-
-    public function productDetails()
-    {
-        return $this->hasMany(ProductDetail::class);
     }
 
     public function suppliers()
@@ -44,5 +54,10 @@ class Product extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function orders()
+    {
+        return $this->belongsTomany(Order::class);
     }
 }

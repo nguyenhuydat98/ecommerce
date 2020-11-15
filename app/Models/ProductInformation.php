@@ -12,12 +12,18 @@ class ProductInformation extends Model
     protected $table = "product_informations";
 
     protected $fillable = [
+        'category_id',
         'name',
         'brand',
         'description',
     ];
 
     public $timestamps = true;
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     public function products()
     {

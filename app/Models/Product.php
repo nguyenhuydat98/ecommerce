@@ -10,7 +10,6 @@ class Product extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'category_id',
         'product_information_id',
         'color_id',
         'quantity',
@@ -20,11 +19,6 @@ class Product extends Model
     ];
 
     public $timestamps = true;
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
 
     public function color()
     {

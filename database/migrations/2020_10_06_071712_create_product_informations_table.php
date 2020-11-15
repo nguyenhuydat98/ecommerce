@@ -15,11 +15,13 @@ class CreateProductInformationsTable extends Migration
     {
         Schema::create('product_informations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id');
             $table->string('name');
             $table->string('brand');
             $table->text('description');
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

@@ -20,7 +20,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('product') }}">{{ trans('user.product.all_product') }}</a></li>
-                        <li class="breadcrumb-item"><a href="#">{{ $productInformation->products->first()->category->name }}</a></li>
+                        <li class="breadcrumb-item"><a href="#">{{ $productInformation->category->name }}</a></li>
                         <li class="breadcrumb-item active"><a href="">{{ $productInformation->name }}</a></li>
                     </ol>
                 </nav>
@@ -52,7 +52,13 @@
                             <span class="text">{{ trans('user.product_detail.price') }}</span>
                             {{-- <span class="original-price"></span> --}}
                             <span class="current-price" id="unit_price">
-                                {{ number_format($productInformation->products->first()->unit_price) . " VND" }}
+                                @if ($minPrice != $maxPrice)
+                                    {{ number_format($minPrice) . " đ" }}
+                                    -
+                                    {{ number_format($maxPrice) . " đ" }}
+                                @else
+                                    {{ number_format($maxPrice) . " đ" }}
+                                @endif
                             </span>
                         </div>
                         <div class="wrap-color">

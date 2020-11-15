@@ -15,7 +15,6 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id');
             $table->foreignId('product_information_id');
             $table->foreignId('color_id');
             $table->integer('quantity');
@@ -24,7 +23,6 @@ class CreateProductsTable extends Migration
             $table->foreignId('sale_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('product_information_id')->references('id')->on('product_informations');
             $table->foreign('color_id')->references('id')->on('colors');
             $table->foreign('sale_id')->references('id')->on('sales');

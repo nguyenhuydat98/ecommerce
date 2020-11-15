@@ -16,7 +16,24 @@ class ProductController extends Controller
             ->with('products.images')
             ->paginate(config('setting.paginate.product'));
 
-        return view('user.pages.product', compact('productInformations', 'categories'));
+        $listMinPrice = [];
+        $listMaxPrice = [];
+        foreach ($productInformations as $productInformation) {
+            $minPrice = $productInformation->products->first()->unit_price;
+            $maxPrice = $minPrice;
+            foreach ($productInformation->products as $product) {
+                if ($minPrice > $product->unit_price) {
+                    $minPrice = $product->unit_price;
+                }
+                if ($maxPrice < $product->unit_price) {
+                    $maxPrice = $product->unit_price;
+                }
+            }
+            array_push($listMinPrice, $minPrice);
+            array_push($listMaxPrice, $maxPrice);
+        }
+
+        return view('user.pages.product', compact('productInformations', 'categories', 'listMinPrice', 'listMaxPrice'));
     }
 
     public function getProductDetail($id)
@@ -29,8 +46,18 @@ class ProductController extends Controller
                     array_push($images, $image);
                 }
             }
+            $minPrice = $productInformation->products->first()->unit_price;
+            $maxPrice = $minPrice;
+            foreach ($productInformation->products as $product) {
+                if ($minPrice > $product->unit_price) {
+                    $minPrice = $product->unit_price;
+                }
+                if ($maxPrice < $product->unit_price) {
+                    $maxPrice = $product->unit_price;
+                }
+            }
 
-            return view('user.pages.product_detail', compact('productInformation', 'images'));
+            return view('user.pages.product_detail', compact('productInformation', 'images', 'minPrice', 'maxPrice'));
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -44,7 +71,7 @@ class ProductController extends Controller
                 'id' => $product->id,
                 'quantity' => $product->quantity,
                 'color' => $product->color_id,
-                'unit_price' => number_format($product->unit_price) . " VND",
+                'unit_price' => number_format($product->unit_price) . " đ",
             ];
 
             return json_encode($data);

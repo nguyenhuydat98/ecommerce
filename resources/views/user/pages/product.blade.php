@@ -27,20 +27,31 @@
                     <div class="col-md-10">
                         <div class="product_list">
                             <div class="row">
+                                @php
+                                    $index = 0;
+                                @endphp
                                 @foreach ($productInformations as $productInformation)
-                                <div class="col-lg-3 col-sm-3">
-                                    <div class="single_product_item">
-                                        <a href="{{ route('productDetail', [$productInformation->id] )}}">
-                                            <img src="{{ asset($productInformation->products->first()->images->first()->image_link) }}" class="img-fluid">
-                                        </a>
-                                        <div class="product-info">
-                                            <div class="product-name">{{ $productInformation->name }}</div>
-                                            <div class="product-brand">{{ $productInformation->brand }}</div>
-                                            {{-- <div class="product-original"></div> --}}
-                                            <div class="product-current">{{ number_format($productInformation->products->first()->unit_price) . " VND" }}</div>
+                                    <div class="col-lg-3 col-sm-3">
+                                        <div class="single_product_item">
+                                            <a href="{{ route('productDetail', [$productInformation->id] )}}">
+                                                <img src="{{ asset($productInformation->products->first()->images->first()->image_link) }}" class="img-fluid">
+                                            </a>
+                                            <div class="product-info">
+                                                <div class="product-name">{{ $productInformation->name }}</div>
+                                                <div class="product-brand">{{ $productInformation->brand }}</div>
+                                                {{-- <div class="product-original"></div> --}}
+                                                <div class="product-current">
+                                                    @if ($listMinPrice[$index] != $listMaxPrice[$index])
+                                                        {{ number_format($listMinPrice[$index]) . " đ" }}
+                                                        -
+                                                        {{ number_format($listMaxPrice[$index++]) . " đ" }}
+                                                    @else
+                                                        {{ number_format($listMaxPrice[$index++]) . " đ" }}
+                                                    @endif
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                             <div class="paginate">{{ $productInformations->links() }}</div>

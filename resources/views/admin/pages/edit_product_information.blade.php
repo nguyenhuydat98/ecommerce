@@ -10,20 +10,13 @@
                 </div>
             </div>
             <div class="row">
-                <form action="{{ route('admin.products.update', [$product->id]) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.product_informations.update', [$productInformation->id]) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label>{{ trans('admin.product_management.edit.id') }}</label>
-                            <input type="text" class="form-control" name="name" value="{{ $product->id }}" readonly>
-                            @error('id')
-                                <span class="text text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="form-group">
                             <label>{{ trans('admin.product_management.edit.name') }}</label>
-                            <input type="text" class="form-control" name="name" value="{{ $product->name }}" required>
+                            <input type="text" class="form-control" name="name" value="{{ $productInformation->name }}" required>
                             @error('name')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
@@ -31,9 +24,9 @@
                         <div class="form-group">
                             <label>{{ trans('admin.product_management.edit.category') }}</label>
                             <select class="form-control" name="category_id">
-                                <option value={{ $product->category_id }} selected>{{ $product->category->name }}</option>
+                                <option value={{ $productInformation->category_id }} selected>{{ $productInformation->category->name }}</option>
                                 @foreach ($categories as $category)
-                                    @if ($category->id != $product->category_id)
+                                    @if ($category->id != $productInformation->category_id)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endif
                                 @endforeach
@@ -44,37 +37,21 @@
                         </div>
                         <div class="form-group">
                             <label>{{ trans('admin.product_management.edit.brand') }}</label>
-                            <input type="text" class="form-control" name="brand" value="{{ $product->brand }}" required>
+                            <input type="text" class="form-control" name="brand" value="{{ $productInformation->brand }}" required>
                             @error('brand')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label>{{ trans('admin.product_management.edit.description') }}</label>
-                            <textarea class="form-control" name="description" rows="7" required>{{ $product->description }}</textarea>
+                            <textarea class="form-control" name="description" rows="7" required>{{ $productInformation->description }}</textarea>
                             @error('description')
-                                <span class="text text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="form-group">
-                            <label>{{ trans('admin.product_management.edit.original_price') }}</label>
-                            <input type="text" class="form-control" name="original_price" value="{{ $product->original_price }}" required>
-                            @error('original_price')
-                                <span class="text text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label>{{ trans('admin.product_management.edit.current_price') }}</label>
-                            <input type="text" class="form-control" name="current_price" value="{{ $product->current_price }}" required>
-                            @error('current_price')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="{{ trans('admin.product_management.edit.submit') }}">
-                            <a href="{{ route('admin.products.index') }}" class="btn btn-success">
+                            <a href="{{ route('admin.product_informations.index') }}" class="btn btn-success">
                                 {{ trans('admin.product_management.edit.back') }}
                             </a>
                         </div>

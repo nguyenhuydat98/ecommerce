@@ -1,10 +1,10 @@
-.wrap-admin-list-product-detail-page .nav {
+/*.wrap-admin-list-product-detail-page .nav {
     margin-left: 15px;
 }
 
 .wrap-admin-list-product-detail-page .tab-content {
     margin-top: 30px;
-}
+}*/
 
 .wrap-admin-list-product-detail-page .group-product {
     min-height: 40px;
@@ -26,20 +26,10 @@
     font-weight: 500;
 }
 
-.wrap-admin-list-product-detail-page #original {
-    text-decoration: line-through;
-}
-
-.wrap-admin-list-product-detail-page #current {
-    color: #ff0000;
-    font-weight: 600;
-}
-
-.wrap-admin-list-product-detail-page #img-product-detail {
-    width: 200px;
-    height: 200px;
-}
-
 .wrap-admin-list-product-detail-page #btn-support {
-    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+}
+
+.wrap-admin-list-product-detail-page #information {
+    margin-bottom: 30px;
 }

@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\ProductInformation;
 use App\Models\Product;
-use App\Models\ProductDetail;
 use App\Models\Image;
-use App\Http\Requests\ProductRequest;
+use App\Http\Requests\ProductInformationRequest;
 
-class ProductController extends Controller
+class ProductInformationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,17 +19,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('productDetails', 'category')->get();
+        $productInformations = ProductInformation::with('products', 'category')->get();
         $listAmount = [];
-        foreach ($products as $product) {
+        foreach ($productInformations as $productInformation) {
             $amount = 0;
-            foreach ($product->productDetails as $productDetail) {
-                $amount += $productDetail->quantity;
+            foreach ($productInformation->products as $product) {
+                $amount += $product->quantity;
             }
             array_push($listAmount, $amount);
         }
 
-        return view('admin.pages.list_product', compact('products', 'listAmount'));
+        return view('admin.pages.list_product_information', compact('productInformations', 'listAmount'));
     }
 
     /**
@@ -41,7 +41,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
 
-        return view('admin.pages.create_product', compact('categories'));
+        return view('admin.pages.create_product_information', compact('categories'));
     }
 
     /**
@@ -50,22 +50,16 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request)
+    public function store(ProductInformationRequest $request)
     {
-        if ($request->hasFile('images')) {
-            $product = Product::create([
-                'name' => $request->name,
-                'category_id' => $request->category_id,
-                'brand' => $request->brand,
-                'description' => $request->description,
-                'original_price' => $request->original_price,
-                'current_price' => $request->current_price,
-            ]);
-            $this->setupProductDetail($product->id);
-            $this->uploadFile($request, $product->id);
-        }
+        ProductInformation::create([
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+            'brand' => $request->brand,
+            'description' => $request->description,
+        ]);
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.product_informations.index');
     }
 
     /**
@@ -77,11 +71,12 @@ class ProductController extends Controller
     public function show($id)
     {
         try {
-            $product = Product::findOrFail($id);
-            $productDetails = ProductDetail::where('product_id', $product->id)->get();
-            $images = Image::where('product_id', $product->id)->get();
+            $productInformation = ProductInformation::findOrFail($id);
+            $products = Product::where('product_information_id', $productInformation->id)
+                ->with('images')
+                ->get();
 
-            return view('admin.pages.product_detail', compact('product', 'productDetails', 'images'));
+            return view('admin.pages.product_detail', compact('productInformation', 'products'));
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -96,10 +91,10 @@ class ProductController extends Controller
     public function edit($id)
     {
         try {
-            $product = Product::findOrFail($id);
+            $productInformation = ProductInformation::findOrFail($id);
             $categories = Category::all();
 
-            return view('admin.pages.edit_product', compact('product', 'categories'));
+            return view('admin.pages.edit_product_information', compact('productInformation', 'categories'));
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -112,20 +107,18 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, $id)
+    public function update(ProductInformationRequest $request, $id)
     {
         try {
-            $product = Product::findOrFail($id);
-            $product->update([
+            $productInformation = ProductInformation::findOrFail($id);
+            $productInformation->update([
                 'name' => $request->name,
                 'category_id' => $request->category_id,
                 'brand' => $request->brand,
                 'description' => $request->description,
-                'original_price' => $request->original_price,
-                'current_price' => $request->current_price,
             ]);
 
-            return redirect()->route('admin.products.index');
+            return redirect()->route('admin.product_informations.index');
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -155,16 +148,5 @@ class ProductController extends Controller
         }
 
         return true;
-    }
-
-    public function setupProductDetail($idProduct)
-    {
-        for ($color = 1; $color <= 4; $color++) {
-            ProductDetail::create([
-                'product_id' => $idProduct,
-                'color' => $color,
-                'quantity' => 0,
-            ]);
-        }
     }
 }

@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="row">
-                <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.product_informations.store') }}" method="POST" {{-- enctype="multipart/form-data" --}}>
                     <div class="col-lg-6">
                         @csrf
                         <div class="form-group">
@@ -46,29 +46,13 @@
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>{{ trans('admin.product_management.create.image') }}</label>
                             <input type="file" class="form-control" name="images[]" multiple>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="form-group">
-                            <label>{{ trans('admin.product_management.create.original_price') }}</label>
-                            <input type="text" class="form-control" name="original_price" required>
-                            @error('original_price')
-                                <span class="text text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label>{{ trans('admin.product_management.create.current_price') }}</label>
-                            <input type="text" class="form-control" name="current_price" required>
-                            @error('current_price')
-                                <span class="text text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="{{ trans('admin.product_management.create.submit') }}">
-                            <a href="{{ route('admin.products.index') }}" class="btn btn-success">
+                            <a href="{{ route('admin.product_informations.index') }}" class="btn btn-success">
                                 {{ trans('admin.product_management.create.back') }}
                             </a>
                         </div>

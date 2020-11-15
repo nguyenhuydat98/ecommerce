@@ -9,7 +9,7 @@
                     <h1 class="page-header">{{ trans('admin.product_management.list.title') }}</h1>
                 </div>
             </div>
-            <a href="{{ route('admin.products.create') }}" class="btn btn-primary">{{ trans('admin.product_management.list.create_new') }}</a>
+            <a href="{{ route('admin.product_informations.create') }}" class="btn btn-primary">{{ trans('admin.product_management.list.create_new') }}</a>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -22,8 +22,6 @@
                                             <th>{{ trans('admin.product_management.list.name') }}</th>
                                             <th>{{ trans('admin.product_management.list.category') }}</th>
                                             <th>{{ trans('admin.product_management.list.brand') }}</th>
-                                            <th>{{ trans('admin.product_management.list.original_price') }}</th>
-                                            <th>{{ trans('admin.product_management.list.current_price') }}</th>
                                             <th>{{ trans('admin.product_management.list.amount') }}</th>
                                             <th></th>
                                         </tr>
@@ -32,19 +30,17 @@
                                         @php
                                             $index = 0;
                                         @endphp
-                                        @foreach ($products as $product)
+                                        @foreach ($productInformations as $productInformation)
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
-                                            <td>{{ $product->name }}</td>
-                                            <td>{{ $product->category->name }}</td>
-                                            <td>{{ $product->brand }}</td>
-                                            <td>{{ number_format($product->original_price) . " VND" }}</td>
-                                            <td>{{ number_format($product->current_price) . " VND" }}</td>
+                                            <td>{{ $productInformation->name }}</td>
+                                            <td>{{ $productInformation->category->name }}</td>
+                                            <td>{{ $productInformation->brand }}</td>
                                             <td>{{ $listAmount[$index++] }}</td>
                                             <td>
-                                                <a href="{{ route('admin.products.show', [$product->id]) }}" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e</i></a>
-                                                <a href="{{ route('admin.products.edit', [$product->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044</i></a>
-                                                @include('admin.modals.delete_product')
+                                                <a href="{{ route('admin.product_informations.show', [$productInformation->id]) }}" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e</i></a>
+                                                <a href="{{ route('admin.product_informations.edit', [$productInformation->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044</i></a>
+                                                @include('admin.modals.delete_product_information')
                                             </td>
                                         </tr>
                                         @endforeach

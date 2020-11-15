@@ -47,7 +47,7 @@
                                             <td class="td-delete">
                                                 <form action="{{ route('deleteOneItem') }}" method="POST">
                                                     @csrf
-                                                    <input type="hidden" name="product_detail_id" value="{{ $item['product_detail_id'] }}">
+                                                    <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
                                                     <input type="submit" class="btn btn-danger" value="X">
                                                 </form>
                                             </td>
@@ -57,24 +57,7 @@
                                             <td class="td-name">{{ $names[$index] }}</td>
                                             <td class="td-quantity">{{ $item['quantity'] }}</td>
                                             <td class="td-color">
-                                                @switch ($item['color'])
-                                                    @case (config('setting.color.black'))
-                                                        {{ trans('user.color.black') }}
-                                                        @break
-
-                                                    @case (config('setting.color.white'))
-                                                        {{ trans('user.color.white') }}
-                                                        @break
-
-                                                    @case (config('setting.color.gold'))
-                                                        {{ trans('user.color.gold') }}
-                                                        @break
-
-                                                    @case (config('setting.color.pink'))
-                                                        {{ trans('user.color.pink') }}
-                                                        @break
-
-                                                @endswitch
+                                                {{ $colors[$index] }}
                                             </td>
                                             <td class="td-price price">{{ number_format($item['unit_price']) . " VND" }}</td>
                                             <td class="td-price price">{{ number_format($item['unit_price'] * $item['quantity']) . " VND" }}</td>

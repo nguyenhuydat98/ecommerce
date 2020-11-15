@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
                                 <div class="add_to_cart">
-                                    <input type="hidden" name="color" id="choose-color">
+                                    <input type="hidden" name="color_id" id="choose-color">
                                     <input type="hidden" name="product_id" id="choose-product-id">
                                     <input type="submit" class="btn_3" value="{{ trans('user.product_detail.add_to_cart') }}">
                                     <a href="#" class="btn_3 buy-now">{{ trans('user.product_detail.buy_now') }}</a>

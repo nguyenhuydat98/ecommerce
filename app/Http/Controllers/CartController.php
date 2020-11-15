@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ProductInformation;
 use App\Models\Product;
-use App\Models\ProductDetail;
 use Session;
 use Alert;
 
@@ -15,27 +15,26 @@ class CartController extends Controller
         $cart = [];
         $names = [];
         $images = [];
+        $colors = [];
         if (Session::has('numberOfItemInCart') && Session::get('numberOfItemInCart') > 0) {
             $cart = Session::get('cart');
             foreach ($cart as $item) {
                 $product = Product::findOrFail($item['product_id']);
-                array_push($names, $product->name);
+                array_push($names, $product->productInformation->name);
                 $image = $product->images->first();
                 array_push($images, $image->image_link);
+                array_push($colors, $product->color->name);
             }
         }
 
-        return view('user.pages.cart', compact('cart', 'images', 'names'));
+        return view('user.pages.cart', compact('cart', 'images', 'names', 'colors'));
     }
 
     public function addToCart(Request $request)
     {
-        dd($request->all());
-        $productDetail = ProductDetail::where('product_id', $request->product_id)
-            ->where('color', $request->color)
-            ->first();
-        if ($productDetail) {
-            if ((int) $request->quantity > $productDetail->quantity) {
+        $product = Product::findOrFail($request->product_id)->where('color_id', $request->color_id)->first();
+        if ($product) {
+            if ((int) $request->quantity > $product->quantity) {
                 alert()->error(trans('user.sweetalert.whoops'), trans('user.sweetalert.quantity_not_enough'));
 
                 return redirect()->back();
@@ -44,7 +43,7 @@ class CartController extends Controller
             if ($cart) {
                 $numberOfItemInCart = Session::get('numberOfItemInCart');
                 foreach ($cart as $key => $item) {
-                    if ($item['product_detail_id'] == $productDetail->id && $item['product_id'] == $productDetail->product_id) {
+                    if ($item['product_id'] == $product->id) {
                         $cart[$key]['quantity'] += $request->quantity;
                         Session::put('cart', $cart);
                         $numberOfItemInCart += $request->quantity;
@@ -56,11 +55,10 @@ class CartController extends Controller
                     }
                 }
                 Session::push('cart', [
-                    'product_detail_id' => $productDetail->id,
-                    'product_id' => $productDetail->product_id,
+                    'product_id' => $product->id,
                     'quantity' => (int) $request->quantity,
-                    'color' => $request->color,
-                    'unit_price' => (int) $productDetail->product->current_price,
+                    'color_id' => $request->color_id,
+                    'unit_price' => (int) $product->unit_price,
                 ]);
                 $numberOfItemInCart += $request->quantity;
                 Session::put('numberOfItemInCart', $numberOfItemInCart);
@@ -68,11 +66,10 @@ class CartController extends Controller
             } else {
                 Session::put('cart', [
                     [
-                        'product_detail_id' => $productDetail->id,
-                        'product_id' => $productDetail->product_id,
+                        'product_id' => $product->id,
                         'quantity' => (int) $request->quantity,
-                        'color' => $request->color,
-                        'unit_price' => (int) $productDetail->product->current_price,
+                        'color_id' => $request->color_id,
+                        'unit_price' => (int) $product->unit_price,
                     ],
                 ]);
                 Session::put('numberOfItemInCart', $request->quantity);
@@ -86,12 +83,12 @@ class CartController extends Controller
 
     public function deleteOneItem(Request $request)
     {
-        $productDetail = ProductDetail::findOrFail($request->product_detail_id);
+        $product = Product::findOrFail($request->product_id);
         $cart = Session::get('cart');
         $numberOfItemInCart = Session::get('numberOfItemInCart');
         $items = [];
         foreach ($cart as $item) {
-            if ($item['product_detail_id'] == $productDetail->id) {
+            if ($item['product_id'] == $product->id) {
                 $numberOfItemInCart -= $item['quantity'];
                 Session::put('numberOfItemInCart', $numberOfItemInCart);
                 Session::save();

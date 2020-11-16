@@ -21,7 +21,7 @@
                     <form action="{{ route('checkout') }}" method="POST">
                         @csrf
                         <div class="row">
-                            <div class="col-xl-7">
+                            <div class="col-xl-4">
                                 <h2>{{ trans('user.checkout.bill_detail') }}</h2>
                                 <hr>
                                 <div class="form-group">
@@ -36,70 +36,59 @@
                                         {{ trans('user.checkout.receiver_address') }}
                                         <span class="text text-danger">*</span>
                                     </label>
-                                    <input type="text" name="address" class="form-control" value="{{ $user->address }}" placeholder="{{ trans('user.checkout.enter_your_address') }}" required>
+                                    <input type="text" name="address" class="form-control" value="{{ $user->address }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>
                                         {{ trans('user.checkout.receiver_phone') }}
                                         <span class="text text-danger">*</span>
                                     </label>
-                                    <input type="text" name="phone" class="form-control" value="{{ $user->phone }}" placeholder="{{ trans('user.checkout.enter_your_phone') }}" required>
+                                    <input type="text" name="phone" class="form-control" value="{{ $user->phone }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>{{ trans('user.checkout.receiver_note') }}</label>
-                                    <input type="text" name="note" class="form-control" placeholder="{{ trans('user.checkout.enter_your_note') }}">
+                                    <input type="text" name="note" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-xl-4">
+                            <div class="col-xl-8">
                                 <h2>{{ trans('user.checkout.your_order') }}</h2>
                                 <hr>
                                 @php
-                                    $index = 0;
                                     $totalPayment = 0;
                                 @endphp
                                 <ul class="list">
-                                    @foreach ($cart as $item)
-                                        <li>
-                                            <div class="product-detail">
-                                                <span class="left">{{ trans('user.checkout.name_product') }}</span>
-                                                <span class="content">{{ $names[$index++] }}</span>
-                                                <span class="left">{{ trans('user.checkout.quantity') }}</span>
-                                                <span class="content">{{ $item['quantity'] }}</span>
-                                                <span class="left">{{ trans('user.checkout.color') }}</span>
-                                                @switch ($item['color'])
-                                                    @case (config('setting.color.black'))
-                                                        <span class="content">{{ trans('user.color.black') }}</span>
-                                                        @break
-
-                                                    @case (config('setting.color.white'))
-                                                        <span class="content">{{ trans('user.color.white') }}</span>
-                                                        @break
-
-                                                    @case (config('setting.color.gold'))
-                                                        <span class="content">{{ trans('user.color.gold') }}</span>
-                                                        @break
-
-                                                    @case (config('setting.color.pink'))
-                                                        <span class="content">{{ trans('user.color.pink') }}</span>
-                                                        @break
-                                                @endswitch
-                                                <span class="left">{{ trans('user.checkout.unit_price') }}</span>
-                                                <span class="content">{{ number_format($item['unit_price']) . " VND" }}</span>
-                                                <span class="left">{{ trans('user.checkout.total') }}</span>
-                                                <span class="content">{{ number_format($item['unit_price'] * $item['quantity']) . " VND" }}</span>
+                                    @foreach ($productInCart as $item)
+                                        <li class="item">
+                                            <div class="image">
+                                                <img src="{{ asset($item['image_link']) }}" id="image-description">
                                             </div>
+                                            <div class="name">{{ $item['name'] }}</div>
+                                            <div class="image">{{ $item['color'] }}</div>
+                                            @if ($item['sale_id'] == null)
+                                                <div class="unit-price">
+                                                    {{ number_format($item['unit_price']) . " đ" }}
+                                                </div>
+                                            @else
+                                                {{-- <div class="sale-price"></div> --}}
+                                            @endif
+                                            <div class="quantity">{{ $item['quantity'] . " SP" }} </div>
+                                            <div class="price">{{ number_format($item['unit_price'] * $item['quantity']) . " đ" }}</div>
                                         </li>
                                         @php
                                             $totalPayment += $item['unit_price'] * $item['quantity'];
                                         @endphp
                                     @endforeach
-                                    <li>
-                                        <span class="left">{{ trans('user.checkout.total_payment') }}</span>
-                                        <span class="content-payment">{{ number_format($totalPayment) . " VND" }}</span>
-                                    </li>
-                                    <input type="hidden" name="payment" value="{{ $totalPayment }}">
-                                    <input type="submit" class="btn_1 btn-payment" value="{{ trans('user.checkout.confirm_checkout') }}">
                                 </ul>
+                                <div class="checkout">
+                                    <div class="total-payment">
+                                        <span>{{ trans('user.checkout.total_payment') }}: </span>
+                                        <span id="color-red">{{ number_format($totalPayment) . " đ" }}</span>
+                                    </div>
+                                    <div class="btn-checkout">
+                                        <input type="hidden" name="payment" value="{{ $totalPayment }}">
+                                        <input type="submit" class="btn_1 btn-payment" value="{{ trans('user.checkout.confirm_checkout') }}">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>

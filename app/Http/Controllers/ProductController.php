@@ -68,7 +68,7 @@ class ProductController extends Controller
         try {
             $product = Product::findOrFail($id);
             $data = [
-                'id' => $product->id,
+                'id' => $id,
                 'quantity' => $product->quantity,
                 'color' => $product->color_id,
                 'unit_price' => number_format($product->unit_price) . " đ",

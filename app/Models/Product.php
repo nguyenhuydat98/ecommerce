@@ -42,7 +42,7 @@ class Product extends Model
 
     public function suppliers()
     {
-        return $this->belongsToMany(Supplier::class);
+        return $this->belongsToMany(Supplier::class)->withTimestamps();
     }
 
     public function comments()
@@ -52,6 +52,6 @@ class Product extends Model
 
     public function orders()
     {
-        return $this->belongsTomany(Order::class);
+        return $this->belongsTomany(Order::class)->withTimestamps();
     }
 }

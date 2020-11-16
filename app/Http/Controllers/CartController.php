@@ -13,26 +13,29 @@ class CartController extends Controller
     public function cart()
     {
         $cart = [];
-        $names = [];
-        $images = [];
-        $colors = [];
+        $productInCart = [];
         if (Session::has('numberOfItemInCart') && Session::get('numberOfItemInCart') > 0) {
             $cart = Session::get('cart');
             foreach ($cart as $item) {
                 $product = Product::findOrFail($item['product_id']);
-                array_push($names, $product->productInformation->name);
-                $image = $product->images->first();
-                array_push($images, $image->image_link);
-                array_push($colors, $product->color->name);
+                array_push($productInCart, [
+                    'product_id' => $item['product_id'],
+                    'name' => $product->productInformation->name,
+                    'image_link' => $product->images->first()->image_link,
+                    'color' => $product->color->name,
+                    'quantity' => $item['quantity'],
+                    'unit_price' => $product->unit_price,
+                    'sale_id' => $product->sale_id,
+                ]);
             }
         }
 
-        return view('user.pages.cart', compact('cart', 'images', 'names', 'colors'));
+        return view('user.pages.cart', compact('productInCart'));
     }
 
     public function addToCart(Request $request)
     {
-        $product = Product::findOrFail($request->product_id)->where('color_id', $request->color_id)->first();
+        $product = Product::findOrFail($request->product_id);
         if ($product) {
             if ((int) $request->quantity > $product->quantity) {
                 alert()->error(trans('user.sweetalert.whoops'), trans('user.sweetalert.quantity_not_enough'));
@@ -58,7 +61,6 @@ class CartController extends Controller
                     'product_id' => $product->id,
                     'quantity' => (int) $request->quantity,
                     'color_id' => $request->color_id,
-                    'unit_price' => (int) $product->unit_price,
                 ]);
                 $numberOfItemInCart += $request->quantity;
                 Session::put('numberOfItemInCart', $numberOfItemInCart);
@@ -69,7 +71,6 @@ class CartController extends Controller
                         'product_id' => $product->id,
                         'quantity' => (int) $request->quantity,
                         'color_id' => $request->color_id,
-                        'unit_price' => (int) $product->unit_price,
                     ],
                 ]);
                 Session::put('numberOfItemInCart', $request->quantity);

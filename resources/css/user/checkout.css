@@ -1,39 +1,77 @@
-.wrap-user-checkout-page .product-detail {
-    padding-bottom: 170px;
+.wrap-user-checkout-page .item {
+    clear: both;
+    font-size: 15px;
+    min-height: 90px;
+    line-height: 80px;
+    border-bottom: 1px solid #a9a9a9;
 }
 
-.wrap-user-checkout-page .left {
-    display: inline-block;
+.wrap-user-checkout-page .image {
     float: left;
-    width: 50%;
-    text-align: left;
-    color: #888888;
+    width: 10%;
 }
 
-.wrap-user-checkout-page .content {
-    display: inline-block;
+.wrap-user-checkout-page .image #image-description {
+    width: 60px;
+    width: 60px;
+}
+
+.wrap-user-checkout-page .name {
     float: left;
-    width: 50%;
-    text-align: right;
-    font-weight: 500;
+    width: 25%;
 }
 
-.wrap-user-checkout-page .total-payment {
-    display: block;
-    float: right;
-}
-
-.wrap-user-checkout-page .content-payment {
-    display: inline-block;
+.wrap-user-checkout-page .color {
     float: left;
-    width: 50%;
+    width: 10%;
+}
+
+.wrap-user-checkout-page .unit-price {
+    float: left;
+    width: 32%;
+    text-align: center;
+    color: #ff0000;
+    font-weight: 600;
+}
+
+.wrap-user-checkout-page .quantity {
+    float: left;
+    width: 9%;
+}
+
+.wrap-user-checkout-page .price {
+    float: left;
+    width: 14%;
     text-align: right;
     color: #ff0000;
     font-weight: 600;
-    font-size: 18px;
 }
 
-.wrap-user-checkout-page .btn-payment {
-    width: 100%;
+/*.wrap-user-checkout-page .unit-price {
+    float: left;
+    width: 32%;
+    text-align: center;
+}*/
+
+.wrap-user-checkout-page .checkout {
     margin-top: 30px;
+}
+
+.wrap-user-checkout-page .checkout .total-payment {
+    float: left;
+    width: 65%;
+    line-height: 80px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.wrap-user-checkout-page .checkout .total-payment #color-red {
+    color: #ff0000;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.wrap-user-checkout-page .checkout .btn-checkout {
+    float: left;
+    width: 35%;
 }

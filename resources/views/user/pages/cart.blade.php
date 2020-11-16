@@ -39,10 +39,9 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                        $index = 0;
                                         $total = 0;
                                     @endphp
-                                    @foreach ($cart as $item)
+                                    @foreach ($productInCart as $item)
                                         <tr>
                                             <td class="td-delete">
                                                 <form action="{{ route('deleteOneItem') }}" method="POST">
@@ -52,18 +51,17 @@
                                                 </form>
                                             </td>
                                             <td class="td-image">
-                                                <img class="image" src="{{ asset($images[$index]) }}">
+                                                <img class="image" src="{{ asset($item['image_link']) }}">
                                             </td>
-                                            <td class="td-name">{{ $names[$index] }}</td>
+                                            <td class="td-name">{{ $item['name'] }}</td>
                                             <td class="td-quantity">{{ $item['quantity'] }}</td>
                                             <td class="td-color">
-                                                {{ $colors[$index] }}
+                                                {{ $item['color'] }}
                                             </td>
                                             <td class="td-price price">{{ number_format($item['unit_price']) . " VND" }}</td>
                                             <td class="td-price price">{{ number_format($item['unit_price'] * $item['quantity']) . " VND" }}</td>
                                         </tr>
                                         @php
-                                            $index++;
                                             $total += $item['unit_price'] * $item['quantity'];
                                         @endphp
                                     @endforeach

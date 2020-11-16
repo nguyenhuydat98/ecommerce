@@ -18,10 +18,13 @@ mix.js('resources/js/admin_dataTables.js', 'public/js');
 // mix.sass('resources/sass/app.scss', 'public/css');
 
 mix.styles([
+    'resources/css/admin/custom_bootstrap.css',
     'resources/css/admin/nav.css',
     'resources/css/admin/login.css',
     'resources/css/admin/product_detail.css',
     'resources/css/admin/sale_detail.css',
+    'resources/css/admin/list_order.css',
+    'resources/css/admin/order_detail.css',
     'resources/css/user/header.css',
     'resources/css/user/login.css',
     'resources/css/user/register.css',

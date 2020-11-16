@@ -199,6 +199,11 @@
     "language.english": "English",
     "language.vietnamese": "Vietnamese",
 
+    "status.approved": "Approved",
+    "status.canceled": "Canceled",
+    "status.pending": "Pending",
+    "status.rejected": "Rejected",
+
     "user.cart.buy_now": "Buy now",
     "user.cart": "Cart",
     "user.cart.checkout": "Checkout",

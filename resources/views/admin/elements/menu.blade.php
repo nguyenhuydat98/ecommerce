@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admin.orders.index') }}">
                         <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.order_management') }}
                     </a>
                 </li>

@@ -18,9 +18,8 @@ class LoginController extends Controller
         $account = [
             'email' => $request->email,
             'password' => $request->password,
-            'role_id' => config('setting.role.user'),
         ];
-        if (Auth::attempt($account, $request->remember)) {
+        if (Auth::guard('web')->attempt($account, $request->remember)) {
             return redirect()->route('home');
         }
 
@@ -29,7 +28,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        Auth::logout();
+        Auth::guard('web')->logout();
 
         return redirect()->back();
     }

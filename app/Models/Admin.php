@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Authenticatable
+class Admin extends Authenticatable
 {
     use SoftDeletes;
 
+    protected $guard = 'admin';
+
     protected $fillable = [
         'name',
+        'role_id',
         'email',
         'password',
         'address',
@@ -25,13 +28,8 @@ class User extends Authenticatable
 
     public $timestamps = true;
 
-    public function orders()
+    public function role()
     {
-        return $this->hasMany(Order::class);
-    }
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(Role::class);
     }
 }

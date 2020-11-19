@@ -15,8 +15,9 @@ class Role extends Model
 
     public $timestamps = true;
 
-    public function users()
+    public function admins()
     {
-        return $this->hasmany(User::class);
+        return $this->hasMany(Admin::class);
     }
+
 }

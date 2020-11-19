@@ -13,11 +13,6 @@ class RoleSeeder extends Seeder
     {
         DB::table('roles')->insert([
             [
-                'name' => 'User',
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-            ],
-            [
                 'name' => 'Management',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,

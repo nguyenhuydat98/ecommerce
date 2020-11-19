@@ -2,10 +2,10 @@
 
 return [
     'role' => [
-        'user'          => 1,
+        'management'    => 1,
         'admin_product' => 2,
         'admin_order'   => 3,
-        'management'    => 4,
+
     ],
 
     'status' => [

@@ -30,6 +30,9 @@
         </li>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                @if (Auth::guard('admin')->check())
+                    {{ Auth::guard('admin')->user()->name }}
+                @endif
                 <i class="fa fa-user fa-fw"></i><b class="caret"></b>
             </a>
             <ul class="dropdown-menu dropdown-user">

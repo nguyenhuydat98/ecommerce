@@ -199,6 +199,11 @@
     "language.english": "Tiếng Anh",
     "language.vietnamese": "Tiếng Việt",
 
+    "status.approved": "Đã duyệt",
+    "status.canceled": "Đã bị hủy",
+    "status.pending": "Đang chờ",
+    "status.rejected": "Đã từ chối",
+
     "user.cart.buy_now": "Mua ngay",
     "user.cart": "Giỏ Hàng",
     "user.cart.checkout": "Đặt hàng",

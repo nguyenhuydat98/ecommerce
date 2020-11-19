@@ -1,0 +1,52 @@
+.wrap-admin-order-detail-page #btn-support {
+    margin-bottom: 20px !important;
+}
+
+.wrap-admin-order-detail-page .group-order {
+    min-height: 40px;
+    font-size: 18px;
+}
+
+.wrap-admin-order-detail-page .group-order .title {
+    display: inline-block;
+    color: #848484;
+    float: left;
+    width: 28%;
+}
+
+.wrap-admin-order-detail-page .group-order .content {
+    display: inline-block;
+    float: left;
+    width: 72%;
+    color: #000;
+    font-weight: 500;
+}
+
+.wrap-admin-order-detail-page .badge {
+    min-width: 73px;
+    min-height: 20px;
+    line-height: 20px;
+    border-radius: 5px;
+}
+
+.wrap-admin-order-detail-page #total-payment {
+    color: #ff0000;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.wrap-admin-order-detail-page #order-product {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.wrap-admin-order-detail-page td {
+    vertical-align: middle !important;
+}
+
+.wrap-admin-order-detail-page #demo-image {
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}

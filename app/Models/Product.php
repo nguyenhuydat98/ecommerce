@@ -52,6 +52,8 @@ class Product extends Model
 
     public function orders()
     {
-        return $this->belongsTomany(Order::class)->withTimestamps();
+        return $this->belongsTomany(Order::class)
+            ->withPivot('quantty', 'price')
+            ->withTimestamps();
     }
 }

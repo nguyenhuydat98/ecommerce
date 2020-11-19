@@ -30,6 +30,7 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::resource('suppliers', 'SupplierController');
                 Route::resource('product_informations', 'ProductInformationController');
                 Route::resource('sales', 'SaleController');
+                Route::resource('orders', 'OrderController');
             });
         });
     });

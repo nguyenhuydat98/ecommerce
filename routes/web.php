@@ -21,6 +21,7 @@ Route::group(['middleware' => 'localization'], function() {
             Route::get('login', 'LoginController@getLogin')->name('getLogin');
             Route::post('login', 'LoginController@postLogin')->name('postLogin');
             Route::get('logout', 'LoginController@logout')->name('logout');
+
             Route::group(['middleware' => 'checkAdminLogin'], function() {
                 Route::get('change_password', 'ChangePasswordController@getChangePassword')->name('getChangePassword');
                 Route::post('change_password', 'ChangePasswordController@postChangePassword')->name('postChangePassword');

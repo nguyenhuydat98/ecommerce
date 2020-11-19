@@ -19,7 +19,6 @@ class CreateCommentsTable extends Migration
             $table->foreignId('product_id');
             $table->tinyInteger('rate');
             $table->string('content');
-            $table->tinyInteger('status');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');

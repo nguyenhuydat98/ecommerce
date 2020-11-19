@@ -16,17 +16,10 @@ class CheckAdminLogin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check()) {
-            $user = Auth::user();
-            if ($user->role_id != 1) {
-                return $next($request);
-            } else {
-                Auth::logout();
-
-                return redirect()->route('admin.getLogin');
-            }
-        } else {
-            return redirect()->route('admin.getLogin');
+        if (Auth::guard('admin')->check()) {
+            return $next($request);
         }
+
+        return redirect()->route('admin.getLogin');
     }
 }

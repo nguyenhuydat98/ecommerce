@@ -14,7 +14,6 @@ class Comment extends Model
         'product_id',
         'rate',
         'content',
-        'status',
     ];
 
     public $timestamps = true;

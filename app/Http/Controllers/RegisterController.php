@@ -16,18 +16,13 @@ class RegisterController extends Controller
 
     public function postRegister(RegisterRequest $request)
     {
-        try {
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'role_id' => config('setting.role.user'),
-            ]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'avatar' =>'storage/avatar_default.png',
+        ]);
 
-            return redirect()->route('getLogin');
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-
+        return redirect()->route('getLogin');
     }
 }

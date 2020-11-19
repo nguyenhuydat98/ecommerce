@@ -17,13 +17,13 @@ class CreateProductSupplierTable extends Migration
             $table->id();
             $table->foreignId('product_id');
             $table->foreignId('supplier_id');
-            $table->foreignId('user_id');
+            $table->foreignId('admin_id');
             $table->integer('import_price');
             $table->integer('quantity');
             $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('supplier_id')->references('id')->on('suppliers');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('admin_id')->references('id')->on('admins');
         });
     }
 

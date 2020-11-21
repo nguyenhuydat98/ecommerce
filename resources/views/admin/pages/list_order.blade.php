@@ -5,8 +5,26 @@
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-7">
                     <h1 class="page-header">Danh Sách Đơn Hàng</h1>
+                </div>
+                 <div class="col-lg-5" id="message-status">
+                    @if (session('message_rejected'))
+                        <div class="alert alert-success alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ session('message_rejected') }}</strong>
+                        </div>
+                    @elseif (session('message_approved_success'))
+                        <div class="alert alert-success alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ session('message_approved_success') }}</strong>
+                        </div>
+                    @elseif (session('message_approved_error'))
+                        <div class="alert alert-danger alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ session('message_approved_error') }}</strong>
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="row">
@@ -75,7 +93,3 @@
 @section('js')
     <script src="{{ asset('js/admin_dataTables.js') }}"></script>
 @endsection
-
-<style type="text/css">
-    .
-</style>

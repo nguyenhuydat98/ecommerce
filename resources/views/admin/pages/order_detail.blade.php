@@ -16,8 +16,8 @@
                 </div>
                 <div class="col-lg-4">
                     @if ($order->status == config('setting.status.pending'))
-                        <a href="#" class="btn btn-success">Duyệt đơn hàng</a>
-                        <a href="#" class="btn btn-danger">Từ chối đơn hàng</a>
+                        <a href="{{ route('admin.order.approved', [$order->id]) }}" class="btn btn-success">Duyệt đơn hàng</a>
+                        <a href="{{ route('admin.order.rejected', [$order->id]) }}" class="btn btn-danger">Từ chối đơn hàng</a>
                     @endif
                 </div>
                 <div class="col-lg-10">

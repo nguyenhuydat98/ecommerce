@@ -59,7 +59,7 @@
                                                     <td>{{ number_format($order->total_payment) . " đ" }}</td>
                                                     <td>{{ $order->created_at->format('H:i:s d/m/yy') }}</td>
                                                     <td>
-                                                        <a href="#" class="btn btn-info" id="detail">Chi tiết</a>
+                                                        <a href="{{ route('orderDetail', [$order->id]) }}" class="btn btn-info" id="detail">Chi tiết</a>
                                                     </td>
                                                 </tr>
                                             @endif
@@ -98,7 +98,7 @@
                                                     <td>{{ number_format($order->total_payment) . " đ" }}</td>
                                                     <td>{{ $order->created_at->format('H:i:s d/m/yy') }}</td>
                                                     <td>
-                                                        <a href="#" class="btn btn-info" id="detail">Chi tiết</a>
+                                                        <a href="{{ route('orderDetail', [$order->id]) }}" class="btn btn-info" id="detail">Chi tiết</a>
                                                     </td>
                                                 </tr>
                                             @endif
@@ -137,7 +137,7 @@
                                                     <td>{{ number_format($order->total_payment) . " đ" }}</td>
                                                     <td>{{ $order->created_at->format('H:i:s d/m/yy') }}</td>
                                                     <td>
-                                                        <a href="#" class="btn btn-info" id="detail">Chi tiết</a>
+                                                        <a href="{{ route('orderDetail', [$order->id]) }}" class="btn btn-info" id="detail">Chi tiết</a>
                                                     </td>
                                                 </tr>
                                             @endif
@@ -176,7 +176,7 @@
                                                     <td>{{ number_format($order->total_payment) . " đ" }}</td>
                                                     <td>{{ $order->created_at->format('H:i:s d/m/yy') }}</td>
                                                     <td>
-                                                        <a href="#" class="btn btn-info" id="detail">Chi tiết</a>
+                                                        <a href="{{ route('orderDetail', [$order->id]) }}" class="btn btn-info" id="detail">Chi tiết</a>
                                                     </td>
                                                 </tr>
                                             @endif

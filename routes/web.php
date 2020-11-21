@@ -59,5 +59,8 @@ Route::group(['middleware' => 'localization'], function() {
         Route::post('checkout', 'OrderController@checkout')->name('checkout');
         Route::get('order-history', 'OrderController@getListOrder')->name('orderHistory');
         Route::get('order-history-by-status', 'OrderController@getListOrderByStatus')->name('orderHistoryByStatus');
+        Route::get('order-detail/{id}', 'OrderController@getOrder')->name('orderDetail');
+        Route::get('order-canceled/{id}', 'OrderController@cancelOrder')->name('cancelOrder');
+
     });
 });

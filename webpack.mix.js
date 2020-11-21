@@ -13,6 +13,7 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js');
 mix.js('resources/js/user_product_detail.js', 'public/js');
+mix.js('resources/js/user_order_history_by_status.js', 'public/js');
 mix.js('resources/js/admin_dataTables.js', 'public/js');
 
 // mix.sass('resources/sass/app.scss', 'public/css');
@@ -33,5 +34,7 @@ mix.styles([
     'resources/css/user/product_detail.css',
     'resources/css/user/cart.css',
     'resources/css/user/checkout.css',
+    'resources/css/user/order_history.css',
+    'resources/css/user/order_history_by_status.css',
     ], 'public/css/all.css'
 );

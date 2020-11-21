@@ -1,0 +1,85 @@
+.wrap-user-order-history-by-status-page .choose-list {
+    margin-bottom: 30px;
+}
+
+.wrap-user-order-history-by-status-page .badge {
+    min-width: 73px;
+    min-height: 20px;
+    line-height: 20px;
+    border-radius: 5px;
+}
+
+.wrap-user-order-history-by-status-page .btn_3 {
+    padding: 5px 15px;
+    text-transform: none !important;
+    font-size: 14px;
+}
+
+.wrap-user-order-history-by-status-page .btn {
+    padding: 15px;
+    text-transform: none;
+    font-size: 14px;
+}
+
+.wrap-user-order-history-by-status-page #detail {
+    padding: 13px 10px;
+    background-color: #808080;
+    color: #fff;
+}
+
+.wrap-user-order-history-by-status-page .paginate {
+    margin-top: 20px;
+    float: right;
+}
+
+.wrap-user-order-history-by-status-page .group-tabs {
+    margin-top: 30px;
+    min-height: 250px;
+}
+
+.wrap-user-order-history-by-status-page .group-tabs a {
+    color: #337ab7;
+    text-decoration: none;
+    background-color: transparent;
+    padding: 5px;
+}
+
+.wrap-user-order-history-by-status-page .group-tabs li {
+    float: left;
+    width: 10%;
+    display: inline-block;
+}
+
+.wrap-user-order-history-by-status-page .group-tabs .nav {
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.wrap-user-order-history-by-status-page .group-tabs .nav-pills {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.wrap-user-order-history-by-status-page .group-tabs .nav-pills>li.active>a {
+    color: #fff;
+    background-color: #337ab7;
+}
+
+.wrap-user-order-history-by-status-page .group-tabs .nav-pills>li.active>a:hover {
+    cursor: pointer;
+}
+
+.wrap-user-order-history-by-status-page .group-tabs .nav-pills>li>a {
+    border-radius: 5px;
+}
+
+.wrap-user-order-history-by-status-page .group-tabs .nav>li>a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 15px;
+}
+

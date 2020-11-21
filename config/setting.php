@@ -24,6 +24,7 @@ return [
 
     'paginate' => [
         'product' => 12,
+        'order' => 10,
     ],
 
     'formality' => [

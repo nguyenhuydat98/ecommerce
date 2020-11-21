@@ -6,14 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Product;
+use Auth;
+use DB;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $orders = Order::orderBy('created_at', 'desc')->get();
@@ -21,33 +18,6 @@ class OrderController extends Controller
         return view('admin.pages.list_order', compact('orders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $order = Order::findOrFail($id);
@@ -64,37 +34,47 @@ class OrderController extends Controller
         return view('admin.pages.order_detail', compact('order', 'listProduct'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function rejectedOrder($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        $order->update([
+            'admin_id' => Auth::guard('admin')->id(),
+            'status' => config('setting.status.rejected'),
+        ]);
+
+        return redirect()->route('admin.orders.index')->with('message_rejected', 'Hoàn thành! Đã từ chối đơn hàng');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function approvedOrder($id)
     {
-        //
-    }
+        $order = Order::findOrFail($id);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+
+        DB::beginTransaction();
+        try {
+            $order = Order::findOrFail($id);
+            foreach ($order->products as $product) {
+                $productInStore = Product::findOrFail($product->pivot->product_id);
+                if ($productInStore->quantity >= $product->pivot->quantity) {
+                    $productInStore->update([
+                        'quantity' => $productInStore->quantity - $product->pivot->quantity,
+                    ]);
+                } else {
+                    return redirect()->route('admin.orders.index')->with('message_approved_error', 'Thất bại! Không đủ số lượng sản phẩm');
+                }
+            }
+            $order->update([
+                'admin_id' => Auth::guard('admin')->id(),
+                'status' => config('setting.status.approved'),
+            ]);
+            DB::commit();
+
+            return redirect()->route('admin.orders.index')->with('message_approved_success', 'Hoàn thành! Đã chấp nhận đơn hàng');
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            return $e->getMessage();
+        }
+
     }
 }

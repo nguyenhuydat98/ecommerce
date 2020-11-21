@@ -31,7 +31,11 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::resource('suppliers', 'SupplierController');
                 Route::resource('product_informations', 'ProductInformationController');
                 Route::resource('sales', 'SaleController');
-                Route::resource('orders', 'OrderController');
+                Route::resource('orders', 'OrderController')->only(['index', 'show']);
+
+                Route::get('approved-order/{id}', 'OrderController@approvedOrder')->name('order.approved');
+                Route::get('rejected-order/{id}', 'OrderController@rejectedOrder')->name('order.rejected');
+
             });
         });
     });

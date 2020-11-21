@@ -36,5 +36,6 @@ mix.styles([
     'resources/css/user/checkout.css',
     'resources/css/user/order_history.css',
     'resources/css/user/order_history_by_status.css',
+    'resources/css/user/order_detail.css',
     ], 'public/css/all.css'
 );

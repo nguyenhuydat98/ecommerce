@@ -111,4 +111,31 @@ class OrderController extends Controller
 
         return view('user.pages.order_history_by_status', compact('orders', 'existPending', 'existApproved', 'existRejected', 'existCanceled'));
     }
+
+    public function getOrder($id)
+    {
+        $order = Order::findOrFail($id);
+        $listProduct = [];
+        foreach ($order->products as $product) {
+            $prod = Product::findOrFail($product->pivot->product_id);
+            array_push($listProduct, [
+                'name' => $prod->productInformation->name,
+                'image_link' => $prod->images->first()->image_link,
+                'color' => $prod->color->name,
+            ]);
+        }
+
+        return view('user.pages.order_detail', compact('order', 'listProduct'));
+    }
+
+    public function cancelOrder($id)
+    {
+        $order = Order::findOrFail($id);
+        $order->update([
+            'status' => config('setting.status.canceled'),
+        ]);
+        alert()->success(trans('user.sweetalert.done'), 'Đã hủy đơn hàng của bạn');
+
+        return redirect()->back();
+    }
 }

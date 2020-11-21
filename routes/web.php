@@ -57,5 +57,7 @@ Route::group(['middleware' => 'localization'], function() {
     Route::group(['middleware' => 'checkUserLogin'], function() {
         Route::get('checkout', 'OrderController@getListItem')->name('getListItem');
         Route::post('checkout', 'OrderController@checkout')->name('checkout');
+        Route::get('order-history', 'OrderController@getListOrder')->name('orderHistory');
+        Route::get('order-history-by-status', 'OrderController@getListOrderByStatus')->name('orderHistoryByStatus');
     });
 });

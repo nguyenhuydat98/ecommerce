@@ -70,11 +70,45 @@ class OrderController extends Controller
             Session::save();
             DB::commit();
 
-            return redirect()->route('home');
+            return redirect()->route('orderHistory');
         } catch (Exception $e) {
             DB::rollBack();
 
             return $e->getMessage();
         }
+    }
+
+    public function getListOrder()
+    {
+        $orders = Order::orderBy('created_at', 'desc')
+            ->where('user_id', Auth::guard('web')->id())
+            ->paginate(config('setting.paginate.order'));
+
+        return view('user.pages.order_history', compact('orders'));
+    }
+
+    public function getListOrderByStatus()
+    {
+        $orders = Order::orderBy('created_at', 'desc')->where('user_id', Auth::guard('web')->id())->get();
+        $existPending = false;
+        $existApproved = false;
+        $existRejected = false;
+        $existCanceled = false;
+        foreach ($orders as $order) {
+            if ($order->status == config('setting.status.pending')) {
+                $existPending = true;
+            }
+            else if ($order->status == config('setting.status.approved')) {
+                $existApproved = true;
+            }
+            else if ($order->status == config('setting.status.rejected')) {
+                $existRejected = true;
+            }
+            else {
+                $existCanceled = true;
+            }
+        }
+
+        return view('user.pages.order_history_by_status', compact('orders', 'existPending', 'existApproved', 'existRejected', 'existCanceled'));
     }
 }

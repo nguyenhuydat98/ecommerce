@@ -19,7 +19,6 @@ class CreateProductsTable extends Migration
             $table->foreignId('color_id');
             $table->integer('quantity');
             $table->integer('unit_price');
-            $table->float('rate')->nullable();
             $table->foreignId('sale_id')->nullable();
             $table->timestamps();
             $table->softDeletes();

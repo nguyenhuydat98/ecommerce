@@ -16,6 +16,7 @@ class ProductInformation extends Model
         'name',
         'brand',
         'description',
+        'rate',
     ];
 
     public $timestamps = true;
@@ -28,5 +29,10 @@ class ProductInformation extends Model
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

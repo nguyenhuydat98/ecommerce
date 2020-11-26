@@ -35,10 +35,20 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="col-xl-6">
+                    <div class="col-xl-7">
                         <div class="group-info">
                             <span class="text">{{ trans('user.product_detail.name') }}</span>
                             <span class="content name">{{ $productInformation->name }}</span>
+                        </div>
+                        <div class="group-info">
+                            <span class="text">Đánh giá</span>
+                            <span class="content">
+                                @if ($productInformation->rate == null)
+                                    Chưa có
+                                @else
+                                    {{ $productInformation->rate }}
+                                @endif
+                            </span>
                         </div>
                         <div class="group-info">
                             <span class="text">{{ trans('user.product_detail.brand') }}</span>
@@ -91,8 +101,70 @@
                             </div>
                         </form>
                     </div>
+                    <div class="col-xl-12" id="rating-product">
+                        <h2 class="title-rating">Đánh giá sản phẩm <small>({{ count($comments) }} đánh giá)</small></h2>
+                        @foreach ($comments as $comment)
+                            <div class="comment">
+                                <div class="avatar">
+                                    <img src="{{ asset($comment->user->avatar) }}" alt="avatar" class="img-user">
+                                </div>
+                                <div class="content-comment">
+                                    <div>{{ $comment->user->name }}</div>
+                                    <div>
+                                        @for ($star = 1; $star <= 5; $star++)
+                                        <span class="fa fa-star @if ($star <= $comment->rate) checked @endif"></span>
+                                        @endfor
+                                    </div>
+                                    <div>{{ $comment->content }}</div>
+                                    <div>{{ $comment->updated_at->format('H:i:s d/m/yy') }}</div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    @if(Auth::guard('web')->check() && $isOrder && !$isComment)
+                        <div class="col-xl-12">
+                            <button type="button" class="btn_3" id="btn-rating" data-toggle="modal" data-target="#rating">Đánh giá</button>
+                            <div class="wrap-modal-rating">
+                                <div id="rating" class="modal fade" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Đánh giá sản phẩm</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <form action="{{ route('rating', [$product->productInformation->id]) }}" method="POST">
+                                                @csrf
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <div class="rate">
+                                                            <input type="radio" id="star5" name="rate" value="5">
+                                                            <label for="star5" title="5">5 stars</label>
+                                                            <input type="radio" id="star4" name="rate" value="4">
+                                                            <label for="star4" title="4">4 stars</label>
+                                                            <input type="radio" id="star3" name="rate" value="3">
+                                                            <label for="star3" title="3">3 stars</label>
+                                                            <input type="radio" id="star2" name="rate" value="2">
+                                                            <label for="star2" title="2">2 stars</label>
+                                                            <input type="radio" id="star1" name="rate" value="1">
+                                                            <label for="star1" title="1">1 star</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" id="content-comment" name="comment" placeholder="Hãy chia sẻ cảm nhận của bạn về sản phẩm" required>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input type="submit" class="btn_3" id="send-rating" value="Đánh giá">
+                                                    <button type="button" class="btn_3" id="close-rating" data-dismiss="modal">Quay lại</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
-
             </div>
         </section>
     </div>

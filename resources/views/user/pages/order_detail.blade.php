@@ -91,6 +91,9 @@
                         <th>Số lượng</th>
                         <th>Đơn giá</th>
                         <th>Thành tiền</th>
+                        @if ($order->status == config('setting.status.approved'))
+                            <th></th>
+                        @endif
                     </thead>
                     <tbody>
                         @php
@@ -107,6 +110,11 @@
                                 <td>{{ $product->pivot->quantity }}</td>
                                 <td>{{ number_format($product->pivot->price) . " đ" }}</td>
                                 <td>{{ number_format($product->pivot->price *  $product->pivot->quantity) . " đ" }}</td>
+                                @if ($order->status == config('setting.status.approved'))
+                                    <td>
+                                        <a href="{{ route('productDetail', [$product->product_information_id]) }}" class="btn_3">Đánh giá</a>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

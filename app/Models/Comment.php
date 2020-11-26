@@ -11,7 +11,7 @@ class Comment extends Model
 
     protected $fillable = [
         'user_id',
-        'product_id',
+        'product_information_id',
         'rate',
         'content',
     ];
@@ -23,8 +23,8 @@ class Comment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function product()
+    public function productInformation()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(ProductInformation::class);
     }
 }

@@ -21,6 +21,9 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item active"><a href="{{ route('product') }}">{{ trans('user.product.all_product') }}</a></li>
+                        <li class="breadcrumb-item active">
+                            <a href="#">{{ $productInformations->first()->category->name }}</a>
+                        </li>
                     </ol>
                 </nav>
                 <div class="row">

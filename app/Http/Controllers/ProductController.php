@@ -79,4 +79,32 @@ class ProductController extends Controller
             return $e->getMessage();
         }
     }
+
+    public function getByCategory($id)
+    {
+        $categories = Category::all();
+        $productInformations = ProductInformation::orderBy('id', 'desc')
+            ->where('category_id', $id)
+            ->with('products.images')
+            ->paginate(config('setting.paginate.product'));
+
+        $listMinPrice = [];
+        $listMaxPrice = [];
+        foreach ($productInformations as $productInformation) {
+            $minPrice = $productInformation->products->first()->unit_price;
+            $maxPrice = $minPrice;
+            foreach ($productInformation->products as $product) {
+                if ($minPrice > $product->unit_price) {
+                    $minPrice = $product->unit_price;
+                }
+                if ($maxPrice < $product->unit_price) {
+                    $maxPrice = $product->unit_price;
+                }
+            }
+            array_push($listMinPrice, $minPrice);
+            array_push($listMaxPrice, $maxPrice);
+        }
+
+        return view('user.pages.product_by_category', compact('productInformations', 'categories', 'listMinPrice', 'listMaxPrice'));
+    }
 }

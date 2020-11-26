@@ -31,3 +31,7 @@
 .wrap-user-product-page .breadcrumb {
     width: 83.33%;
 }
+
+.wrap-user-product-page .img-fluid {
+    max-height: 230px;
+}

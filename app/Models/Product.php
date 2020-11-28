@@ -45,11 +45,6 @@ class Product extends Model
         return $this->belongsToMany(Supplier::class)->withTimestamps();
     }
 
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
-
     public function orders()
     {
         return $this->belongsTomany(Order::class)

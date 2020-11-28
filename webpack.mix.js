@@ -37,5 +37,6 @@ mix.styles([
     'resources/css/user/order_history.css',
     'resources/css/user/order_history_by_status.css',
     'resources/css/user/order_detail.css',
+    'resources/css/user/rating.css',
     ], 'public/css/all.css'
 );

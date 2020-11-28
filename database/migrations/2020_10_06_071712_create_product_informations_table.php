@@ -19,6 +19,7 @@ class CreateProductInformationsTable extends Migration
             $table->string('name');
             $table->string('brand');
             $table->text('description');
+            $table->float('rate')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('category_id')->references('id')->on('categories');

@@ -112,7 +112,7 @@
                                 <td>{{ number_format($product->pivot->price *  $product->pivot->quantity) . " đ" }}</td>
                                 @if ($order->status == config('setting.status.approved'))
                                     <td>
-                                        <a href="{{ route('productDetail', [$product->product_information_id]) }}" class="btn_3">Đánh giá</a>
+                                        <a href="{{ route('productDetail', [$product->product_information_id]) }}" class="btn_3" id="btn-rating">Đánh giá</a>
                                     </td>
                                 @endif
                             </tr>
@@ -120,7 +120,7 @@
                     </tbody>
                 </table>
                 @if ($order->status == config('setting.status.pending'))
-                    <a href="{{ route('cancelOrder', [$order->id]) }}" class="btn_3">Hủy đơn hàng</a>
+                    <a href="{{ route('cancelOrder', [$order->id]) }}" class="btn_3" id="cancel-order">Hủy đơn hàng</a>
                 @endif
             </div>
         </section>

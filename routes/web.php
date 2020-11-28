@@ -15,13 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'localization'], function() {
     Route::get('lang/{language}', 'LocalizationController@changeLanguage')->name('localization');
-
     Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
         Route::name('admin.')->group(function() {
             Route::get('login', 'LoginController@getLogin')->name('getLogin');
             Route::post('login', 'LoginController@postLogin')->name('postLogin');
             Route::get('logout', 'LoginController@logout')->name('logout');
-
             Route::group(['middleware' => 'checkAdminLogin'], function() {
                 Route::get('change_password', 'ChangePasswordController@getChangePassword')->name('getChangePassword');
                 Route::post('change_password', 'ChangePasswordController@postChangePassword')->name('postChangePassword');
@@ -36,10 +34,12 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::get('approved-order/{id}', 'OrderController@approvedOrder')->name('order.approved');
                 Route::get('rejected-order/{id}', 'OrderController@rejectedOrder')->name('order.rejected');
 
+                Route::get('import-product/{id}', 'ImportProductController@getViewImportProduct')->name('getImportProduct');
+                Route::post('import-product/{id}', 'ImportProductController@importProduct')->name('postImportProduct');
+                Route::get('list-import', 'ImportProductController@listImportProduct')->name('listImportProduct');
             });
         });
     });
-
     Route::get('login', 'LoginController@getLogin')->name('getLogin');
     Route::post('login', 'LoginController@postLogin')->name('postLogin');
     Route::get('logout', 'LoginController@logout')->name('logout');
@@ -54,7 +54,6 @@ Route::group(['middleware' => 'localization'], function() {
     Route::get('cart', 'CartController@cart')->name('viewCart');
     Route::post('delete-one', 'CartController@deleteOneItem')->name('deleteOneItem');
     Route::get('delete-all', 'CartController@deleteAllItem')->name('deleteAllItem');
-
     Route::group(['middleware' => 'checkUserLogin'], function() {
         Route::get('checkout', 'OrderController@getListItem')->name('getListItem');
         Route::post('checkout', 'OrderController@checkout')->name('checkout');

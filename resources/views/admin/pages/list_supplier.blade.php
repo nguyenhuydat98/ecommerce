@@ -37,10 +37,11 @@
                                                 <td>{{ $supplier->name }}</td>
                                                 <td>{{ $supplier->address }}</td>
                                                 <td>{{ $supplier->phone }}</td>
-                                                <td>{{ $supplier->created_at }}</td>
-                                                <td>{{ $supplier->updated_at }}</td>
+                                                <td>{{ $supplier->created_at->format('H:i:s d/m/yy') }}</td>
+                                                <td>{{ $supplier->updated_at->format('H:i:s d/m/yy') }}</td>
                                                 <td>
-                                                    <a href="{{ route('admin.suppliers.edit', [$supplier->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044</i></a>
+                                                    <a href="{{ route('admin.getImportProduct', [$supplier->id]) }}" class="btn btn-info btn-sm"><i class="fa fa-fw fa-lg">&#xf0fe;</i></a>
+                                                    <a href="{{ route('admin.suppliers.edit', [$supplier->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044;</i></a>
                                                     @include('admin.modals.delete_supplier')
                                                 </td>
                                             </tr>

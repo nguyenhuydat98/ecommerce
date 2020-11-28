@@ -1,0 +1,33 @@
+.wrap-admin-import-product-page .group-supplier {
+    min-height: 30px;
+    margin-top: 10px;
+}
+
+.wrap-admin-import-product-page .group-supplier .title {
+    display: inline-block;
+    float: left;
+    width: 30%;
+    font-size: 16px;
+    font-weight: 600;
+    color: #848484;
+}
+
+.wrap-admin-import-product-page .group-supplier .content {
+    display: inline-block;
+    float: left;
+    width: 70%;
+    font-size: 16px;
+}
+
+.wrap-admin-import-product-page #tbl-list-product {
+    margin: 0 auto;
+}
+
+.wrap-admin-import-product-page #th-stt {
+    width: 70px;
+    text-align: left;
+}
+
+.wrap-admin-import-product-page #th-btn {
+    width: 70px;
+}

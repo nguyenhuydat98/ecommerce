@@ -43,15 +43,32 @@
     margin: 0 auto;
 }
 
-.wrap-user-order-detail-page .btn_3 {
-    width: 90px;
+.wrap-user-order-detail-page #cancel-order {
+    width: 35%;
     display: block;
-    border: 0;
-    background-color: #ff0000;
-    color: #fff;
+    border: 1px solid #ff0000;
+    background-color: #fff;
+    color: #ff0000;
     font-weight: 600;
     margin: 0 auto;
-    padding: 5px;
+    text-align: center;
+}
+
+.wrap-user-order-detail-page #btn-rating {
+    border: 1px solid #ff0000;
+    background-color: #fff;
+    color: #ff0000;
+    font-weight: 500;
+    margin: 0 auto;
     text-align: center;
     text-transform: none;
+    padding: 5px 10px;
 }
+
+.wrap-user-order-detail-page #cancel-order:hover,
+.wrap-user-order-detail-page #btn-rating:hover {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+

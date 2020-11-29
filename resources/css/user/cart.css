@@ -23,6 +23,14 @@
 
 .wrap-user-cart-page .delete-all {
     background-color: #ff0000;
+    border: 0;
+    font-weight: 600;
+}
+
+.wrap-user-cart-page .delete-all:hover {
+    background-color: #fff;
+    color: #ff0000 !important;
+    border: 1px solid #ff0000 !important;
 }
 
 .wrap-user-cart-page .delete-all:hover {
@@ -42,8 +50,8 @@
 }
 
 .wrap-user-cart-page .td-color {
-    text-align: center;
-    min-width: 100px;
+text-align: center;
+min-width: 100px;
 }
 
 .wrap-user-cart-page td .image {
@@ -67,4 +75,30 @@
     text-align: right;
     font-weight: 600;
     font-size: 18px;
+}
+
+
+/*button change quantity*/
+.wrap-user-cart-page .product_count {
+    display: inline-block;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.wrap-user-cart-page .product_count input {
+    width: 80px !important;
+    border: 1px solid #eeeeee;
+    border-radius: 3px;
+}
+/*end button change quantity*/
+
+.wrap-user-cart-page #btn-update {
+    padding: 5px 10px;
+    font-size: 12px;
+    text-transform: none;
+}
+
+.wrap-user-cart-page #btn-update:hover {
+    cursor: pointer;
+    font-weight: 600;
 }

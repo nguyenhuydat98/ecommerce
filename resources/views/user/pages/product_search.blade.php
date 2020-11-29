@@ -1,7 +1,6 @@
 @extends('user.layouts.app')
 
 @section('content')
-    @include('user.elements.preload')
     <div class="wrap-user-product-page">
         <div class="slider-area ">
             <div class="single-slider slider-height2 d-flex align-items-center" data-background="{{ asset('storage/background.jpg') }}">
@@ -18,14 +17,6 @@
         </div>
         <section class="product_list section_padding">
             <div class="container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item active"><a href="{{ route('product') }}">{{ trans('user.product.all_product') }}</a></li>
-                        <li class="breadcrumb-item active">
-                            <a href="#">{{ $productInformations->first()->category->name }}</a>
-                        </li>
-                    </ol>
-                </nav>
                 <div class="row">
                     <div class="col-md-10">
                         <div class="product_list">
@@ -42,7 +33,6 @@
                                             <div class="product-info">
                                                 <div class="product-name">{{ $productInformation->name }}</div>
                                                 <div class="product-brand">{{ $productInformation->brand }}</div>
-                                                {{-- <div class="product-original"></div> --}}
                                                 <div class="product-current">
                                                     @if ($listMinPrice[$index] != $listMaxPrice[$index])
                                                         {{ number_format($listMinPrice[$index]) . " đ" }}

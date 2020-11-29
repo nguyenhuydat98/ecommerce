@@ -60,12 +60,6 @@
                     <div class="col-md-2">
                         <div class="product_sidebar">
                             <div class="single_sedebar">
-                                <form action="#">
-                                    <input type="text" name="#" placeholder="{{ trans('user.product.search') }} ...">
-                                    <i class="ti-search"></i>
-                                </form>
-                            </div>
-                            <div class="single_sedebar">
                                 <div class="select_option">
                                     <div class="select_option_list">{{ trans('user.product.category') }}</div>
                                     <div class="select_option_dropdown">

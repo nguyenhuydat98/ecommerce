@@ -111,4 +111,42 @@ class CartController extends Controller
 
         return redirect()->back();
     }
+
+    public function updateQuantity(Request $request)
+    {
+        if ($request->quantity > 0) {
+            $product = Product::findOrFail($request->product_id);
+            if ($request->quantity > $product->quantity) {
+                alert()->error(trans('user.sweetalert.whoops'), trans('user.sweetalert.quantity_not_enough'));
+
+                return redirect()->back();
+            }
+            $cart = Session::get('cart');
+            $numberOfItemInCart = Session::get('numberOfItemInCart');
+            $items = [];
+            foreach ($cart as $item) {
+                if ($item['product_id'] == $product->id) {
+                    $numberOfItemInCart = $numberOfItemInCart - $item['quantity'] + $request->quantity;
+                    Session::put('numberOfItemInCart', $numberOfItemInCart);
+                    Session::save();
+                    array_push($items, [
+                        'product_id' => $product->id,
+                        'quantity' => (int) $request->quantity,
+                        'color_id' => $item['color_id'],
+                    ]);
+
+                } else {
+                    array_push($items, $item);
+                }
+            }
+            Session::put('cart', $items);
+            Session::save();
+
+            return redirect()->back();
+        } else {
+            alert()->error("Thất bại", "Số lượng phải lớn hơn 0");
+
+            return redirect()->back();
+        }
+    }
 }

@@ -75,3 +75,16 @@
     float: left;
     width: 35%;
 }
+
+.wrap-user-checkout-page .checkout .btn_1 {
+    background-color: #ff0000;
+    color: #fff;
+    border: 1px solid #ff0000 !important;
+    font-weight: 600;
+}
+
+.wrap-user-checkout-page .checkout .btn_1:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #ff0000;
+}

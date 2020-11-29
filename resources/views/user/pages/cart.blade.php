@@ -34,7 +34,6 @@
                                         <th>{{ trans('user.cart.quantity') }}</th>
                                         <th>{{ trans('user.cart.color') }}</th>
                                         <th>{{ trans('user.cart.unit_price') }}</th>
-                                        <th>{{ trans('user.cart.total') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,21 +53,24 @@
                                                 <img class="image" src="{{ asset($item['image_link']) }}">
                                             </td>
                                             <td class="td-name">{{ $item['name'] }}</td>
-                                            <td class="td-quantity">{{ $item['quantity'] }}</td>
+                                            <td class="td-quantity">
+                                                <form action="{{ route('updateQuantity') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
+                                                    <div class="form-group">
+                                                        <div class="product_count">
+                                                            <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1">
+                                                        </div>
+                                                    </div>
+                                                    <input type="submit" class="btn_1" id="btn-update" value="Cập nhật">
+                                                </form>
+                                            </td>
                                             <td class="td-color">
                                                 {{ $item['color'] }}
                                             </td>
                                             <td class="td-price price">{{ number_format($item['unit_price']) . " VND" }}</td>
-                                            <td class="td-price price">{{ number_format($item['unit_price'] * $item['quantity']) . " VND" }}</td>
                                         </tr>
-                                        @php
-                                            $total += $item['unit_price'] * $item['quantity'];
-                                        @endphp
                                     @endforeach
-                                    <tr>
-                                        <td colspan="6" class="total-payment">{{ trans('user.cart.total_payment') }}</td>
-                                        <td class="td-price price-payment">{{ number_format($total) . " VND" }}</td>
-                                    </tr>
                                 </tbody>
                             </table>
                             <div>

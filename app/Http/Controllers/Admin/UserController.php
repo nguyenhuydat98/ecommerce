@@ -15,8 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $users = User::where('role_id', config('migration.role.user'))->get();
-        $users = User::all();
+        $users = User::orderBy('created_at', 'desc')->get();
 
         return view('admin.pages.list_user', compact('users'));
     }

@@ -13,3 +13,15 @@
 .wrap-user-login-page .custom a:hover {
     color: blue;
 }
+
+.wrap-user-login-page #btn-login {
+    color: #fff;
+    background-color: #2577fd;
+    font-weight: 600;
+}
+
+.wrap-user-login-page #btn-login:hover {
+    cursor: pointer;
+    color: #2577fd;
+    background-color: #fff;
+}

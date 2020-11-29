@@ -11,6 +11,7 @@ use App\Models\Order;
 use App\Http\Requests\RatingRequest;
 use Auth;
 use DB;
+use Alert;
 
 class ProductController extends Controller
 {
@@ -188,6 +189,42 @@ class ProductController extends Controller
         }
 
         return false;
+    }
 
+    // Tìm kiếm sản phẩm
+    public function search(Request $request)
+    {
+        $productInformations = ProductInformation::where('name', 'like', "%" . $request->keyword . "%")
+            ->paginate(config('setting.paginate.product'));
+        if (count($productInformations) > 0) {
+            $categories = Category::all();
+            $listMinPrice = [];
+            $listMaxPrice = [];
+            foreach ($productInformations as $productInformation) {
+                $minPrice = $productInformation->products->first()->unit_price;
+                $maxPrice = $minPrice;
+                foreach ($productInformation->products as $product) {
+                    if ($minPrice > $product->unit_price) {
+                        $minPrice = $product->unit_price;
+                    }
+                    if ($maxPrice < $product->unit_price) {
+                        $maxPrice = $product->unit_price;
+                    }
+                }
+                array_push($listMinPrice, $minPrice);
+                array_push($listMaxPrice, $maxPrice);
+            }
+
+            return view('user.pages.product_search', compact(
+                'categories',
+                'productInformations',
+                'listMinPrice',
+                'listMaxPrice'
+            ));
+        } else {
+            alert()->error(trans('user.sweetalert.whoops'), "Không tìm được sản phẩm phù hợp");
+
+            return redirect()->back();
+        }
     }
 }

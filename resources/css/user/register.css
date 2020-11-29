@@ -11,3 +11,15 @@
 .wrap-user-register-page .custom a:hover {
     color: blue;
 }
+
+.wrap-user-register-page #btn-register {
+    color: #fff;
+    background-color: #2577fd;
+    font-weight: 600;
+}
+
+.wrap-user-register-page #btn-register:hover {
+    cursor: pointer;
+    color: #2577fd;
+    background-color: #fff;
+}

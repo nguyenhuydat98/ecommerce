@@ -39,7 +39,7 @@
                                             <input type="checkbox" id="f-option" name="remember">
                                             <label for="f-option">{{ trans('user.login.remember_me') }}</label>
                                         </div>
-                                        <input type="submit" class="btn_3" value="{{ trans('user.login.submit') }}">
+                                        <input type="submit" class="btn_3" value="{{ trans('user.login.submit') }}" id="btn-login">
                                         <div class="custom">
                                             <a class="forgot" href="#">{{ trans('user.login.forgot_password') }}</a>
                                             <a class="register" href="{{ route('getRegister') }}">{{ trans('user.login.register_an_account') }}</a>

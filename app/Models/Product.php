@@ -42,7 +42,9 @@ class Product extends Model
 
     public function suppliers()
     {
-        return $this->belongsToMany(Supplier::class)->withTimestamps();
+        return $this->belongsToMany(Supplier::class)
+            ->withPivot('admin_id', 'quantity', 'import_price')
+            ->withTimestamps();
     }
 
     public function orders()

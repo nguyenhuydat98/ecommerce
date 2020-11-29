@@ -8,7 +8,7 @@
                 <div class="col-lg-7">
                     <h1 class="page-header">Danh Sách Đơn Hàng</h1>
                 </div>
-                 <div class="col-lg-5" id="message-status">
+                <div class="col-lg-5" id="message-status">
                     @if (session('message_rejected'))
                         <div class="alert alert-success alert-dismissible fade in">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

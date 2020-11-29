@@ -19,10 +19,10 @@
                                         <tr>
                                             <th>#</th>
                                             <th>{{ trans('admin.user_management.email') }}</th>
-                                            <th>{{ trans('admin.user_management.role') }}</th>
                                             <th>{{ trans('admin.user_management.name') }}</th>
                                             <th>{{ trans('admin.user_management.address') }}</th>
                                             <th>{{ trans('admin.user_management.phone') }}</th>
+                                            <th>Ngày đăng ký</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -34,32 +34,12 @@
                                         <tr>
                                             <td>{{ $index++ }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>
-                                                @switch ($user->role_id)
-                                                    @case (config('migration.role.user'))
-                                                        {{ trans('admin.user_management.role_user') }}
-                                                        @break
-
-                                                    @case (config('migration.role.management'))
-                                                        {{ trans('admin.user_management.role_management') }}
-                                                        @break
-
-                                                    @case (config('migration.role.admin_product'))
-                                                        {{ trans('admin.user_management.role_admin_product') }}
-                                                        @break
-
-                                                    @case (config('migration.role.admin_order'))
-                                                        {{ trans('admin.user_management.role_admin_order') }}
-                                                        @break
-                                                @endswitch
-                                            </td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->address }}</td>
                                             <td>{{ $user->phone }}</td>
+                                            <td>{{ $user->created_at->format('H:i:s d/m/yy') }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e</i></a>
-                                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044</i></a>
-                                                <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-lg">&#xf014</i></a>
+                                                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e;</i></a>
                                             </td>
                                         </tr>
                                         @endforeach

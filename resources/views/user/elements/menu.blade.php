@@ -2,14 +2,14 @@
     <div class="header-bottom  header-sticky">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
+                <div class="col-lg-1">
                     <div class="logo">
                         <a href="{{ route('home') }}">
                            <img src="{{ asset('storage/logo.png') }}" alt="LOGO">
                         </a>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
+                <div class="col-lg-5">
                     <div class="main-menu f-right d-none d-lg-block">
                         <nav>
                             <ul id="navigation">
@@ -30,16 +30,27 @@
                     </div>
                 </div>
 
-                <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
+                <div class="col-lg-6 fix-card">
                     <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
+                        <li> <!-- Search product -->
+                            <li class="d-none d-xl-block">
+                                <div class="form-box f-right ">
+                                    <form action="{{ route('searchProduct') }}" method="GET">
+                                        @csrf
+                                        <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm" id="input-search" required>
+                                        <input type="submit" value="Tìm kiếm" id="btn-search">
+                                    </form>
+                                </div>
+                             </li>
+                        </li>
                         <li> <!-- Cart -->
                             <div class="shopping-card">
                                 <a href="{{ route('viewCart') }}">
-                                    <i class="fas fa-shopping-cart"></i>
+                                    <i class="fas fa-shopping-cart" id="icon-cart"></i>
                                     @if (Session::has('numberOfItemInCart'))
-                                        <span class="badge badge-pill badge-primary">{{ Session::get('numberOfItemInCart') }}</span>
+                                        <span class="badge badge-pill badge-primary" id="number-item">{{ Session::get('numberOfItemInCart') }}</span>
                                     @else
-                                        <span class="badge badge-pill badge-primary">0</span>
+                                        <span class="badge badge-pill badge-primary" id="number-item">0</span>
                                     @endif
                                 </a>
                             </div>

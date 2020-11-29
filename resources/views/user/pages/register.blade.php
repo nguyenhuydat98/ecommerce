@@ -46,7 +46,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-12 form-group">
-                                        <input type="submit" class="btn_3" value="{{ trans('user.register.submit') }}">
+                                        <input type="submit" class="btn_3" value="{{ trans('user.register.submit') }}" id="btn-register">
                                         <div class="custom">
                                             <a class="back-login" href="{{ route('getLogin') }}">{{ trans('user.register.back_to_login') }}</a>
                                         </div>

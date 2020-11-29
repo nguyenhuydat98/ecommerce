@@ -5,5 +5,57 @@
     font-weight: 600;
     letter-spacing: 0.5px;
     padding: 20px 10px;
+    margin-top: 23px;
+}
+
+.wrap-user-menu-element #icon-cart {
+    position: relative;
+}
+
+.wrap-user-menu-element #number-item {
+    position: absolute;
+    top: 3px;
+    left: 60px;
+}
+
+/*search*/
+.wrap-user-menu-element .form-box {
+    width: 90% !important;
+    margin-top: 13px;
+}
+
+.wrap-user-menu-element #input-search {
+    border: 1px solid #585858;
+    border-radius: 5px;
+    width: 65%;
+    padding: 5px 10px;
+}
+
+.wrap-user-menu-element #btn-search {
+    width: 73px;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-left: -4px;
+    padding: 9px 4px;
+    background-color: #0000ff;
+    color: #fff;
+    font-weight: 600;
+}
+
+.wrap-user-menu-element #btn-search:hover {
+    cursor: pointer;
+}
+/*end search*/
+
+.wrap-user-menu-element .shopping-card {
+    margin-top: 10px;
+    margin-left: -30px;
+}
+
+.wrap-user-menu-element .header-btn {
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 20px 10px !important;
+    margin-left: 10px;
     margin-top: 13px;
 }

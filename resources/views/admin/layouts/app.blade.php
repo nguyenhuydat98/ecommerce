@@ -30,6 +30,7 @@
     <script src="{{ asset('bower_components/bower_ecommerce/admin/js/startmin.js') }}"></script>
     <script src="{{ asset('bower_components/bower_ecommerce/admin/js/dataTables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('bower_components/bower_ecommerce/admin/js/dataTables/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bower_components/chart.js/dist/Chart.min.js') }}"></script>
 
     @yield('js')
 </body>

@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "bower_ecommerce": "git@github.com:nguyenhuydat98/bower_ecommerce.git"
+    "bower_ecommerce": "git@github.com:nguyenhuydat98/bower_ecommerce.git",
+    "chart.js": "^2.9.4"
   }
 }

@@ -34,11 +34,15 @@
 
     "admin.menu.admin_management": "Admin Management",
     "admin.menu.category_management": "Category Management",
+    "admin.menu.import_product": "Import Product",
+    "admin.menu.list_import": "Import Product",
     "admin.menu.order_management": "Order Management",
     "admin.menu.product_management": "Product Management",
     "admin.menu.sale_management": "Sale Management",
     "admin.menu.supplier_management": "Supplier Management",
     "admin.menu.search": "Search ..",
+    "admin.menu.statistic_order": "Order Statistic",
+    "admin.menu.statistic_product": "Product Statistic",
     "admin.menu.summary_report": "Summary Report",
     "admin.menu.user_management": "User Management",
 
@@ -160,7 +164,12 @@
     "admin.sale_management.list.title": "List Sale",
     "admin.sale_management.list.type": "Promotion form",
 
+    "admin.summary_report.category": "Categories",
+    "admin.summary_report.order": "Orders",
+    "admin.summary_report.product": "Products",
     "admin.summary_report.title": "Summary Report",
+    "admin.summary_report.user": "Users",
+    "admin.summary_report.view_detail": "View detail",
 
     "admin.supplier_management.address": "Address",
     "admin.supplier_management.created_at": "Create Time",

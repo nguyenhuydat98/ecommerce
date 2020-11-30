@@ -42,15 +42,25 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-table fa-fw"></i> Nhập hàng<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.import_product') }}<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a href="{{ route('admin.suppliers.index') }}">{{ trans('admin.menu.supplier_management') }}</a></li>
-                        <li><a href="{{ route('admin.listImportProduct') }}">Danh sách hóa đơn</a></li>
+                        <li><a href="{{ route('admin.listImportProduct') }}">{{ trans('admin.menu.list_import') }}</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="{{ route('admin.orders.index') }}">
                         <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.order_management') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.chartOrder') }}">
+                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.statistic_order') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.statistic_product') }}
                     </a>
                 </li>
                 {{-- <li>

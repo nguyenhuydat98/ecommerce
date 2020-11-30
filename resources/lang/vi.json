@@ -34,11 +34,15 @@
 
     "admin.menu.admin_management": "Quản lí nhân viên",
     "admin.menu.category_management": "Quản lí danh mục",
+    "admin.menu.import_product": "Nhập hàng",
+    "admin.menu.list_import": "Danh sách hóa đơn",
     "admin.menu.order_management": "Quản lí đơn hàng",
     "admin.menu.product_management": "Quản lí sản phẩm",
     "admin.menu.sale_management": "Quản lí khuyến mãi",
     "admin.menu.supplier_management": "Quản lí nhà cung cấp",
     "admin.menu.search": "Tìm kiếm ..",
+    "admin.menu.statistic_order": "Thống kê đơn hàng",
+    "admin.menu.statistic_product": "Thống kê sản phẩm",
     "admin.menu.summary_report": "Báo cáo tổng hợp",
     "admin.menu.user_management": "Quản lí người dùng",
 
@@ -160,7 +164,12 @@
     "admin.sale_management.list.title": "Danh sách khuyến mãi",
     "admin.sale_management.list.type": "Hình thức",
 
+    "admin.summary_report.category": "Danh mục",
+    "admin.summary_report.order": "Đơn hàng",
+    "admin.summary_report.product": "Sản phẩm",
     "admin.summary_report.title": "Báo Cáo Tổng Hợp",
+    "admin.summary_report.user": "Người dùng",
+    "admin.summary_report.view_detail": "Xem chi tiết",
 
     "admin.supplier_management.address": "Địa chỉ",
     "admin.supplier_management.created_at": "Thòi gian tạo",

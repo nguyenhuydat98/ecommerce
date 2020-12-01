@@ -5,25 +5,26 @@
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-7">
                     <h1 class="page-header">{{ trans('admin.product_detail.title') }}</h1>
+                </div>
+                <div class="col-lg-5" id="flash-session">
+                    @if (session('error_color'))
+                        <div class="alert alert-danger alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ session('error_color') }}</strong>
+                        </div>
+                    @elseif (session('done'))
+                        <div class="alert alert-success alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ session('done') }}</strong>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
-                {{-- <div class="group-tabs">
-                    <ul class="nav nav-pills">
-                        <li class="active"><a href="#product" data-toggle="tab">{{ trans('admin.product_detail.product') }}</a></li>
-                        <li><a href="#color" data-toggle="tab">{{ trans('admin.product_detail.list_color') }}</a></li>
-                        <li><a href="#image" data-toggle="tab">{{ trans('admin.product_detail.image') }}</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" id="product" active></div>
-                        <div class="tab-pane fade" id="color"></div>
-                        <div class="tab-pane fade" id="image"></div>
-                    </div>
-                </div> --}}
                 <div class="col-lg-12" id="btn-support">
                     <a href="{{ route('admin.product_informations.index') }}" class="btn btn-success">{{ trans('admin.product_detail.back') }}</a>
                 </div>
@@ -47,7 +48,7 @@
                 </div>
 
                 <div class="col-lg-9">
-                    <a href="#" class="btn btn-primary">Thêm phân loại mới</a>
+                    @include ('admin.modals.create_product')
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -72,9 +73,8 @@
                                             <td>{{ $product->quantity }}</td>
                                             <td>{{ number_format($product->unit_price) . " đ" }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e</i></a>
-                                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044</i></a>
-                                                <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-lg">&#xf014;</i></a>
+                                                @include ('admin.modals.edit_product')
+                                                @include ('admin.modals.delete_product')
                                             </td>
                                         </tr>
                                         @endforeach

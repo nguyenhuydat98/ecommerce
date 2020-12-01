@@ -26,10 +26,12 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::get('/', 'HomeController@dashboard')->name('dashboard');
                 Route::get('chart-order', 'ChartOrderController@getView')->name('chartOrder');
                 Route::get('status-by-month', 'ChartOrderController@getStatusByMonth')->name('getStatusByMonth');
-                Route::get('users', 'UserController@index')->name('users.index');
+                Route::resource('users', 'UserController')->only(['index', 'show']);
+                Route::resource('admins', 'AdminController');
                 Route::resource('categories', 'CategoryController');
                 Route::resource('suppliers', 'SupplierController');
                 Route::resource('product_informations', 'ProductInformationController');
+                Route::resource('products', 'ProductController')->only(['store', 'update', 'destroy']);
                 Route::resource('sales', 'SaleController');
                 Route::resource('orders', 'OrderController')->only(['index', 'show']);
 

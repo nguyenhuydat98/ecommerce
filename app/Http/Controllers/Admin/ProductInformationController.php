@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\ProductInformation;
 use App\Models\Product;
 use App\Models\Image;
+use App\Models\Color;
 use App\Http\Requests\ProductInformationRequest;
 
 class ProductInformationController extends Controller
@@ -71,12 +72,13 @@ class ProductInformationController extends Controller
     public function show($id)
     {
         try {
+            $colors = Color::all();
             $productInformation = ProductInformation::findOrFail($id);
             $products = Product::where('product_information_id', $productInformation->id)
                 ->with('images')
                 ->get();
 
-            return view('admin.pages.product_detail', compact('productInformation', 'products'));
+            return view('admin.pages.product_detail', compact('productInformation', 'products', 'colors'));
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -133,20 +135,5 @@ class ProductInformationController extends Controller
     public function destroy($id)
     {
         dd("Nếu xóa SP thì phải xóa cả product_details và images của SP đó");
-    }
-
-    public function uploadFile(Request $request, $idProduct)
-    {
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $file) {
-                Image::create([
-                    'product_id' => $idProduct,
-                    'image_link' => 'storage/' . $file->getClientOriginalName(),
-                ]);
-                $file->move('storage', $file->getClientOriginalName());
-            }
-        }
-
-        return true;
     }
 }

@@ -38,8 +38,8 @@
                                             <td>{{ $productInformation->brand }}</td>
                                             <td>{{ $listAmount[$index++] }}</td>
                                             <td>
-                                                <a href="{{ route('admin.product_informations.show', [$productInformation->id]) }}" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e</i></a>
-                                                <a href="{{ route('admin.product_informations.edit', [$productInformation->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044</i></a>
+                                                <a href="{{ route('admin.product_informations.show', [$productInformation->id]) }}" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e;</i></a>
+                                                <a href="{{ route('admin.product_informations.edit', [$productInformation->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044;</i></a>
                                                 @include('admin.modals.delete_product_information')
                                             </td>
                                         </tr>

@@ -36,7 +36,7 @@
                                             <td>{{ $category->created_at->format('H:i:s d/m/yy') }}</td>
                                             <td>{{ $category->updated_at->format('H:i:s d/m/yy') }}</td>
                                             <td>
-                                                <a href="{{ route('admin.categories.edit', [$category->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044</i></a>
+                                                <a href="{{ route('admin.categories.edit', [$category->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044;</i></a>
                                                 @include('admin.modals.delete_category')
                                             </td>
                                         </tr>

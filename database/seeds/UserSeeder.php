@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
                 'name' => 'User',
                 'email' => 'user@gmail.com',
                 'password' => '$2y$10$fSz9qggDZ2LYzXFzYHLTmOGEUzUmmO5bmBuHaBf7fPX3wppSareEG',
-                'avatar' =>'storage/avatar_default.png',
+                'avatar' => config('setting.default.avatar'),
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],

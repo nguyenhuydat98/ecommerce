@@ -17,7 +17,7 @@
                         <i class="fa fa-dashboard fa-fw"></i> {{ trans('admin.menu.summary_report') }} </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admin.admins.index') }}">
                         <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.admin_management') }}
                     </a>
                 </li>
@@ -55,12 +55,12 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.chartOrder') }}">
-                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.statistic_order') }}
+                        <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('admin.menu.statistic_order') }}
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.statistic_product') }}
+                        <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('admin.menu.statistic_product') }}
                     </a>
                 </li>
                 {{-- <li>

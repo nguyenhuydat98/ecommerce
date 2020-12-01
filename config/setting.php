@@ -15,6 +15,10 @@ return [
         'canceled'  => 4,
     ],
 
+    'default' => [
+        'avatar' => 'storage/avatar_default.png',
+    ],
+
     // 'color' => [
     //     'black'  => 1,
     //     'white'  => 2,
@@ -31,4 +35,5 @@ return [
         'percent' => 1,
         'amount' => 2,
     ],
+
 ];

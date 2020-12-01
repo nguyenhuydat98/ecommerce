@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="wrap-admin-create-product-page">
+<div class="wrap-admin-create-product-information-page">
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="row">
-                <form action="{{ route('admin.product_informations.store') }}" method="POST" {{-- enctype="multipart/form-data" --}}>
+                <form action="{{ route('admin.product_informations.store') }}" method="POST">
                     <div class="col-lg-6">
                         @csrf
                         <div class="form-group">

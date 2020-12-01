@@ -39,7 +39,7 @@
                                             <td>{{ $user->phone }}</td>
                                             <td>{{ $user->created_at->format('H:i:s d/m/yy') }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e;</i></a>
+                                                <a href="{{ route('admin.users.show', [$user->id]) }}" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e;</i></a>
                                             </td>
                                         </tr>
                                         @endforeach

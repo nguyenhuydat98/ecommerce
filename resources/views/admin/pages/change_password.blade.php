@@ -5,7 +5,9 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
-                <img src="{{ asset('storage/logo.png') }}" alt="logo" class="img-center">
+                <a href="{{ route('admin.dashboard') }}">
+                    <img src="{{ asset('storage/logo.png') }}" alt="logo" class="img-center">
+                </a>
                 <h3 class="text-center">{{ trans('admin.login.change_password') }}</h3>
                 <div class="panel-body">
                     <form action="{{ route('admin.postChangePassword') }}" method="POST">

@@ -20,6 +20,8 @@ Route::group(['middleware' => 'localization'], function() {
             Route::get('login', 'LoginController@getLogin')->name('getLogin');
             Route::post('login', 'LoginController@postLogin')->name('postLogin');
             Route::get('logout', 'LoginController@logout')->name('logout');
+            Route::get('forgot-password', 'ForgotPasswordController@forgotPassword')->name('forgotPassword');
+            Route::post('send-new-password', 'ForgotPasswordController@sendNewPassword')->name('sendNewPassword');
             Route::group(['middleware' => 'checkAdminLogin'], function() {
                 Route::get('change_password', 'ChangePasswordController@getChangePassword')->name('getChangePassword');
                 Route::post('change_password', 'ChangePasswordController@postChangePassword')->name('postChangePassword');
@@ -49,6 +51,8 @@ Route::group(['middleware' => 'localization'], function() {
     Route::get('logout', 'LoginController@logout')->name('logout');
     Route::get('register', 'RegisterController@getRegister')->name('getRegister');
     Route::post('register', 'RegisterController@postRegister')->name('postRegister');
+    Route::get('forgot-password', 'ForgotPasswordController@forgotPassword')->name('forgotPassword');
+    Route::post('send-new-password', 'ForgotPasswordController@sendNewPassword')->name('sendNewPassword');
     Route::get('/', 'HomeController@home')->name('home');
     Route::get('product', 'ProductController@index')->name('product');
     Route::get('product-category/{id}', 'ProductController@getByCategory')->name('productByCategory');

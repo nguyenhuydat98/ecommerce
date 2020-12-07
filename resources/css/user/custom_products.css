@@ -1,0 +1,36 @@
+#custom-products .btn_3 {
+    background-color: #2577fd;
+    color: #fff;
+    font-weight: 500;
+    width: 80px;
+    padding: 5px 17px;
+    text-transform: none;
+    text-align: center;
+}
+
+#custom-products .btn_3:hover {
+    cursor: pointer;
+    background-color: #00008b;
+}
+
+#custom-products .select_option {
+    margin-bottom: 30px;
+}
+
+#custom-products .filter-by-price {
+    border-radius: 5px;
+}
+
+#custom-products #btn-filter {
+    background-color: #2577fd;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 9px;
+}
+
+.select_option_list:hover,
+#custom-products #btn-filter:hover {
+    cursor: pointer;
+    background-color: #00008b;
+}

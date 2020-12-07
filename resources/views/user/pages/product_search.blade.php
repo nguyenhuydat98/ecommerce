@@ -19,6 +19,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10">
+                        <p class="title-result">Kết quả tìm kiếm cho "{{ $keyWord }}"</p>
                         <div class="product_list">
                             <div class="row">
                                 @php
@@ -32,6 +33,17 @@
                                             </a>
                                             <div class="product-info">
                                                 <div class="product-name">{{ $productInformation->name }}</div>
+                                                @if ($productInformation->rate == null)
+                                                    <span class="product-rate">chưa có đánh giá</span>
+                                                @else
+                                                    @php
+                                                        $rate = $productInformation->rate;
+                                                    @endphp
+                                                    @for($star = 1; $star <= 5; $star++)
+                                                        <span class="fa fa-star @if ($star <= $rate) checked @endif"></span>
+                                                    @endfor
+                                                    <span class="product-rate">({{ $productInformation->rate }})</span>
+                                                @endif
                                                 <div class="product-brand">{{ $productInformation->brand }}</div>
                                                 <div class="product-current">
                                                     @if ($listMinPrice[$index] != $listMaxPrice[$index])
@@ -51,18 +63,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <div class="product_sidebar">
-                            <div class="single_sedebar">
-                                <div class="select_option">
-                                    <div class="select_option_list">{{ trans('user.product.category') }}</div>
-                                    <div class="select_option_dropdown">
-                                        @foreach ($categories as $category)
-                                            <p><a href="{{ route('productByCategory', [$category->id]) }}">{{ $category->name }}</a></p>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @include('user.elements.custom_products')
                     </div>
                 </div>
             </div>

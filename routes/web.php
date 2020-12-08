@@ -56,6 +56,9 @@ Route::group(['middleware' => 'localization'], function() {
     Route::get('/', 'HomeController@home')->name('home');
     Route::get('product', 'ProductController@index')->name('product');
     Route::get('product-category/{id}', 'ProductController@getByCategory')->name('productByCategory');
+    Route::get('product/sort-by-price-asc', 'ProductController@sortByPriceAsc')->name('sortByPriceAsc');
+    Route::get('product/sort-by-price-desc', 'ProductController@sortByPriceDesc')->name('sortByPriceDesc');
+    Route::get('product/filter-by-price', 'ProductController@filterByPrice')->name('filterByPrice');
     Route::get('product/{id}', 'ProductController@getProductDetail')->name('productDetail');
     Route::get('product/quantity/{id}', 'ProductController@getQuantityOfProductDetail')->name('quantity');
     Route::post('add-to-cart', 'CartController@addToCart')->name('addToCart');

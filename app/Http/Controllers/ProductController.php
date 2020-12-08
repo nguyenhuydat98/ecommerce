@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Order;
 use App\Http\Requests\RatingRequest;
+use App\Http\Requests\FilterProductRequest;
 use Auth;
 use DB;
 use Alert;
@@ -194,6 +195,7 @@ class ProductController extends Controller
     // Tìm kiếm sản phẩm
     public function search(Request $request)
     {
+        $keyWord = $request->keyword;
         $productInformations = ProductInformation::where('name', 'like', "%" . $request->keyword . "%")
             ->paginate(config('setting.paginate.product'));
         if (count($productInformations) > 0) {
@@ -219,12 +221,145 @@ class ProductController extends Controller
                 'categories',
                 'productInformations',
                 'listMinPrice',
-                'listMaxPrice'
+                'listMaxPrice',
+                'keyWord'
             ));
         } else {
             alert()->error(trans('user.sweetalert.whoops'), "Không tìm được sản phẩm phù hợp");
 
             return redirect()->back();
         }
+    }
+
+    // Sắp xếp SP tăng dần theo giá bán
+    public function sortByPriceAsc()
+    {
+        $categories = Category::all();
+        $products = Product::orderBy('unit_price')->get();
+        $listProduct = $products->groupBy('product_information_id');
+
+        $listProductInformation = [];
+        foreach ($listProduct as $key => $product) {
+            $productInformation = ProductInformation::where('id', $key)->with('products.images')->get();
+            array_push($listProductInformation, $productInformation);
+        }
+
+        $listMinPrice = [];
+        $listMaxPrice = [];
+        foreach ($listProductInformation as $productInformation) {
+            $minPrice = $productInformation[0]->products->first()->unit_price;
+            $maxPrice = $minPrice;
+            foreach ($productInformation->first()->products as $product) {
+                if ($minPrice > $product->unit_price) {
+                    $minPrice = $product->unit_price;
+                }
+                if ($maxPrice < $product->unit_price) {
+                    $maxPrice = $product->unit_price;
+                }
+            }
+            array_push($listMinPrice, $minPrice);
+            array_push($listMaxPrice, $maxPrice);
+        }
+
+        return view('user.pages.product_sort_by_price', compact(
+            'categories',
+            'listProductInformation',
+            'listMinPrice',
+            'listMaxPrice'
+        ));
+    }
+
+    // Sắp xếp SP giảm dần theo giá bán
+    public function sortByPriceDesc()
+    {
+        $categories = Category::all();
+        $products = Product::orderBy('unit_price', 'desc')->get();
+        $listProduct = $products->groupBy('product_information_id');
+
+        $listProductInformation = [];
+        foreach ($listProduct as $key => $product) {
+            $productInformation = ProductInformation::where('id', $key)->with('products.images')->get();
+            array_push($listProductInformation, $productInformation);
+        }
+
+        $listMinPrice = [];
+        $listMaxPrice = [];
+        foreach ($listProductInformation as $productInformation) {
+            $minPrice = $productInformation[0]->products->first()->unit_price;
+            $maxPrice = $minPrice;
+            foreach ($productInformation->first()->products as $product) {
+                if ($minPrice > $product->unit_price) {
+                    $minPrice = $product->unit_price;
+                }
+                if ($maxPrice < $product->unit_price) {
+                    $maxPrice = $product->unit_price;
+                }
+            }
+            array_push($listMinPrice, $minPrice);
+            array_push($listMaxPrice, $maxPrice);
+        }
+
+        return view('user.pages.product_sort_by_price', compact(
+            'categories',
+            'listProductInformation',
+            'listMinPrice',
+            'listMaxPrice'
+        ));
+    }
+
+    // Lọc SP theo giá bán
+    public function filterByPrice(FilterProductRequest $request)
+    {
+        $from = (int) $request->from_price;
+        $to = (int) $request->to_price;
+        if ($from > $to) {
+            alert()->error(trans('user.sweetalert.whoops'), "Không tìm được sản phẩm phù hợp");
+
+            return redirect()->back();
+        }
+        $products = Product::where([
+            ['unit_price', '>=', $from],
+            ['unit_price', '<=', $to],
+        ])->get();
+
+        if (count($products) == 0) {
+            alert()->error(trans('user.sweetalert.whoops'), "Không tìm được sản phẩm phù hợp");
+
+            return redirect()->back();
+        }
+        $listProducts = $products->groupBy('product_information_id');
+
+        $categories = Category::all();
+        $listProductInformation = [];
+        foreach ($listProducts as $key => $product) {
+            $productInformation = ProductInformation::where('id', $key)->with('products.images')->get();
+            array_push($listProductInformation, $productInformation);
+        }
+
+        $listMinPrice = [];
+        $listMaxPrice = [];
+        foreach ($listProductInformation as $productInformation) {
+            $minPrice = $productInformation[0]->products->first()->unit_price;
+            $maxPrice = $minPrice;
+            foreach ($productInformation->first()->products as $product) {
+                if ($minPrice > $product->unit_price) {
+                    $minPrice = $product->unit_price;
+                }
+                if ($maxPrice < $product->unit_price) {
+                    $maxPrice = $product->unit_price;
+                }
+            }
+            array_push($listMinPrice, $minPrice);
+            array_push($listMaxPrice, $maxPrice);
+        }
+
+        return view('user.pages.product_filter_by_price', compact(
+            'categories',
+            'listProductInformation',
+            'listMinPrice',
+            'listMaxPrice',
+            'from',
+            'to'
+        ));
     }
 }

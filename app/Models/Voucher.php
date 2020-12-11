@@ -5,27 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Sale extends Model
+class Voucher extends Model
 {
     use SoftDeletes;
 
     protected $fillable = [
         'code',
-        'product_id',
         'name',
-        'description',
         'formality',
-        'percent',
-        'amount',
-        'type',
+        'value',
+        'value_order',
         'start_date',
         'end_date',
     ];
 
-    public $timestamps = true;
-
-    public function products()
+    public function orders()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Order::class);
     }
 }

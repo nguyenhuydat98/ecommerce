@@ -4,9 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use App\Models\Sale;
+use App\Models\Voucher;
 
-class SaleRequest extends FormRequest
+class VoucherRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,15 +28,15 @@ class SaleRequest extends FormRequest
         return [
             'code' => [
                 'required',
-                Rule::unique('sales', 'code')->ignore($this->sale),
+                'max:15',
+                Rule::unique('vouchers', 'code')->ignore($this->voucher),
             ],
             'name' => 'required',
-            'category_id' => 'bail|nullable|numeric',
-            'description' => 'required',
-            'type' => 'bail|required|numeric',
-            'detail_sale' => 'bail|required|numeric',
-            'start_date' => 'bail|required|date',
-            'end_date' => 'bail|required|date|after:start_date',
+            'formality' => 'required|numeric',
+            'value' => 'required|numeric|min:1',
+            'value_order' => 'required|numeric|min:0',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
         ];
     }
 }

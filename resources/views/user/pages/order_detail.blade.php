@@ -53,6 +53,22 @@
                             @endswitch
                         </span>
                     </div>
+                    @if ($voucher)
+                        <div class="group-info">
+                            <span class="title">Mã giảm giá</span>
+                            <span class="content">{{ $voucher->code }}</span>
+                        </div>
+                        <div class="group-info">
+                            <span class="title">Đã giảm giá</span>
+                            <span class="content">
+                                @if ($voucher->formality == config('setting.formality.percent'))
+                                    {{ $voucher->value . " %" }}
+                                @else
+                                    {{ number_format($voucher->value) . " đ" }}
+                                @endif
+                            </span>
+                        </div>
+                    @endif
                     <div class="group-info">
                         <span class="title">Giá trị đơn hàng</span>
                         <span class="content" id="total-payment">{{ number_format($order->total_payment) . " đ" }}</span>

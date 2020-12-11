@@ -21,6 +21,7 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::findOrFail($id);
+        $voucher = $order->voucher;
         $listProduct = [];
         foreach ($order->products as $product) {
             $prod = Product::findOrFail($product->pivot->product_id);
@@ -31,7 +32,7 @@ class OrderController extends Controller
             ]);
         }
 
-        return view('admin.pages.order_detail', compact('order', 'listProduct'));
+        return view('admin.pages.order_detail', compact('order', 'listProduct', 'voucher'));
     }
 
     public function rejectedOrder($id)

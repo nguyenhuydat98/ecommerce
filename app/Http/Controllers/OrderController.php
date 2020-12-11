@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\Voucher;
 use App\Http\Requests\CheckoutRequest;
 use Auth;
 use Session;
@@ -12,7 +13,7 @@ use DB;
 
 class OrderController extends Controller
 {
-    public function getListItem()
+    public function getListItem($idVoucher = null)
     {
         $cart = Session::get('cart');
         $user = Auth::user();
@@ -29,14 +30,27 @@ class OrderController extends Controller
                 'sale_id' => $product->sale_id,
             ]);
         }
+        $vouchers = Voucher::where('end_date', '>=', now())->get();
+        $chooseVoucher = null;
+        if ($idVoucher) {
+            $chooseVoucher = Voucher::findOrFail($idVoucher);
+        }
 
-        return view('user.pages.checkout', compact('user', 'productInCart'));
+        return view('user.pages.checkout', compact('user', 'productInCart', 'vouchers', 'chooseVoucher'));
     }
 
     public function checkout(CheckoutRequest $request)
     {
         DB::beginTransaction();
         try {
+            if ($request->voucher_id) {
+                $voucher = Voucher::findOrFail($request->voucher_id);
+                if (now() >= $voucher->end_date) {
+                    alert()->error(trans('user.sweetalert.whoops'), "Mã khuyến mại đã hết hạn");
+
+                    return redirect()->route('getListItem');
+                }
+            }
             $order = Order::create([
                 'user_id' => Auth::id(),
                 'name' => $request->name,
@@ -46,15 +60,15 @@ class OrderController extends Controller
                 'status' => config('setting.status.pending'),
                 'note' => $request->note,
             ]);
+            if ($request->voucher_id) {
+                $order->update([
+                    'voucher_id' => $request->voucher_id,
+                ]);
+            }
 
             $cart = Session::get('cart');
             foreach ($cart as $key => $item) {
                 $product = Product::findOrFail($item['product_id']);
-                // if ($product->sale_id == null) {
-                //     $price = $product->unit_price;
-                // } else {
-
-                // }
                 $price = $product->unit_price;
                 $order->products()->attach([
                     $key => [
@@ -68,6 +82,7 @@ class OrderController extends Controller
             Session::forget('cart');
             Session::put('numberOfItemInCart', 0);
             Session::save();
+            alert()->success(trans('user.sweetalert.done'), "Đơn hàng đang được xử lí");
             DB::commit();
 
             return redirect()->route('orderHistory');
@@ -115,6 +130,7 @@ class OrderController extends Controller
     public function getOrder($id)
     {
         $order = Order::findOrFail($id);
+        $voucher = $order->voucher;
         $listProduct = [];
         foreach ($order->products as $product) {
             $prod = Product::findOrFail($product->pivot->product_id);
@@ -125,7 +141,7 @@ class OrderController extends Controller
             ]);
         }
 
-        return view('user.pages.order_detail', compact('order', 'listProduct'));
+        return view('user.pages.order_detail', compact('order', 'listProduct', 'voucher'));
     }
 
     public function cancelOrder($id)
@@ -137,5 +153,12 @@ class OrderController extends Controller
         alert()->success(trans('user.sweetalert.done'), 'Đã hủy đơn hàng của bạn');
 
         return redirect()->back();
+    }
+
+    public function chooseVoucher(Request $request)
+    {
+        $voucher = Voucher::find($request->code);
+
+        return redirect()->route('getListItem', [$voucher->id]);
     }
 }

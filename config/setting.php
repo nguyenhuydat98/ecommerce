@@ -5,7 +5,6 @@ return [
         'management'    => 1,
         'admin_product' => 2,
         'admin_order'   => 3,
-
     ],
 
     'status' => [
@@ -32,8 +31,7 @@ return [
     ],
 
     'formality' => [
-        'percent' => 1,
-        'amount' => 2,
+        'percent' => 0,
+        'money' => 1,
     ],
-
 ];

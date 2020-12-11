@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="wrap-admin-create-category-page">
+<div class="wrap-admin-edit-category-page">
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">

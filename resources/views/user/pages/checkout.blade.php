@@ -68,17 +68,46 @@
                                                 <div class="unit-price">
                                                     {{ number_format($item['unit_price']) . " đ" }}
                                                 </div>
-                                            @else
-                                                {{-- <div class="sale-price"></div> --}}
                                             @endif
                                             <div class="quantity">{{ $item['quantity'] . " SP" }} </div>
                                             <div class="price">{{ number_format($item['unit_price'] * $item['quantity']) . " đ" }}</div>
                                         </li>
                                         @php
                                             $totalPayment += $item['unit_price'] * $item['quantity'];
+                                            $valueOrder = $totalPayment;
                                         @endphp
                                     @endforeach
                                 </ul>
+                                <div class="voucher">
+                                    <div class="voucher-btn">
+                                        <button class="btn_3" data-toggle="modal" id="list-voucher" data-target="#vouchers">Chọn Voucher</button>
+                                    </div>
+                                    <div class="voucher-choose">
+                                        @if ($chooseVoucher)
+                                            <div>Tổng đơn hàng: <span class="choose-voucher">{{ number_format($totalPayment) . " đ" }}</span></div>
+                                            {{-- tính lại tổng tiền cần thanh toán --}}
+                                            @if ($chooseVoucher->formality == config('setting.formality.percent'))
+                                                @php
+                                                    $totalPayment = (1 - 0.01*$chooseVoucher->value) * $totalPayment;
+                                                @endphp
+                                            @else
+                                                @php
+                                                    $totalPayment -= $chooseVoucher->value;
+                                                @endphp
+                                            @endif
+                                        @endif
+                                        @if ($chooseVoucher)
+                                            Voucher <span class="choose-voucher">{{ $chooseVoucher->code }}</span> giảm
+                                            @if ($chooseVoucher->formality == config('setting.formality.percent'))
+                                                <span class="choose-voucher">{{ $chooseVoucher->value . " %" }}</span>
+                                            @else
+                                                <span class="choose-voucher">{{ number_format($chooseVoucher->value) . " đ" }}</span>
+                                            @endif
+                                        @else
+                                            Chưa chọn Voucher
+                                        @endif
+                                    </div>
+                                </div>
                                 <div class="checkout">
                                     <div class="total-payment">
                                         <span>{{ trans('user.checkout.total_payment') }}: </span>
@@ -86,12 +115,16 @@
                                     </div>
                                     <div class="btn-checkout">
                                         <input type="hidden" name="payment" value="{{ $totalPayment }}">
+                                        @if ($chooseVoucher)
+                                            <input type="hidden" name="voucher_id" value="{{ $chooseVoucher->id }}">
+                                        @endif
                                         <input type="submit" class="btn_1 btn-payment" value="{{ trans('user.checkout.confirm_checkout') }}">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </form>
+                    @include('user.modals.vouchers')
                 </div>
             </div>
         </section>

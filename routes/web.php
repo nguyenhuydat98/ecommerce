@@ -34,7 +34,7 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::resource('suppliers', 'SupplierController');
                 Route::resource('product_informations', 'ProductInformationController');
                 Route::resource('products', 'ProductController')->only(['store', 'update', 'destroy']);
-                Route::resource('sales', 'SaleController');
+                Route::resource('vouchers', 'VoucherController');
                 Route::resource('orders', 'OrderController')->only(['index', 'show']);
 
                 Route::get('approved-order/{id}', 'OrderController@approvedOrder')->name('order.approved');
@@ -68,12 +68,13 @@ Route::group(['middleware' => 'localization'], function() {
     Route::post('cart-update-quantity', 'CartController@updateQuantity')->name('updateQuantity');
     Route::get('search-product', 'ProductController@search')->name('searchProduct');
     Route::group(['middleware' => 'checkUserLogin'], function() {
-        Route::get('checkout', 'OrderController@getListItem')->name('getListItem');
+        Route::get('checkout/{idVoucher?}', 'OrderController@getListItem')->name('getListItem');
         Route::post('checkout', 'OrderController@checkout')->name('checkout');
         Route::get('order-history', 'OrderController@getListOrder')->name('orderHistory');
         Route::get('order-history-by-status', 'OrderController@getListOrderByStatus')->name('orderHistoryByStatus');
         Route::get('order-detail/{id}', 'OrderController@getOrder')->name('orderDetail');
         Route::get('order-canceled/{id}', 'OrderController@cancelOrder')->name('cancelOrder');
         Route::post('rating/{id}', 'ProductController@rating')->name('rating');
+        Route::post('choose-voucher', 'OrderController@chooseVoucher')->name('chooseVoucher');
     });
 });

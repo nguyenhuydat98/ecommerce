@@ -37,8 +37,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.sales.index') }}">
-                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.sale_management') }}
+                    <a href="{{ route('admin.vouchers.index') }}">
+                        <i class="fa fa-table fa-fw"></i> {{ trans('admin.menu.voucher_management') }}
                     </a>
                 </li>
                 <li>
@@ -55,12 +55,7 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.chartOrder') }}">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('admin.menu.statistic_order') }}
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('admin.menu.statistic_product') }}
+                        <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('admin.menu.chart_order') }}
                     </a>
                 </li>
                 {{-- <li>

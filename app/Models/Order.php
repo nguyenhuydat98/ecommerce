@@ -19,6 +19,7 @@ class Order extends Model
         'total_payment',
         'status',
         'note',
+        'voucher_id',
     ];
 
     public $timestamps = true;
@@ -31,6 +32,11 @@ class Order extends Model
     public function admin()
     {
         return $this->belongsTo(Admin::class);
+    }
+
+    public function voucher()
+    {
+        return $this->belongsTo(Voucher::class);
     }
 
     public function products()

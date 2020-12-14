@@ -23,10 +23,12 @@ class CreateOrdersTable extends Migration
             $table->integer('total_payment');
             $table->tinyInteger('status');
             $table->string('note')->nullable();
+            $table->foreignId('voucher_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('admin_id')->references('id')->on('admins');
+            $table->foreign('voucher_id')->references('id')->on('vouchers');
         });
     }
 

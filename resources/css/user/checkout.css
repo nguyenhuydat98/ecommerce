@@ -48,9 +48,9 @@
 }
 
 /*.wrap-user-checkout-page .unit-price {
-    float: left;
-    width: 32%;
-    text-align: center;
+float: left;
+width: 32%;
+text-align: center;
 }*/
 
 .wrap-user-checkout-page .checkout {
@@ -87,4 +87,165 @@
     cursor: pointer;
     background-color: #fff;
     color: #ff0000;
+}
+
+
+/*Voucher*/
+
+.wrap-user-checkout-page .voucher {
+    float: left;
+    width: 100%;
+    margin-top: 35px;
+}
+
+.wrap-user-checkout-page .voucher .voucher-btn {
+    float: left;
+    min-width: 30%;
+}
+
+.wrap-user-checkout-page .voucher .voucher-choose {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    float: left;
+    min-width: 70%;
+    text-align: right;
+}
+
+.wrap-user-checkout-page #list-voucher {
+
+    border: 0;
+    text-transform: none;
+    font-weight: 600;
+}
+
+.wrap-user-checkout-page #list-voucher:hover {
+    cursor: pointer;
+}
+
+.wrap-user-checkout-page .choose-voucher {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/*Modal voucher*/
+
+.wrap-user-checkout-page .modal-vouchers .modal-content {
+    margin-top: 100px;
+}
+
+.wrap-user-checkout-page .modal-vouchers #btn-back {
+    text-transform: none;
+    font-weight: 600;
+    background-color: #2577fd;
+    color: #fff;
+    padding: 10px 40px;
+}
+
+.wrap-user-checkout-page .modal-vouchers .modal-body {
+    height: 360px;
+    overflow: auto;
+}
+
+.wrap-user-checkout-page .modal-vouchers #btn-ok {
+    text-transform: none;
+    font-weight: 600;
+    background-color: #ff0000;
+    color: #fff;
+    border: 1px solid #ff0000;
+    padding: 10px 40px;
+}
+
+.wrap-user-checkout-page #list-voucher:hover {
+    cursor: pointer;
+}
+
+.wrap-user-checkout-page .modal-vouchers #btn-back:hover {
+    cursor: pointer;
+    color: #2577fd;
+    background-color: #fff;
+}
+
+.wrap-user-checkout-page .modal-vouchers #btn-ok:hover {
+    cursor: pointer;
+    color: #ff0000;
+    background-color: #fff;
+}
+
+.wrap-user-checkout-page .modal-vouchers .content {
+    display: block;
+    padding-left: 120px;
+}
+
+.wrap-user-checkout-page .modal-vouchers li {
+    margin: 20px 0;
+}
+
+/*------------------------------- List Voucher ----------------------------------*/
+
+.wrap-user-checkout-page .modal-vouchers #hide-voucher {
+    color: #a9a9a9;
+}
+
+.wrap-user-checkout-page .modal-vouchers #hide-voucher:hover {
+    cursor: not-allowed;
+}
+
+.wrap-user-checkout-page .modal-vouchers .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.wrap-user-checkout-page .modal-vouchers .container:hover {
+    cursor: pointer;
+}
+
+.wrap-user-checkout-page .modal-vouchers .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.wrap-user-checkout-page .modal-vouchers .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.wrap-user-checkout-page .modal-vouchers .container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.wrap-user-checkout-page .modal-vouchers .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+.wrap-user-checkout-page .modal-vouchers .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.wrap-user-checkout-page .modal-vouchers .container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.wrap-user-checkout-page .modal-vouchers .container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
 }

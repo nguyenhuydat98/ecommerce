@@ -19,12 +19,10 @@ class CreateProductsTable extends Migration
             $table->foreignId('color_id');
             $table->integer('quantity');
             $table->integer('unit_price');
-            $table->foreignId('sale_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('product_information_id')->references('id')->on('product_informations');
             $table->foreign('color_id')->references('id')->on('colors');
-            $table->foreign('sale_id')->references('id')->on('sales');
         });
     }
 

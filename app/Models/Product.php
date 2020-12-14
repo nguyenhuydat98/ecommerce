@@ -15,7 +15,6 @@ class Product extends Model
         'quantity',
         'unit_price',
         'rate',
-        'sale_id',
     ];
 
     public $timestamps = true;
@@ -28,11 +27,6 @@ class Product extends Model
     public function productInformation()
     {
         return $this->belongsTo(ProductInformation::class);
-    }
-
-    public function sale()
-    {
-        return $this->belongsTo(Sale::class);
     }
 
     public function images()

@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Voucher;
+use App\Models\Admin;
 use App\Http\Requests\CheckoutRequest;
+use App\Notifications\NewOrderNotification;
 use Auth;
 use Session;
 use DB;
@@ -65,6 +67,14 @@ class OrderController extends Controller
                     'voucher_id' => $request->voucher_id,
                 ]);
             }
+            $admins = Admin::where('role_id', config('setting.role.management'))
+                ->orWhere('role_id', config('setting.role.admin_order'))
+                ->get();
+            $notification = [
+                'order_id' => $order->id,
+                'content' => 'notification.new_order',
+            ];
+            $admins->each->notify(new NewOrderNotification($notification));
 
             $cart = Session::get('cart');
             foreach ($cart as $key => $item) {

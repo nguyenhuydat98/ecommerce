@@ -18,6 +18,26 @@
         </li>
     </ul>
     <ul class="nav navbar-right navbar-top-links">
+        <li class="dropdown navbar-inverse">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-bell fa-fw"></i>
+                <span class="badge badge-pill badge-primary">
+                    {{ count(Auth::guard('admin')->user()->notifications()->where('type', 'App\Notifications\NewOrderNotification')->where('read_at', null)->get()) }}
+                </span>
+            </a>
+            <ul class="dropdown-menu dropdown-alerts">
+                @foreach (Auth::guard('admin')->user()->notifications->where('type', 'App\Notifications\NewOrderNotification') as $notification)
+                    <li class="notification-list @if($notification->read_at == null) new-notification @endif">
+                        <a href="{{ route('admin.readNotification', [$notification->id]) }}">
+                            <div>
+                                {{ trans($notification->data['content']) }}
+                                <span class="pull-right text-muted small">{{ $notification->created_at->format("H:i d/m/yy") }}</span>
+                            </div>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </li>
         <!-- language -->
         <li class="dropdown">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">

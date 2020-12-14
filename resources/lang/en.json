@@ -151,6 +151,8 @@
     "language.english": "English",
     "language.vietnamese": "Vietnamese",
 
+    "notification.new_order": "You have a new order",
+
     "status.approved": "Approved",
     "status.canceled": "Canceled",
     "status.pending": "Pending",

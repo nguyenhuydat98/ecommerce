@@ -33,6 +33,7 @@ mix.styles([
     'resources/css/admin/import_product.css',
     'resources/css/admin/chart_order.css',
     'resources/css/admin/list_voucher.css',
+    'resources/css/admin/header.css',
     'resources/css/user/header.css',
     'resources/css/user/login.css',
     'resources/css/user/register.css',

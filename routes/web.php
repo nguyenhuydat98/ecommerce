@@ -36,13 +36,13 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::resource('products', 'ProductController')->only(['store', 'update', 'destroy']);
                 Route::resource('vouchers', 'VoucherController');
                 Route::resource('orders', 'OrderController')->only(['index', 'show']);
-
                 Route::get('approved-order/{id}', 'OrderController@approvedOrder')->name('order.approved');
                 Route::get('rejected-order/{id}', 'OrderController@rejectedOrder')->name('order.rejected');
-
                 Route::get('import-product/{id}', 'ImportProductController@getViewImportProduct')->name('getImportProduct');
                 Route::post('import-product/{id}', 'ImportProductController@importProduct')->name('postImportProduct');
                 Route::get('list-import', 'ImportProductController@listImportProduct')->name('listImportProduct');
+
+                Route::get('read-at/{id}', 'NotificationController@readAt')->name('readNotification');
             });
         });
     });

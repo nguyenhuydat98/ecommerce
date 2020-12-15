@@ -1,0 +1,19 @@
+#wrap-category-in-home-page .section-tittle {
+    margin-bottom: 30px;
+}
+
+#wrap-category-in-home-page .title,
+#wrap-product-in-home-page .title {
+    text-transform: uppercase;
+    color: #585858;
+    font-weight: 600;
+}
+
+#wrap-product-in-home-page {
+    margin-bottom: 50px;
+}
+
+#wrap-product-in-home-page .price {
+    color: #ff0000;
+    font-weight: 600;
+}

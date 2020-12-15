@@ -4,4 +4,5 @@
     @include('user.home.slider')
     @include('user.home.category')
     @include('user.home.products')
+    @include('user.home.product_rate')
 @endsection

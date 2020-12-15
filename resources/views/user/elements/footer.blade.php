@@ -23,9 +23,9 @@
                     <div class="footer-tittle">
                         <h4>{{ trans('user.footer.link') }}</h4>
                         <ul>
-                            <li><a href="#">{{ trans('user.footer.link.home') }}</a></li>
+                            <li><a href="{{ route('home') }}">{{ trans('user.footer.link.home') }}</a></li>
                             <li><a href="#">{{ trans('user.footer.link.about') }}</a></li>
-                            <li><a href="#">{{ trans('user.footer.link.product') }}</a></li>
+                            <li><a href="{{ route('product') }}">{{ trans('user.footer.link.product') }}</a></li>
                             <li><a href="#">{{ trans('user.footer.link.contact') }}</a></li>
                         </ul>
                     </div>
@@ -36,8 +36,9 @@
                     <div class="footer-tittle">
                         <h4>{{ trans('user.footer.category') }}</h4>
                         <ul>
-                            <li><a href="#">{{ trans('user.footer.category.smartphone') }}</a></li>
-                            <li><a href="#">{{ trans('user.footer.category.accessories') }}</a></li>
+                            <li><a href="#">Iphone</a></li>
+                            <li><a href="#">Samsung</a></li>
+                            <li><a href="#">Oppo</a></li>
                         </ul>
                     </div>
                 </div>

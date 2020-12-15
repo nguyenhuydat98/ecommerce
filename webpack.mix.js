@@ -48,5 +48,6 @@ mix.styles([
     'resources/css/user/order_detail.css',
     'resources/css/user/rating.css',
     'resources/css/user/custom_products.css',
+    'resources/css/user/home_page.css',
     ], 'public/css/all.css'
 );

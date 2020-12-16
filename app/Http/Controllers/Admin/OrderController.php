@@ -13,26 +13,35 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::orderBy('created_at', 'desc')->get();
+        if (Auth::guard('admin')->user()->can('viewAny', Order::class)) {
+            $orders = Order::orderBy('created_at', 'desc')->get();
 
-        return view('admin.pages.list_order', compact('orders'));
+            return view('admin.pages.list_order', compact('orders'));
+        } else {
+            abort(401);
+        }
     }
 
     public function show($id)
     {
-        $order = Order::findOrFail($id);
-        $voucher = $order->voucher;
-        $listProduct = [];
-        foreach ($order->products as $product) {
-            $prod = Product::findOrFail($product->pivot->product_id);
-            array_push($listProduct, [
-                'name' => $prod->productInformation->name,
-                'image_link' => $prod->images->first()->image_link,
-                'color' => $prod->color->name,
-            ]);
+        if (Auth::guard('admin')->user()->can('view', Order::class)) {
+            $order = Order::findOrFail($id);
+            $voucher = $order->voucher;
+            $listProduct = [];
+            foreach ($order->products as $product) {
+                $prod = Product::findOrFail($product->pivot->product_id);
+                array_push($listProduct, [
+                    'name' => $prod->productInformation->name,
+                    'image_link' => $prod->images->first()->image_link,
+                    'color' => $prod->color->name,
+                ]);
+            }
+
+            return view('admin.pages.order_detail', compact('order', 'listProduct', 'voucher'));
+        } else {
+            abort(401);
         }
 
-        return view('admin.pages.order_detail', compact('order', 'listProduct', 'voucher'));
     }
 
     public function rejectedOrder($id)

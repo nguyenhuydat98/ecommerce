@@ -5,8 +5,16 @@
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-7">
                     <h1 class="page-header">{{ trans('admin.supplier_management.title') }}</h1>
+                </div>
+                <div class="col-lg-5" id="flash">
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ session('success') }}</strong>
+                        </div>
+                    @endif
                 </div>
             </div>
             <a href="{{ route('admin.suppliers.create') }}" class="btn btn-primary">{{ trans('admin.supplier_management.create_new') }}</a>

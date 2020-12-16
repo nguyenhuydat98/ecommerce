@@ -15,7 +15,7 @@
                         @method('PUT')
                         @csrf
                         <div class="form-group">
-                            <label>{{ trans('admin.category_management.edit.name') }}</label>
+                            <label>{{ trans('admin.category_management.edit.name') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="name" value="{{ $category->name }}" required>
                             @error('name')
                                 <span class="text text-danger">{{ $message }}</span>

@@ -14,14 +14,14 @@
                     <div class="col-lg-6">
                         @csrf
                         <div class="form-group">
-                            <label>{{ trans('admin.product_management.create.name') }}</label>
+                            <label>{{ trans('admin.product_management.create.name') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="name" required>
                             @error('name')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('admin.product_management.create.category') }}</label>
+                            <label>{{ trans('admin.product_management.create.category') }} <span class="text-danger">*</span></label>
                             <select class="form-control" name="category_id">
                                 <option>{{ trans('admin.product_management.create.choose_category') }}</option>
                                 @foreach ($categories as $category)
@@ -33,14 +33,14 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('admin.product_management.create.brand') }}</label>
+                            <label>{{ trans('admin.product_management.create.brand') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="brand" required>
                             @error('brand')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('admin.product_management.create.description') }}</label>
+                            <label>{{ trans('admin.product_management.create.description') }} <span class="text-danger">*</span></label>
                             <textarea class="form-control" name="description" rows="7" required></textarea>
                             @error('description')
                                 <span class="text text-danger">{{ $message }}</span>

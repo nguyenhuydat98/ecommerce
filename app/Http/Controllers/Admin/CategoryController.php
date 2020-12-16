@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
+use Auth;
 
 class CategoryController extends Controller
 {
@@ -16,9 +17,14 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        if (Auth::guard('admin')->user()->can('viewAny', Category::class)) {
+            $categories = Category::all();
 
-        return view('admin.pages.list_category', compact('categories'));
+            return view('admin.pages.list_category', compact('categories'));
+        } else {
+            abort(404);
+        }
+
     }
 
     /**
@@ -28,7 +34,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.create_category');
+        if (Auth::guard('admin')->user()->can('create', Category::class)) {
+            return view('admin.pages.create_category');
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -39,11 +49,15 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        Category::create([
-            'name' => $request->name,
-        ]);
+        if (Auth::guard('admin')->user()->can('create', Category::class)) {
+            Category::create([
+                'name' => $request->name,
+            ]);
 
-        return redirect()->route('admin.categories.index');
+            return redirect()->route('admin.categories.index')->with('success', 'Thêm thành công');
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -65,9 +79,14 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
+        if (Auth::guard('admin')->user()->can('update', Category::class)) {
+            $category = Category::findOrFail($id);
 
-        return view('admin.pages.edit_category', compact('category'));
+            return view('admin.pages.edit_category', compact('category'));
+        } else {
+            abort(401);
+        }
+
     }
 
     /**
@@ -79,15 +98,15 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, $id)
     {
-        try {
+        if (Auth::guard('admin')->user()->can('update', Category::class)) {
             $category = Category::findOrFail($id);
             $category->update([
                 'name' => $request->name,
             ]);
 
-            return redirect()->route('admin.categories.index');
-        } catch (Exception $e) {
-            return $e->getMessage();
+            return redirect()->route('admin.categories.index')->with('success', 'Chỉnh sửa thành công');
+        } else {
+            abort(401);
         }
     }
 
@@ -99,14 +118,13 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        try {
+        if (Auth::guard('admin')->user()->can('delete', Category::class)) {
             $category = Category::findOrFail($id);
             $category->delete();
 
-            return redirect()->back();
-        } catch (Exception $e) {
-            return $e->getMessage();
+            return redirect()->back()->with('success', 'Xóa thành công');
+        } else {
+            abort(401);
         }
-
     }
 }

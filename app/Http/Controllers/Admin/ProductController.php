@@ -28,12 +28,16 @@ class ProductController extends Controller
                     return redirect()->back()->with('error_color', 'Thất bại! Loại sản phẩm đã tồn tại');
                 }
             }
+            if ($request->import_price > $request->unit_price) {
+                return redirect()->back()->with('error_price', 'Thất bại! Đơn giá phải lớn hơn giá nhập');
+            }
             DB::beginTransaction();
             try {
                 $product = Product::create([
                     'product_information_id' => $request->product_information_id,
                     'color_id' => $request->color_id,
                     'quantity' => 0,
+                    'import_price' => $request->import_price,
                     'unit_price' => $request->unit_price,
                 ]);
                 foreach ($request->file('images') as $file) {
@@ -52,7 +56,7 @@ class ProductController extends Controller
                 return $e->getMessage();
             }
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -66,14 +70,18 @@ class ProductController extends Controller
     public function update(EditProductRequest $request, $id)
     {
         if (Auth::guard('admin')->user()->can('update', Product::class)) {
+            if ($request->import_price > $request->unit_price) {
+                return redirect()->back()->with('error_price', 'Thất bại! Đơn giá phải lớn hơn giá nhập');
+            }
             $product = Product::findOrFail($id);
             $product->update([
+                'import_price' => $request->import_price,
                 'unit_price' => $request->unit_price,
             ]);
 
             return redirect()->back()->with('done', 'Thao tác thành công!');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -102,7 +110,7 @@ class ProductController extends Controller
                 return $e->getMessage();
             }
         } else {
-            abort(401);
+            abort(403);
         }
     }
 }

@@ -23,7 +23,7 @@ class AdminController extends Controller
 
             return view('admin.pages.list_admin', compact('admins'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -39,7 +39,7 @@ class AdminController extends Controller
 
             return view('admin.pages.create_admin', compact('roles'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -64,7 +64,7 @@ class AdminController extends Controller
 
             return redirect()->route('admin.admins.index')->with('done', 'Thao tác thành công!');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -81,7 +81,7 @@ class AdminController extends Controller
 
             return view('admin.pages.admin_detail', compact('admin'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -99,7 +99,7 @@ class AdminController extends Controller
 
             return view('admin.pages.edit_admin', compact('admin', 'roles'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -124,7 +124,7 @@ class AdminController extends Controller
 
             return redirect()->route('admin.admins.index')->with('done', 'Thao tác thành công!');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -145,7 +145,7 @@ class AdminController extends Controller
 
             return redirect()->route('admin.admins.index')->with('done', 'Thao tác thành công!');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 }

@@ -16,7 +16,7 @@ class UserController extends Controller
 
             return view('admin.pages.list_user', compact('users'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -27,7 +27,7 @@ class UserController extends Controller
 
             return view('admin.pages.user_detail', compact('user'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 }

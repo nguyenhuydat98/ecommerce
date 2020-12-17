@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('product_information_id');
             $table->foreignId('color_id');
             $table->integer('quantity');
+            $table->integer('import_price');
             $table->integer('unit_price');
             $table->timestamps();
             $table->softDeletes();

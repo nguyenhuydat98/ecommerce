@@ -24,6 +24,7 @@ class EditProductRequest extends FormRequest
     public function rules()
     {
         return [
+            'import_price' => 'required|numeric',
             'unit_price' => 'required|numeric',
         ];
     }

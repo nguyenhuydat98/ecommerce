@@ -31,16 +31,16 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Số lượng <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="quantity" required>
-                            @error('quantity')
+                            <label>Giá nhập (VND / 1SP) <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="import_price" value="{{ $product->import_price }}" readonly>
+                            @error('import_price')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Đơn giá (VND) <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="import_price" required>
-                            @error('import_price')
+                            <label>Số lượng <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="quantity" required>
+                            @error('quantity')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>

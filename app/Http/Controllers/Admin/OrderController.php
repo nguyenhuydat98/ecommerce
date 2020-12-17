@@ -18,7 +18,7 @@ class OrderController extends Controller
 
             return view('admin.pages.list_order', compact('orders'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -39,7 +39,7 @@ class OrderController extends Controller
 
             return view('admin.pages.order_detail', compact('order', 'listProduct', 'voucher'));
         } else {
-            abort(401);
+            abort(403);
         }
 
     }

@@ -25,6 +25,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'color_id' => 'required|numeric',
+            'import_price' => 'required|numeric',
             'unit_price' => 'required|numeric',
             'images' => 'required',
             'images.*' => 'mimes:jpeg,jpg,png|max:10000',

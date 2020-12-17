@@ -33,3 +33,7 @@
 .wrap-admin-list-product-detail-page #information {
     margin-bottom: 30px;
 }
+
+.wrap-admin-list-product-detail-page #flash-session {
+    margin-top: 35px;
+}

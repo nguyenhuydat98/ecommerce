@@ -34,7 +34,7 @@ class ProductInformationController extends Controller
 
             return view('admin.pages.list_product_information', compact('productInformations', 'listAmount'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -50,7 +50,7 @@ class ProductInformationController extends Controller
 
             return view('admin.pages.create_product_information', compact('categories'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -72,7 +72,7 @@ class ProductInformationController extends Controller
 
             return redirect()->route('admin.product_informations.index')->with('success', 'Thêm thành công');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -93,7 +93,7 @@ class ProductInformationController extends Controller
 
             return view('admin.pages.product_detail', compact('productInformation', 'products', 'colors'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -111,7 +111,7 @@ class ProductInformationController extends Controller
 
             return view('admin.pages.edit_product_information', compact('productInformation', 'categories'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -135,7 +135,7 @@ class ProductInformationController extends Controller
 
             return redirect()->route('admin.product_informations.index')->with('success', 'Chỉnh sửa thành công');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -150,7 +150,7 @@ class ProductInformationController extends Controller
         if (Auth::guard('admin')->user()->can('delete', ProductInformation::class)) {
             dd("Nếu xóa SP thì phải xóa cả product_details và images của SP đó");
         } else {
-            abort(401);
+            abort(403);
         }
     }
 }

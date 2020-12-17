@@ -37,7 +37,7 @@ class CategoryController extends Controller
         if (Auth::guard('admin')->user()->can('create', Category::class)) {
             return view('admin.pages.create_category');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -56,7 +56,7 @@ class CategoryController extends Controller
 
             return redirect()->route('admin.categories.index')->with('success', 'Thêm thành công');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -84,7 +84,7 @@ class CategoryController extends Controller
 
             return view('admin.pages.edit_category', compact('category'));
         } else {
-            abort(401);
+            abort(403);
         }
 
     }
@@ -106,7 +106,7 @@ class CategoryController extends Controller
 
             return redirect()->route('admin.categories.index')->with('success', 'Chỉnh sửa thành công');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -124,7 +124,7 @@ class CategoryController extends Controller
 
             return redirect()->back()->with('success', 'Xóa thành công');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 }

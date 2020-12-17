@@ -22,7 +22,7 @@ class SupplierController extends Controller
 
             return view('admin.pages.list_supplier', compact('suppliers'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -36,7 +36,7 @@ class SupplierController extends Controller
         if (Auth::guard('admin')->user()->can('create', Supplier::class)) {
             return view('admin.pages.create_supplier');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -57,7 +57,7 @@ class SupplierController extends Controller
 
             return redirect()->route('admin.suppliers.index')->with('success', 'Thêm thành công');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -85,7 +85,7 @@ class SupplierController extends Controller
 
             return view('admin.pages.edit_supplier', compact('supplier'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -108,7 +108,7 @@ class SupplierController extends Controller
 
             return redirect()->route('admin.suppliers.index')->with('success', 'Chỉnh sửa thành công');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -126,7 +126,7 @@ class SupplierController extends Controller
 
             return redirect()->back()->with('success', 'Xóa thành công');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 }

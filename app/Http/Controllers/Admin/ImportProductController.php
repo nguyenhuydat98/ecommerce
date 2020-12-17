@@ -23,7 +23,7 @@ class ImportProductController extends Controller
 
             return view('admin.pages.import_product', compact('supplier', 'productInformations'));
         } else {
-            abort(401);
+            abort(403);
         }
 
     }
@@ -40,7 +40,7 @@ class ImportProductController extends Controller
                 $supplier->products()->attach($product->id, [
                     'admin_id' => Auth::guard('admin')->id(),
                     'quantity' => $request->quantity,
-                    'import_price' => $request->import_price,
+                    'import_price' => $product->import_price,
                 ]);
                 $product->update([
                     'quantity' => $product->quantity + $request->quantity,
@@ -54,7 +54,7 @@ class ImportProductController extends Controller
                 return $e->getMessage();
             }
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -80,7 +80,7 @@ class ImportProductController extends Controller
 
             return view('admin.pages.list_import', compact('listImport'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 }

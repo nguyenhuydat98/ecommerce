@@ -23,7 +23,7 @@ class VoucherController extends Controller
 
             return view('admin.pages.list_voucher', compact('vouchers'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -37,7 +37,7 @@ class VoucherController extends Controller
         if (Auth::guard('admin')->user()->can('create', Voucher::class)) {
             return view('admin.pages.create_voucher');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -62,7 +62,7 @@ class VoucherController extends Controller
 
             return redirect()->route('admin.vouchers.index')->with('success', 'Thêm thành công');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -92,7 +92,7 @@ class VoucherController extends Controller
 
             return view('admin.pages.edit_voucher', compact('voucher', 'startDate', 'endDate'));
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -119,7 +119,7 @@ class VoucherController extends Controller
 
             return redirect()->route('admin.vouchers.index')->with('success', 'Chỉnh sửa thành công');
         } else {
-            abort(401);
+            abort(403);
         }
     }
 
@@ -134,7 +134,7 @@ class VoucherController extends Controller
         if (Auth::guard('admin')->user()->can('delete', Voucher::class)) {
             dd("Delete voucher");
         } else {
-            abort(401);
+            abort(403);
         }
     }
 }

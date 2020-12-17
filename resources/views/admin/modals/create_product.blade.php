@@ -28,6 +28,13 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label>Giá nhập (VND) <span class="text-danger">*</span></label>
+                            <input type="text" name="import_price" class="form-control" value={{ $productInformation->products->first()->import_price }} required>
+                            @error('import_price')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label>Đơn giá (VND) <span class="text-danger">*</span></label>
                             <input type="text" name="unit_price" class="form-control" required>
                             @error('unit_price')

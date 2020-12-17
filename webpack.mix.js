@@ -38,6 +38,7 @@ mix.styles([
     'resources/css/admin/list_supplier.css',
     'resources/css/admin/list_product_information.css',
     'resources/css/admin/list_import.css',
+    'resources/css/admin/modal_edit_product.css',
     'resources/css/user/header.css',
     'resources/css/user/login.css',
     'resources/css/user/register.css',

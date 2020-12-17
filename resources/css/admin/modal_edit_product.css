@@ -1,0 +1,8 @@
+.wrap-modal-edit-product .form-group label {
+    display: block;
+    width: 100%;
+}
+
+.wrap-modal-edit-product .form-group input {
+    display: block;
+}

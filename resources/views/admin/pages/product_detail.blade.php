@@ -14,6 +14,11 @@
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                             <strong>{{ session('error_color') }}</strong>
                         </div>
+                    @elseif (session('error_price'))
+                        <div class="alert alert-danger alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ session('error_price') }}</strong>
+                        </div>
                     @elseif (session('done'))
                         <div class="alert alert-success alert-dismissible fade in">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

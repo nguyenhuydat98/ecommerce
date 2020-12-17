@@ -14,6 +14,13 @@
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
+                            <label>Giá nhập (VND) <span class="text-danger">*</span></label>
+                            <input type="text" name="import_price" class="form-control" value="{{ $product->import_price }}" required>
+                            @error('import_price')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label>Đơn giá (VND) <span class="text-danger">*</span></label>
                             <input type="text" name="unit_price" class="form-control" value="{{ $product->unit_price }}" required>
                             @error('unit_price')

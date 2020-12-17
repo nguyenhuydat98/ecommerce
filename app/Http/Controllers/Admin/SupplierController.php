@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Supplier;
 use App\Http\Requests\SupplierRequest;
+use Auth;
 
 class SupplierController extends Controller
 {
@@ -16,9 +17,13 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        $suppliers = Supplier::all();
+        if (Auth::guard('admin')->user()->can('viewAny', Supplier::class)) {
+            $suppliers = Supplier::all();
 
-        return view('admin.pages.list_supplier', compact('suppliers'));
+            return view('admin.pages.list_supplier', compact('suppliers'));
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -28,7 +33,11 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.create_supplier');
+        if (Auth::guard('admin')->user()->can('create', Supplier::class)) {
+            return view('admin.pages.create_supplier');
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -39,13 +48,17 @@ class SupplierController extends Controller
      */
     public function store(SupplierRequest $request)
     {
-        Supplier::create([
-            'name' => $request->name,
-            'address' => $request->address,
-            'phone' => $request->phone,
-        ]);
+        if (Auth::guard('admin')->user()->can('create', Supplier::class)) {
+            Supplier::create([
+                'name' => $request->name,
+                'address' => $request->address,
+                'phone' => $request->phone,
+            ]);
 
-        return redirect()->route('admin.suppliers.index');
+            return redirect()->route('admin.suppliers.index')->with('success', 'Thêm thành công');
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -67,12 +80,12 @@ class SupplierController extends Controller
      */
     public function edit($id)
     {
-        try {
+        if (Auth::guard('admin')->user()->can('update', Supplier::class)) {
             $supplier = Supplier::findOrFail($id);
 
             return view('admin.pages.edit_supplier', compact('supplier'));
-        } catch (Exception $e) {
-            return $e->getMessage();
+        } else {
+            abort(401);
         }
     }
 
@@ -85,7 +98,7 @@ class SupplierController extends Controller
      */
     public function update(SupplierRequest $request, $id)
     {
-        try {
+        if (Auth::guard('admin')->user()->can('update', Supplier::class)) {
             $supplier = Supplier::findOrFail($id);
             $supplier->update([
                 'name' => $request->name,
@@ -93,9 +106,9 @@ class SupplierController extends Controller
                 'phone' => $request->phone,
             ]);
 
-            return redirect()->route('admin.suppliers.index');
-        } catch (Exception $e) {
-            return $e->getMessage();
+            return redirect()->route('admin.suppliers.index')->with('success', 'Chỉnh sửa thành công');
+        } else {
+            abort(401);
         }
     }
 
@@ -107,13 +120,13 @@ class SupplierController extends Controller
      */
     public function destroy($id)
     {
-        try {
+        if (Auth::guard('admin')->user()->can('delete', Supplier::class)) {
             $supplier = Supplier::findOrFail($id);
             $supplier->delete();
 
-            return redirect()->back();
-        } catch (Exception $e) {
-            return $e->getMessage();
+            return redirect()->back()->with('success', 'Xóa thành công');
+        } else {
+            abort(401);
         }
     }
 }

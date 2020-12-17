@@ -15,21 +15,21 @@
                         @method('PUT')
                         @csrf
                         <div class="form-group">
-                            <label>{{ trans('admin.supplier_management.edit.name') }}</label>
+                            <label>{{ trans('admin.supplier_management.edit.name') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="name" value="{{ $supplier->name }}" required>
                             @error('name')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('admin.supplier_management.edit.address') }}</label>
+                            <label>{{ trans('admin.supplier_management.edit.address') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="address" value="{{ $supplier->address }}" required>
                             @error('address')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('admin.supplier_management.edit.phone') }}</label>
+                            <label>{{ trans('admin.supplier_management.edit.phone') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="phone" value="{{ $supplier->phone }}" required>
                             @error('phone')
                                 <span class="text text-danger">{{ $message }}</span>

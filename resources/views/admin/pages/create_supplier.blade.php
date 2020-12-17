@@ -14,21 +14,21 @@
                     <form action="{{ route('admin.suppliers.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label>{{ trans('admin.supplier_management.create.name') }}</label>
+                            <label>{{ trans('admin.supplier_management.create.name') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="name" required>
                             @error('name')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('admin.supplier_management.create.address') }}</label>
+                            <label>{{ trans('admin.supplier_management.create.address') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="address" required>
                             @error('address')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('admin.supplier_management.create.phone') }}</label>
+                            <label>{{ trans('admin.supplier_management.create.phone') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="phone" required>
                             @error('phone')
                                 <span class="text text-danger">{{ $message }}</span>

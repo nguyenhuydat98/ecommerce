@@ -18,9 +18,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = Admin::all();
+        if (Auth::guard('admin')->user()->can('viewAny', Admin::class)) {
+            $admins = Admin::all();
 
-        return view('admin.pages.list_admin', compact('admins'));
+            return view('admin.pages.list_admin', compact('admins'));
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -30,9 +34,13 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
+        if (Auth::guard('admin')->user()->can('create', Admin::class)) {
+            $roles = Role::all();
 
-        return view('admin.pages.create_admin', compact('roles'));
+            return view('admin.pages.create_admin', compact('roles'));
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -43,17 +51,21 @@ class AdminController extends Controller
      */
     public function store(AdminRequest $request)
     {
-        Admin::create([
-            'role_id' => $request->role_id,
-            'email' => $request->email,
-            'password' => '$2y$10$fSz9qggDZ2LYzXFzYHLTmOGEUzUmmO5bmBuHaBf7fPX3wppSareEG',
-            'name' => $request->name,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'avatar' => config('setting.default.avatar'),
-        ]);
+        if (Auth::guard('admin')->user()->can('create', Admin::class)) {
+            Admin::create([
+                'role_id' => $request->role_id,
+                'email' => $request->email,
+                'password' => '$2y$10$fSz9qggDZ2LYzXFzYHLTmOGEUzUmmO5bmBuHaBf7fPX3wppSareEG',
+                'name' => $request->name,
+                'address' => $request->address,
+                'phone' => $request->phone,
+                'avatar' => config('setting.default.avatar'),
+            ]);
 
-        return redirect()->route('admin.admins.index')->with('done', 'Thao tác thành công!');
+            return redirect()->route('admin.admins.index')->with('done', 'Thao tác thành công!');
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -64,9 +76,13 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $admin = Admin::findOrFail($id);
+        if (Auth::guard('admin')->user()->can('view', Admin::class)) {
+            $admin = Admin::findOrFail($id);
 
-        return view('admin.pages.admin_detail', compact('admin'));
+            return view('admin.pages.admin_detail', compact('admin'));
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -77,10 +93,14 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $admin = Admin::findOrFail($id);
-        $roles = Role::all();
+        if (Auth::guard('admin')->user()->can('update', Admin::class)) {
+            $admin = Admin::findOrFail($id);
+            $roles = Role::all();
 
-        return view('admin.pages.edit_admin', compact('admin', 'roles'));
+            return view('admin.pages.edit_admin', compact('admin', 'roles'));
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -92,7 +112,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try {
+        if (Auth::guard('admin')->user()->can('update', Admin::class)) {
             $admin = Admin::findOrFail($id);
             $admin->update([
                 'role_id' => $request->role_id,
@@ -103,8 +123,8 @@ class AdminController extends Controller
             ]);
 
             return redirect()->route('admin.admins.index')->with('done', 'Thao tác thành công!');
-        } catch (Exception $e) {
-            return $e->getMessage();
+        } else {
+            abort(401);
         }
     }
 
@@ -116,7 +136,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        try {
+        if (Auth::guard('admin')->user()->can('delete', Admin::class)) {
             if (Auth::guard('admin')->id() == $id) {
                 return redirect()->route('admin.admins.index')->with('error_delete', 'Thất bại! Không thể xóa tài khoản của mình');
             }
@@ -124,8 +144,8 @@ class AdminController extends Controller
             $admin->delete();
 
             return redirect()->route('admin.admins.index')->with('done', 'Thao tác thành công!');
-        } catch (Exception $e) {
-            return $e->getMessage();
+        } else {
+            abort(401);
         }
     }
 }

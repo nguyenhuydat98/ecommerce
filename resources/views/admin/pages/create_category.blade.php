@@ -14,7 +14,7 @@
                     <form action="{{ route('admin.categories.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label>{{ trans('admin.category_management.create.name') }}</label>
+                            <label>{{ trans('admin.category_management.create.name') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="name" required>
                             @error('name')
                                 <span class="text text-danger">{{ $message }}</span>

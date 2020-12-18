@@ -78,9 +78,15 @@
     display: none;
 }
 
+.wrap-user-product-detail-page #btn-buy-now {
+    margin-top: 110px;
+    margin-left: -80px;
+}
+
 .wrap-user-product-detail-page .buy-now {
     background-color: #58ACFA;
     color: #fff;
+    min-width: 227px;
 }
 
 .wrap-user-product-detail-page .buy-now:hover {

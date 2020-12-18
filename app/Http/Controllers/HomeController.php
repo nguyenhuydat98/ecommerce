@@ -53,7 +53,11 @@ class HomeController extends Controller
         }
 
         // Sản phẩm đánh giá cao
-        $productInformationRates = ProductInformation::where('rate', '<>', null)
+        $productInformationRates = ProductInformation::where(
+            [
+                ['rate', '<>', null],
+                ['rate', '>=', 4],
+            ])
             ->orderBy('rate', 'desc')
             ->take(6)
             ->get();

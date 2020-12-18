@@ -76,30 +76,43 @@
                                 <span class="color" data-url="{{ route('quantity', $product->id) }}">{{ $product->color->name }}</span>
                             @endforeach
                         </div>
-
                         <div class="group-info">
                             <span class="text">{{ trans('user.product_detail.available') }}</span>
                             <span id="available"></span>
                         </div>
-                        <form action="{{ route('addToCart') }}" method="POST">
-                            @csrf
-                            <div class="card_area hide-quantity">
-                                <div class="product_count_area">
-                                    <div class="text">{{ trans('user.product_detail.quantity') }}</div>
-                                    <div class="product_count">
-                                        <span class="product_count_item" id="sub-quantity"><i class="ti-minus"></i></span>
-                                        <input type="text" class="product_count_item" name="quantity" id="quantity" value="1" min="1" readonly>
-                                        <span class="product_count_item" id="add-quantity"><i class="ti-plus"></i></span>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <form action="{{ route('addToCart') }}" method="POST">
+                                    @csrf
+                                    <div class="card_area hide-quantity">
+                                        <div class="product_count_area">
+                                            <div class="text">{{ trans('user.product_detail.quantity') }}</div>
+                                            <div class="product_count">
+                                                <span class="product_count_item" id="sub-quantity"><i class="ti-minus"></i></span>
+                                                <input type="text" class="product_count_item" name="quantity" id="quantity" value="1" min="1" readonly>
+                                                <span class="product_count_item" id="add-quantity"><i class="ti-plus"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <input type="hidden" name="color_id" id="choose-color">
+                                            <input type="hidden" name="product_id" id="choose-product-id">
+                                            <input type="submit" class="btn_3" value="{{ trans('user.product_detail.add_to_cart') }}">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="add_to_cart">
-                                    <input type="hidden" name="color_id" id="choose-color">
-                                    <input type="hidden" name="product_id" id="choose-product-id">
-                                    <input type="submit" class="btn_3" value="{{ trans('user.product_detail.add_to_cart') }}">
-                                    <a href="#" class="btn_3 buy-now">{{ trans('user.product_detail.buy_now') }}</a>
-                                </div>
+                                </form>
                             </div>
-                        </form>
+                            <div class="col-xl-6" id="btn-buy-now">
+                                <form action="{{ route('buyNow') }}" method="POST">
+                                    @csrf
+                                    <div class="card_area hide-quantity">
+                                        <input type="hidden" name="quantity" id="buy-now-quantity" value="1" min="1">
+                                        <input type="hidden" name="color_id" id="buy-now-choose-color">
+                                        <input type="hidden" name="product_id" id="buy-now-choose-product-id">
+                                        <input type="submit" class="btn_3 buy-now" value="{{ trans('user.product_detail.buy_now') }}">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-xl-12" id="rating-product">
                         <h2 class="title-rating">Đánh giá sản phẩm <small>({{ count($comments) }} đánh giá)</small></h2>
@@ -116,7 +129,7 @@
                                         @endfor
                                     </div>
                                     <div>{{ $comment->content }}</div>
-                                    <div>{{ $comment->updated_at->format('H:i:s d/m/yy') }}</div>
+                                    <div>{{ $comment->updated_at->format(config('setting.format_date')) }}</div>
                                 </div>
                             </div>
                         @endforeach

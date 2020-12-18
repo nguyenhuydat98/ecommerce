@@ -53,8 +53,8 @@
                                                     @endif
                                                 </td>
                                                 <td>{{ number_format($voucher->value_order) . " đ" }}</td>
-                                                <td>{{ date("H:i d/m/yy", strtotime($voucher->start_date)) }}</td>
-                                                <td>{{ date("H:i d/m/yy", strtotime($voucher->end_date)) }}</td>
+                                                <td>{{ date(config('setting.format_date'), strtotime($voucher->start_date)) }}</td>
+                                                <td>{{ date(config('setting.format_date'), strtotime($voucher->end_date)) }}</td>
                                                 <td>
                                                     <a href="{{ route('admin.vouchers.edit', [$voucher->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044;</i></a>
                                                     @include ('admin.modals.delete_voucher')

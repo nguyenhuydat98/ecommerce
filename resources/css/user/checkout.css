@@ -112,10 +112,13 @@ text-align: center;
 }
 
 .wrap-user-checkout-page #list-voucher {
-
     border: 0;
     text-transform: none;
     font-weight: 600;
+}
+
+.wrap-user-checkout-page .hide-btn {
+    display: none;
 }
 
 .wrap-user-checkout-page #list-voucher:hover {

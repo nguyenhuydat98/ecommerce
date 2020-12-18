@@ -38,7 +38,17 @@ class OrderController extends Controller
             $chooseVoucher = Voucher::findOrFail($idVoucher);
         }
 
-        return view('user.pages.checkout', compact('user', 'productInCart', 'vouchers', 'chooseVoucher'));
+        $existVoucher = false;
+        if (count($vouchers) > 0) {
+            foreach ($vouchers as $voucher) {
+                if ($voucher->start_date <= now()) {
+                    $existVoucher = true;
+                    break;
+                }
+            }
+        }
+
+        return view('user.pages.checkout', compact('user', 'productInCart', 'vouchers', 'chooseVoucher', 'existVoucher'));
     }
 
     public function checkout(CheckoutRequest $request)

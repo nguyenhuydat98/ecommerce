@@ -68,6 +68,7 @@ Route::group(['middleware' => 'localization'], function() {
     Route::post('cart-update-quantity', 'CartController@updateQuantity')->name('updateQuantity');
     Route::get('search-product', 'ProductController@search')->name('searchProduct');
     Route::group(['middleware' => 'checkUserLogin'], function() {
+        Route::post('buynow', 'CartController@buyNow')->name('buyNow');
         Route::get('checkout/{idVoucher?}', 'OrderController@getListItem')->name('getListItem');
         Route::post('checkout', 'OrderController@checkout')->name('checkout');
         Route::get('order-history', 'OrderController@getListOrder')->name('orderHistory');

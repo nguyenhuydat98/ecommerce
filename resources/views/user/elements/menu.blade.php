@@ -62,7 +62,7 @@
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">{{ trans('user.menu.my_profile') }}</a>
-                                    <a class="dropdown-item" href="#">{{ trans('user.menu.change_password') }}</a>
+                                    {{-- <a class="dropdown-item" href="#">{{ trans('user.menu.change_password') }}</a> --}}
                                     <a class="dropdown-item" href="{{ route('orderHistory') }}">Lịch sử mua hàng</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">{{ trans('user.menu.logout') }}</a>
                                 </div>

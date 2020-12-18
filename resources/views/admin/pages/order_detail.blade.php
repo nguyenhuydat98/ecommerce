@@ -82,12 +82,12 @@
                     </div>
                     <div class="group-order">
                         <span class="title">Thời gian đặt hàng</span>
-                        <span class="content">{{ $order->created_at->format('H:i:s d/m/yy') }}</span>
+                        <span class="content">{{ $order->created_at->format(config('setting.format_date')) }}</span>
                     </div>
                     @if ($order->status != config('setting.status.pending'))
                         <div class="group-order">
                             <span class="title">Cập nhật lần cuối</span>
-                            <span class="content">{{ $order->updated_at->format('H:i:s d/m/yy') }}</span>
+                            <span class="content">{{ $order->updated_at->format(config('setting.format_date')) }}</span>
                         </div>
                     @endif
                 </div>

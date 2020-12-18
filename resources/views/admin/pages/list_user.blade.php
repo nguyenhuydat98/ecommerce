@@ -37,7 +37,7 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->address }}</td>
                                             <td>{{ $user->phone }}</td>
-                                            <td>{{ $user->created_at->format('H:i:s d/m/yy') }}</td>
+                                            <td>{{ $user->created_at->format(config('setting.format_date')) }}</td>
                                             <td>
                                                 <a href="{{ route('admin.users.show', [$user->id]) }}" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e;</i></a>
                                             </td>

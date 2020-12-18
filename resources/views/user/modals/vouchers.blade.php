@@ -26,9 +26,9 @@
                                         <span>{{ number_format($voucher->value_order) . " đ" }}</span>
                                     </span>
                                     @if ($voucher->start_date >= now())
-                                        <span class="content">KM từ: {{ date("H:i d/m/yy", strtotime($voucher->start_date)) }}</span>
+                                        <span class="content">KM từ: {{ date(config('setting.format_date'), strtotime($voucher->start_date)) }}</span>
                                     @else
-                                        <span class="content">HSD: {{ date("H:i d/m/yy", strtotime($voucher->end_date)) }}</span>
+                                        <span class="content">HSD: {{ date(config('setting.format_date'), strtotime($voucher->end_date)) }}</span>
                                     @endif
                                     <input type="radio" name="code" value="{{ $voucher->id }}"
                                         @if ($voucher->start_date >= now() || $valueOrder < $voucher->value_order) disabled @endif
@@ -42,7 +42,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn_3" id="btn-back" data-dismiss="modal">Quay lại</button>
-                            <input type="submit" class="btn_3" id="btn-ok" value="OK">
+                            <input type="submit" class="btn_3 @if(!$existVoucher) hide-btn @endif" id="btn-ok" value="OK">
                         </div>
                     </form>
                 </div>

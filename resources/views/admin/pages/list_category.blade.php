@@ -41,8 +41,8 @@
                                         <tr>
                                             <td>{{ $index++ }}</td>
                                             <td>{{ $category->name }}</td>
-                                            <td>{{ $category->created_at->format('H:i:s d/m/yy') }}</td>
-                                            <td>{{ $category->updated_at->format('H:i:s d/m/yy') }}</td>
+                                            <td>{{ $category->created_at->format(config('setting.format_date')) }}</td>
+                                            <td>{{ $category->updated_at->format(config('setting.format_date')) }}</td>
                                             <td>
                                                 <a href="{{ route('admin.categories.edit', [$category->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044;</i></a>
                                                 @include('admin.modals.delete_category')

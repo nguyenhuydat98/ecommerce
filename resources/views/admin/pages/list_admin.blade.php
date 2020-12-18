@@ -49,7 +49,7 @@
                                             <td>{{ $admin->email }}</td>
                                             <td>{{ $admin->name }}</td>
                                             <td>{{ $admin->role->name }}</td>
-                                            <td>{{ $admin->created_at->format('H:i:s d/m/yy') }}</td>
+                                            <td>{{ $admin->created_at->format(config('setting.format_date')) }}</td>
                                             <td>
                                                 <a href="{{ route('admin.admins.show', [$admin->id]) }}" class="btn btn-success btn-sm"><i class="fa fa-fw fa-lg">&#xf06e;</i></a>
                                                 <a href="{{ route('admin.admins.edit', [$admin->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg">&#xf044;</i></a>

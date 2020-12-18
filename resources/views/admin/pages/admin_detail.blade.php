@@ -38,11 +38,11 @@
                         </div>
                         <div class="group">
                             <span class="title">Ngày bắt đầu</span>
-                            <span class="content">{{ $admin->created_at->format('H:i:s d/m/yy') }}</span>
+                            <span class="content">{{ $admin->created_at->format(config('setting.format_date')) }}</span>
                         </div>
                         <div class="group">
                             <span class="title">Cập nhật lần cuối</span>
-                            <span class="content">{{ $admin->updated_at->format('H:i:s d/m/yy') }}</span>
+                            <span class="content">{{ $admin->updated_at->format(config('setting.format_date')) }}</span>
                         </div>
                     </div>
                     <div class="col-lg-4">

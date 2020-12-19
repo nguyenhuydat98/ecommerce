@@ -33,11 +33,11 @@
                         </div>
                         <div class="group">
                             <span class="title">Ngày đăng ký</span>
-                            <span class="content">{{ $user->created_at->format('H:i:s d/m/yy') }}</span>
+                            <span class="content">{{ $user->created_at->format(config('setting.format_date')) }}</span>
                         </div>
                         <div class="group">
                             <span class="title">Cập nhật lần cuối</span>
-                            <span class="content">{{ $user->updated_at->format('H:i:s d/m/yy') }}</span>
+                            <span class="content">{{ $user->updated_at->format(config('setting.format_date')) }}</span>
                         </div>
                     </div>
                     <div class="col-lg-4">

@@ -30,7 +30,9 @@
                             <div class="col-xl-2">
                                 <div class="single-product mb-60">
                                     <div class="product-img">
-                                        <img src="{{ asset($productInformation->products->first()->images()->first()->image_link) }}" alt="">
+                                        <a href="{{ route('productDetail', [$productInformation->id] )}}">
+                                            <img src="{{ asset($productInformation->products->first()->images()->first()->image_link) }}">
+                                        </a>
                                     </div>
                                     <h4>
                                         <a href="{{ route('productDetail', [$productInformation->id]) }}">{{ $productInformation->name }}</a>
@@ -71,7 +73,9 @@
                             <div class="col-xl-2">
                                 <div class="single-product mb-60">
                                     <div class="product-img">
-                                        <img src="{{ asset($productInformation->products->first()->images()->first()->image_link) }}" alt="">
+                                        <a href="{{ route('productDetail', [$productInformation->id] )}}">
+                                            <img src="{{ asset($productInformation->products->first()->images()->first()->image_link) }}">
+                                        </a>
                                     </div>
                                     <h4>
                                         <a href="{{ route('productDetail', [$productInformation->id]) }}">{{ $productInformation->name }}</a>

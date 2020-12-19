@@ -82,6 +82,56 @@ class CartController extends Controller
         return redirect()->back();
     }
 
+    public function buyNow(Request $request)
+    {
+        // dd($request->all());
+        $product = Product::findOrFail($request->product_id);
+        if ($product) {
+            if ((int) $request->quantity > $product->quantity) {
+                alert()->error(trans('user.sweetalert.whoops'), trans('user.sweetalert.quantity_not_enough'));
+
+                return redirect()->back();
+            }
+            $cart = Session::get('cart');
+            if ($cart) {
+                $numberOfItemInCart = Session::get('numberOfItemInCart');
+                foreach ($cart as $key => $item) {
+                    if ($item['product_id'] == $product->id) {
+                        $cart[$key]['quantity'] += $request->quantity;
+                        Session::put('cart', $cart);
+                        $numberOfItemInCart += $request->quantity;
+                        Session::put('numberOfItemInCart', $numberOfItemInCart);
+                        Session::save();
+                        alert()->success(trans('user.sweetalert.done'), trans('user.sweetalert.add_to_cart'));
+
+                        return redirect()->back();
+                    }
+                }
+                Session::push('cart', [
+                    'product_id' => $product->id,
+                    'quantity' => (int) $request->quantity,
+                    'color_id' => $request->color_id,
+                ]);
+                $numberOfItemInCart += $request->quantity;
+                Session::put('numberOfItemInCart', $numberOfItemInCart);
+                Session::save();
+            } else {
+                Session::put('cart', [
+                    [
+                        'product_id' => $product->id,
+                        'quantity' => (int) $request->quantity,
+                        'color_id' => $request->color_id,
+                    ],
+                ]);
+                Session::put('numberOfItemInCart', $request->quantity);
+                Session::save();
+            }
+            alert()->success(trans('user.sweetalert.done'), trans('user.sweetalert.add_to_cart'));
+        }
+
+        return redirect()->route('getListItem');
+    }
+
     public function deleteOneItem(Request $request)
     {
         $product = Product::findOrFail($request->product_id);

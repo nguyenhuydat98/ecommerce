@@ -31,7 +31,7 @@
                         <a href="{{ route('admin.readNotification', [$notification->id]) }}">
                             <div>
                                 {{ trans($notification->data['content']) }}
-                                <span class="pull-right text-muted small">{{ $notification->created_at->format("H:i d/m/yy") }}</span>
+                                <span class="pull-right text-muted small">{{ $notification->created_at->format(config('setting.format_date')) }}</span>
                             </div>
                         </a>
                     </li>

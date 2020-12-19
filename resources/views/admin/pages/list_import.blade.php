@@ -45,7 +45,7 @@
                                                 <td>{{ $listImport[$index]['color'] }}</td>
                                                 <td>{{ $listImport[$index]['quantity'] }}</td>
                                                 <td>{{ number_format($listImport[$index]['import_price']) . " đ" }}</td>
-                                                <td>{{ date('H:i:s d/m/yy', strtotime($listImport[$index]['created_at']))  }}</td>
+                                                <td>{{ date(config('setting.format_date'), strtotime($listImport[$index]['created_at']))  }}</td>
                                             </tr>
                                         @endfor
                                     </tbody>

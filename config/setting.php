@@ -34,4 +34,6 @@ return [
         'percent' => 0,
         'money' => 1,
     ],
+
+    'format_date' => 'H:i:s d/m/Y',
 ];

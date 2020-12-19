@@ -25,6 +25,9 @@ $(document).ready(function () {
                 $('#available').text(product.quantity);
                 $("#choose-color").val(product.color);
                 $("#choose-product-id").val(product.id);
+
+                $("#buy-now-choose-color").val(product.color);
+                $("#buy-now-choose-product-id").val(product.id);
             },
             error : function ($data) {
                 alert('Fail');
@@ -35,6 +38,7 @@ $(document).ready(function () {
     $('#add-quantity').click(function() {
         let quantity = parseInt($('#quantity').val());
         $('#quantity').val(quantity + 1);
+        $('#buy-now-quantity').val(quantity + 1);
         let available = $('#show-quantity').val();
     });
 
@@ -42,6 +46,7 @@ $(document).ready(function () {
         let quantity = parseInt($('#quantity').val());
         if (quantity > 1) {
             $('#quantity').val(quantity - 1);
+            $('#buy-now-quantity').val(quantity - 1);
         }
     });
 });

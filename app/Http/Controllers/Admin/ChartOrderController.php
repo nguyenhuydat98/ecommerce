@@ -60,4 +60,16 @@ class ChartOrderController extends Controller
 
         return json_encode($list);
     }
+
+    public function getViewOrderByTime(Request $request)
+    {
+        // dd($request->all());
+        $fromDate = strtotime($request->from_date);
+        $toDate = strtotime($request->to_date);
+        if (($fromDate - $toDate) > 0) {
+            return redirect()->back()->with('error_date', "Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc");
+        }
+        dd("continue");
+
+    }
 }

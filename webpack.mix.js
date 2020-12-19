@@ -16,6 +16,7 @@ mix.js('resources/js/user_product_detail.js', 'public/js');
 mix.js('resources/js/user_order_history_by_status.js', 'public/js');
 mix.js('resources/js/admin_dataTables.js', 'public/js');
 mix.js('resources/js/admin_chart.js', 'public/js');
+mix.js('resources/js/admin_statistic_revenue.js', 'public/js');
 
 // mix.sass('resources/sass/app.scss', 'public/css');
 

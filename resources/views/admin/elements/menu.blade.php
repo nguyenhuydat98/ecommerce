@@ -58,6 +58,16 @@
                         <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('admin.menu.chart_order') }}
                     </a>
                 </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Thống kê sản phẩm
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.getViewStatisticRevenue') }}">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Thống kê doanh thu
+                    </a>
+                </li>
                 {{-- <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">

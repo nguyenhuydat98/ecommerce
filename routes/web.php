@@ -27,6 +27,7 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::post('change_password', 'ChangePasswordController@postChangePassword')->name('postChangePassword');
                 Route::get('/', 'HomeController@dashboard')->name('dashboard');
                 Route::get('chart-order', 'ChartOrderController@getView')->name('chartOrder');
+                Route::get('chart-order-by-time', 'ChartOrderController@getViewOrderByTime')->name('chartOrderByTime');
                 Route::get('status-by-month', 'ChartOrderController@getStatusByMonth')->name('getStatusByMonth');
                 Route::resource('users', 'UserController')->only(['index', 'show']);
                 Route::resource('admins', 'AdminController');
@@ -41,8 +42,10 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::get('import-product/{id}', 'ImportProductController@getViewImportProduct')->name('getImportProduct');
                 Route::post('import-product/{id}', 'ImportProductController@importProduct')->name('postImportProduct');
                 Route::get('list-import', 'ImportProductController@listImportProduct')->name('listImportProduct');
-
                 Route::get('read-at/{id}', 'NotificationController@readAt')->name('readNotification');
+                Route::get('statistic-revenue', 'StatisticRevenueController@getViewStatisticRevenue')->name('getViewStatisticRevenue');
+                Route::get('revenue-in-month/{time?}', 'StatisticRevenueController@getStatisticRevenueInMonth')->name('getStatisticRevenueInMonth');
+
             });
         });
     });

@@ -13,6 +13,7 @@ class Product extends Model
         'product_information_id',
         'color_id',
         'quantity',
+        'import_price',
         'unit_price',
         'rate',
     ];

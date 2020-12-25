@@ -34,7 +34,7 @@
 
     "admin.menu.admin_management": "Quản lí nhân viên",
     "admin.menu.category_management": "Quản lí danh mục",
-    "admin.menu.chart_order": "Biểu đồ đơn hàng",
+    "admin.menu.chart_order": "Thống kê đơn hàng",
     "admin.menu.import_product": "Nhập hàng",
     "admin.menu.list_import": "Danh sách hóa đơn",
     "admin.menu.order_management": "Quản lí đơn hàng",

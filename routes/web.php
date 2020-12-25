@@ -27,8 +27,12 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::post('change_password', 'ChangePasswordController@postChangePassword')->name('postChangePassword');
                 Route::get('/', 'HomeController@dashboard')->name('dashboard');
                 Route::get('chart-order', 'ChartOrderController@getView')->name('chartOrder');
-                Route::get('chart-order-by-time', 'ChartOrderController@getViewOrderByTime')->name('chartOrderByTime');
                 Route::get('status-by-month', 'ChartOrderController@getStatusByMonth')->name('getStatusByMonth');
+                Route::get('chart-order-by-time', 'ChartOrderController@getViewOrderByTime')->name('chartOrderByTime');
+                Route::get('status-pending-by-time/{from}/{to}', 'ChartOrderController@getPendingByTime')->name('getPendingByTime');
+                Route::get('status-approved-by-time/{from}/{to}', 'ChartOrderController@getApprovedByTime')->name('getApprovedByTime');
+                Route::get('status-rejected-by-time/{from}/{to}', 'ChartOrderController@getRejectedByTime')->name('getRejectedByTime');
+                Route::get('status-canceled-by-time/{from}/{to}', 'ChartOrderController@getCanceledByTime')->name('getCanceledByTime');
                 Route::resource('users', 'UserController')->only(['index', 'show']);
                 Route::resource('admins', 'AdminController');
                 Route::resource('categories', 'CategoryController');

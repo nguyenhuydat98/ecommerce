@@ -1,4 +1,7 @@
 window.onload = function () {
+    Chart.defaults.global.elements.rectangle.borderColor = '#000';
+    Chart.defaults.global.elements.rectangle.borderWidth = 0.5;
+
     var url = $(".url").data("url");
     $.ajax({
         type: 'get',
@@ -14,30 +17,22 @@ window.onload = function () {
                         {
                             label: 'pending',
                             data: orders[0]['pending'],
-                            backgroundColor: 'rgb(0, 0, 255)',
-                            borderColor: 'rgba(0, 0, 0)',
-                            borderWidth: 0.5
+                            backgroundColor: 'rgb(0, 0, 255)'
                         },
                         {
                             label: 'approved',
                             data: orders[0]['approved'],
-                            backgroundColor: 'rgb(124, 252, 0)',
-                            borderColor: 'rgba(0, 0, 0)',
-                            borderWidth: 0.5
+                            backgroundColor: 'rgb(124, 252, 0)'
                         },
                         {
                             label: 'rejected',
                             data: orders[0]['rejected'],
-                            backgroundColor: 'rgb(255, 0, 0)',
-                            borderColor: 'rgba(0, 0, 0)',
-                            borderWidth: 0.5
+                            backgroundColor: 'rgb(255, 0, 0)'
                         },
                         {
                             label: 'canceled',
                             data: orders[0]['canceled'],
-                            backgroundColor: 'rgb(128, 128, 128)',
-                            borderColor: 'rgba(0, 0, 0)',
-                            borderWidth: 0.5
+                            backgroundColor: 'rgb(128, 128, 128)'
                         }
                     ]
                 },

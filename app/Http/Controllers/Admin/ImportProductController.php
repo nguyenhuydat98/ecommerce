@@ -12,6 +12,7 @@ use App\Http\Requests\ImportProductRequest;
 use Auth;
 use DB;
 use Illuminate\Support\Facades\Gate;
+use Session;
 
 class ImportProductController extends Controller
 {
@@ -21,40 +22,72 @@ class ImportProductController extends Controller
             $supplier = Supplier::findOrFail($id);
             $productInformations = ProductInformation::all();
 
-            return view('admin.pages.import_product', compact('supplier', 'productInformations'));
+            $listImport = [];
+            if (Session::has('import')) {
+                $session = Session::get('import');
+                foreach ($session as $item) {
+                    if ($item['supplier_id'] == $id) {
+                        $product = Product::where('product_information_id', $item['product_information_id'])
+                            ->where('color_id', $item['color_id'])
+                            ->first();
+                        array_push($listImport, [
+                            'product_name' => $product->productInformation->name,
+                            'color' => $product->color->name,
+                            'quantity' => $item['quantity'],
+                            'import_price' => $product->import_price,
+                        ]);
+                    }
+                }
+            }
+
+            return view('admin.pages.import_product', compact('supplier', 'productInformations', 'listImport'));
         } else {
             abort(403);
         }
 
     }
 
-    public function importProduct(ImportProductRequest $request, $id)
+    public function addToListImport(ImportProductRequest $request, $id)
     {
-        if (Auth::guard('admin')->user()->role_id == config('setting.role.management') || Auth::guard('admin')->user()->role_id == config('setting.role.admin_product')) {
-            DB::beginTransaction();
-            try {
-                $supplier = Supplier::findOrFail($id);
-                $product = Product::where('product_information_id', $request->product_information_id)
-                    ->where('color_id', $request->color_id)
-                    ->first();
-                $supplier->products()->attach($product->id, [
-                    'admin_id' => Auth::guard('admin')->id(),
-                    'quantity' => $request->quantity,
-                    'import_price' => $product->import_price,
-                ]);
-                $product->update([
-                    'quantity' => $product->quantity + $request->quantity,
-                ]);
-                DB::commit();
+        $product = Product::where('product_information_id', $request->product_information_id)
+            ->where('color_id', $request->color_id)
+            ->first();
+        if ($product) {
+            $listImport = Session::get('import');
+            if ($listImport) {
+                foreach ($listImport as $key => $item) {
+                    if ($item['supplier_id'] == $id) {
+                        if ($item['product_information_id'] == $request->product_information_id && $item['color_id'] == $request->color_id) {
+                            $listImport[$key]['quantity'] += $request->quantity;
+                            Session::put('import', $listImport);
+                            Session::save();
 
-                return redirect()->route('admin.listImportProduct')->with('success', 'Nhập hàng thành công');
-            } catch (Exception $e) {
-                DB::rollBack();
-
-                return $e->getMessage();
+                            return redirect()->back()->with('success', 'Đã thêm vào danh sách');
+                        }
+                    }
+                }
+                Session::push('import', [
+                    'supplier_id' => $id,
+                    'product_information_id' => $request->product_information_id,
+                    'quantity' => (int) $request->quantity,
+                    'color_id' => $request->color_id,
+                ]);
+                Session::save();
+            } else {
+                Session::put('import', [
+                    [
+                        'supplier_id' => $id,
+                        'product_information_id' => $request->product_information_id,
+                        'quantity' => (int) $request->quantity,
+                        'color_id' => $request->color_id,
+                    ],
+                ]);
+                Session::save();
             }
+
+            return redirect()->back()->with('success', 'Đã thêm vào danh sách');
         } else {
-            abort(403);
+            dd("Lỗi khi nhập hàng");
         }
     }
 
@@ -82,5 +115,32 @@ class ImportProductController extends Controller
         } else {
             abort(403);
         }
+    }
+
+    public function deleteImport($supplierId)
+    {
+        $supplier = Supplier::findOrFail($supplierId);
+        $listImport = [];
+        if (Session::has('import')) {
+            $session = Session::get('import');
+            foreach ($session as $item) {
+                if ($item['supplier_id'] != $supplier->id) {
+                    array_push($listImport, $item);
+                }
+            }
+            Session::put('import', $listImport);
+            Session::save();
+        }
+
+        return redirect()->back()->with('success', 'Đã làm mới danh sách');
+    }
+
+    public function importProduct($supplierId)
+    {
+        // $listImport = [];
+        // $listItem = Session::get('import');
+        // foreach ($listItem as $item) {
+        //     if ($item['supplier_id'] == $supplierId)
+        // }
     }
 }

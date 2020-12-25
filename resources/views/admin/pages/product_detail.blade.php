@@ -19,10 +19,15 @@
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                             <strong>{{ session('error_price') }}</strong>
                         </div>
+                    @elseif (session('success'))
+                        <div class="alert alert-warning alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ session('success') }}</strong>
+                        </div>
                     @elseif (session('done'))
                         <div class="alert alert-success alert-dismissible fade in">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>{{ session('done') }}</strong>
+                            <strong>{{ session('success') }}</strong>
                         </div>
                     @endif
                 </div>

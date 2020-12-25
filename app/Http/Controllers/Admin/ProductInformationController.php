@@ -63,14 +63,14 @@ class ProductInformationController extends Controller
     public function store(ProductInformationRequest $request)
     {
         if (Auth::guard('admin')->user()->can('create', ProductInformation::class)) {
-            ProductInformation::create([
+            $productInformation = ProductInformation::create([
                 'name' => $request->name,
                 'category_id' => $request->category_id,
                 'brand' => $request->brand,
                 'description' => $request->description,
             ]);
 
-            return redirect()->route('admin.product_informations.index')->with('success', 'Thêm thành công');
+            return redirect()->route('admin.product_informations.show', $productInformation->id)->with('success', 'Thành công. Hãy tạo ngay 1 loại sản phẩm mới');
         } else {
             abort(403);
         }

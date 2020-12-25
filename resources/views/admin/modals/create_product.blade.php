@@ -29,7 +29,11 @@
                         </div>
                         <div class="form-group">
                             <label>Giá nhập (VND) <span class="text-danger">*</span></label>
-                            <input type="text" name="import_price" class="form-control" value={{ $productInformation->products->first()->import_price }} required>
+                            <input type="text" name="import_price" class="form-control"
+                            @if (count($productInformation->products) > 0)
+                                value="{{ $productInformation->products->first()->import_price }}"
+                            @endif
+                            required>
                             @error('import_price')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror

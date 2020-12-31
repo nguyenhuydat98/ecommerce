@@ -3,92 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\ProductInformation;
 use App\Models\User;
+use App\Models\ProductInformation;
 use App\Models\Comment;
 use App\Similarity;
 use App\UserSimilarity;
 use Auth;
 
-
-class HomeController extends Controller
+class RecommenderSystemController extends Controller
 {
-    public function home()
+    public function recommender()
     {
-        $categories = Category::all();
-        $productInformations = ProductInformation::orderBy('id', 'desc')->get();
-
-        // Sản phẩm phổ biến
-        $listIphoneMinPrice = [];
-        $listIphoneMaxPrice = [];
-
-        $listSamSungMinPrice = [];
-        $listSamSungMaxPrice = [];
-        foreach ($productInformations as $productInformation) {
-            if ($productInformation->category_id == 1) {
-                $minPrice = $productInformation->products->first()->unit_price;
-                $maxPrice = $minPrice;
-                foreach ($productInformation->products as $product) {
-                    if ($minPrice > $product->unit_price) {
-                        $minPrice = $product->unit_price;
-                    }
-                    if ($maxPrice < $product->unit_price) {
-                        $maxPrice = $product->unit_price;
-                    }
-                }
-                array_push($listIphoneMinPrice, $minPrice);
-                array_push($listIphoneMaxPrice, $maxPrice);
-            }
-
-            if ($productInformation->category_id == 2) {
-                $minPrice = $productInformation->products->first()->unit_price;
-                $maxPrice = $minPrice;
-                foreach ($productInformation->products as $product) {
-                    if ($minPrice > $product->unit_price) {
-                        $minPrice = $product->unit_price;
-                    }
-                    if ($maxPrice < $product->unit_price) {
-                        $maxPrice = $product->unit_price;
-                    }
-                }
-                array_push($listSamSungMinPrice, $minPrice);
-                array_push($listSamSungMaxPrice, $maxPrice);
-            }
-        }
-
-        // Sản phẩm đánh giá cao
-        $productInformationRates = ProductInformation::where(
-            [
-                ['rate', '<>', null],
-                ['rate', '>=', 3],
-            ])
-            ->orderBy('rate', 'desc')
-            ->take(6)
-            ->get();
-
-        $rateMinPrice = [];
-        $rateMaxPrice = [];
-
-        foreach ($productInformationRates as $productInformation) {
-            $minPrice = $productInformation->products->first()->unit_price;
-            $maxPrice = $minPrice;
-            foreach ($productInformation->products as $product) {
-                if ($minPrice > $product->unit_price) {
-                    $minPrice = $product->unit_price;
-                }
-                if ($maxPrice < $product->unit_price) {
-                    $maxPrice = $product->unit_price;
-                }
-            }
-            array_push($rateMinPrice, $minPrice);
-            array_push($rateMaxPrice, $maxPrice);
-        }
-
-        $productRecommenders = [];
-        $recommenderMinPrice = [];
-        $recommenderMaxPrice = [];
-        $top = 3;
         if (Auth::guard('web')->check()) {
             $activeUserId = Auth::guard('web')->id();
             $users = User::all();
@@ -97,51 +22,12 @@ class HomeController extends Controller
             $normalizedMatrix = $this->normalizedMatrixUserItem($users, $items, $matrix);
             $vectorSimilarity = $this->getMatrixUserSimilarity($activeUserId, $users, $normalizedMatrix);
             // dd($matrix, $normalizedMatrix, $vectorSimilarity);
-            $recommenders = $this->getRecommender($activeUserId, $matrix, $normalizedMatrix, $vectorSimilarity);
-            // dd($recommenders);
-
-            $count = 0;
-            foreach ($recommenders as $key => $productRecommender) {
-                if ($productRecommender != null && $count <= $top) {
-                    $productInformation = ProductInformation::findOrFail($key);
-                    array_push($productRecommenders, $productInformation);
-
-                    $minPrice = $productInformation->products->first()->unit_price;
-                    $maxPrice = $minPrice;
-                    foreach ($productInformation->products as $product) {
-                        if ($minPrice > $product->unit_price) {
-                            $minPrice = $product->unit_price;
-                        }
-                        if ($maxPrice < $product->unit_price) {
-                            $maxPrice = $product->unit_price;
-                        }
-                    }
-                    array_push($recommenderMinPrice, $minPrice);
-                    array_push($recommenderMaxPrice, $maxPrice);
-                    $count++;
-                } else {
-                    break;
-                }
-            }
+            return $this->getRecommender($activeUserId, $matrix, $normalizedMatrix, $vectorSimilarity);
         }
-        // dd($productRecommenders, $recommenderMinPrice, $recommenderMaxPrice);
-
-        return view('user.pages.home', compact(
-            'categories',
-            'productInformations',
-            'listIphoneMinPrice',
-            'listIphoneMaxPrice',
-            'listSamSungMinPrice',
-            'listSamSungMaxPrice',
-            'productInformationRates',
-            'rateMinPrice',
-            'rateMaxPrice',
-            'productRecommenders',
-            'recommenderMinPrice',
-            'recommenderMaxPrice'
-        ));
+        else {
+            dd("Chưa đăng nhập");
+        }
     }
-
 
     /**
      * Step 1
@@ -246,7 +132,6 @@ class HomeController extends Controller
             }
         }
         arsort($listRatingRecommender);
-        // dd($listRatingRecommender);
         
         return $listRatingRecommender;
     }

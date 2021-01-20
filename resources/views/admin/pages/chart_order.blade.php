@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-7">
-                        <h1 class="page-header">Thống kê đơn hàng trong năm {{ date("Y") }}</h1>
+                        <h1 class="page-header">Thống kê đơn hàng trong năm 2020</h1>
                     </div>
                     <div class="col-lg-5" style="margin-top:35px;">
                         @if (session('error_date'))

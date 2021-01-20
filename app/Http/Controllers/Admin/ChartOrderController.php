@@ -11,7 +11,10 @@ class ChartOrderController extends Controller
 {
     public function getView()
     {
-        $orders = Order::all();
+        $orders = Order::where(function($query) {
+            $query->whereYear('updated_at', 2020);
+        })
+        ->get();
         $pending = $orders->where('status', config('setting.status.pending'))->count();
         $approved = $orders->where('status', config('setting.status.approved'))->count();
         $rejected = $orders->where('status', config('setting.status.rejected'))->count();
@@ -28,7 +31,10 @@ class ChartOrderController extends Controller
     public function getStatusByMonth()
     {
         $pendingByMonth = $approvedByMonth = $rejectedByMonth = $canceledByMonth = array_fill(0, 12, 0);
-        $orders = Order::all();
+        $orders = Order::where(function($query) {
+                $query->whereYear('updated_at', 2020);
+            })
+            ->get();
         foreach ($orders as $order) {
             for ($index = 0; $index < 12; $index++) {
                 if ($order->updated_at->month == ($index + 1)) {

@@ -80,7 +80,7 @@
                                 </ul>
                                 <div class="voucher">
                                     <div class="voucher-btn">
-                                        <button class="btn_3" data-toggle="modal" id="list-voucher" data-target="#vouchers">Chọn Voucher</button>
+                                        {{-- <button class="btn_3" data-toggle="modal" id="list-voucher" data-target="#vouchers">Chọn Voucher</button> --}}
                                     </div>
                                     <div class="voucher-choose">
                                         @if ($chooseVoucher)

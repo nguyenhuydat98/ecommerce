@@ -98,23 +98,26 @@ text-align: center;
     margin-top: 35px;
 }
 
-.wrap-user-checkout-page .voucher .voucher-btn {
+/*.wrap-user-checkout-page .voucher .voucher-btn {
     float: left;
     min-width: 30%;
-}
+}*/
 
 .wrap-user-checkout-page .voucher .voucher-choose {
     margin-top: 10px;
     margin-bottom: 40px;
     float: left;
-    min-width: 70%;
-    text-align: right;
+    /*min-width: 70%;*/
+    /*text-align: right;*/
 }
 
 .wrap-user-checkout-page #list-voucher {
     border: 0;
     text-transform: none;
     font-weight: 600;
+    background-color: #2577fd;
+    color: #fff;
+    border: 1px solid #2577fd;
 }
 
 .wrap-user-checkout-page .hide-btn {
@@ -123,6 +126,9 @@ text-align: center;
 
 .wrap-user-checkout-page #list-voucher:hover {
     cursor: pointer;
+    background-color: #fff;
+    color: #2577fd;
+
 }
 
 .wrap-user-checkout-page .choose-voucher {

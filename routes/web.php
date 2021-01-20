@@ -25,6 +25,8 @@ Route::group(['middleware' => 'localization'], function() {
             Route::group(['middleware' => 'checkAdminLogin'], function() {
                 Route::get('change_password', 'ChangePasswordController@getChangePassword')->name('getChangePassword');
                 Route::post('change_password', 'ChangePasswordController@postChangePassword')->name('postChangePassword');
+                Route::get('profile', 'ProfileController@getProfile')->name('profile');
+                Route::post('change_profile', 'ProfileController@changeProfile')->name('changeProfile');
                 Route::get('/', 'HomeController@dashboard')->name('dashboard');
                 Route::get('chart-order', 'ChartOrderController@getView')->name('chartOrder');
                 Route::get('status-by-month', 'ChartOrderController@getStatusByMonth')->name('getStatusByMonth');

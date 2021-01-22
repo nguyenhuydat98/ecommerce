@@ -21,10 +21,8 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="{{ trans('admin.category_management.create.submit') }}">
-                            <a href="{{ route('admin.categories.index') }}" class="btn btn-success">
-                                {{ trans('admin.category_management.create.back') }}
-                            </a>
+                            <input type="submit" class="btn btn-primary" value="{{ trans('admin.button_create_new') }}">
+                            <a href="{{ route('admin.categories.index') }}" class="btn btn-success">{{ trans('admin.button_back') }}</a>
                         </div>
                     </form>
                 </div>

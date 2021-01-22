@@ -50,10 +50,8 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="{{ trans('admin.product_management.edit.submit') }}">
-                            <a href="{{ route('admin.product_informations.index') }}" class="btn btn-success">
-                                {{ trans('admin.product_management.edit.back') }}
-                            </a>
+                            <input type="submit" class="btn btn-primary" value="{{ trans('admin.button_save') }}">
+                            <a href="{{ route('admin.product_informations.index') }}" class="btn btn-success">{{ trans('admin.button_back') }}</a>
                         </div>
                     </div>
                 </form>

@@ -22,9 +22,9 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="{{ trans('admin.category_management.edit.submit') }}">
+                            <input type="submit" class="btn btn-primary" value="{{ trans('admin.button_save') }}">
                             <a href="{{ route('admin.categories.index') }}" class="btn btn-success">
-                                {{ trans('admin.category_management.edit.back') }}
+                                {{ trans('admin.button_back') }}
                             </a>
                         </div>
                     </form>

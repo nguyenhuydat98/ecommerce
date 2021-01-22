@@ -6,30 +6,30 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Thông tin cá nhân</h1>
+                    <h1 class="page-header">{{ trans('admin.profile.title') }}</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="col-lg-8">
                         <div class="group">
-                            <span class="title">Họ tên</span>
+                            <span class="title">{{ trans('admin.profile.name') }}</span>
                             <span class="content">{{ $admin->name }}</span>
                         </div>
                         <div class="group">
-                            <span class="title">Địa chỉ</span>
+                            <span class="title">{{ trans('admin.profile.address') }}</span>
                             <span class="content">{{ $admin->address }}</span>
                         </div>
                         <div class="group">
-                            <span class="title">Điện thoại</span>
+                            <span class="title">{{ trans('admin.profile.phone') }}</span>
                             <span class="content">{{ $admin->phone }}</span>
                         </div>
                         <div class="group">
-                            <span class="title">Email</span>
+                            <span class="title">{{ trans('admin.profile.email') }}</span>
                             <span class="content">{{ $admin->email }}</span>
                         </div>
                         <div class="group">
-                            <span class="title">Ngày tham gia</span>
+                            <span class="title">{{ trans('admin.profile.created_at') }}</span>
                             <span class="content">{{ $admin->created_at->format(config('setting.format_date')) }}</span>
                         </div>
                     </div>

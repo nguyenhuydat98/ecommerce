@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Thống kê doanh thu trong tháng {{ (int) date("m", strtotime($time)) }} năm {{ date("Y", strtotime($time)) }}</h1>
+                        <h1 class="page-header">{{ trans('admin.revenue_statistic.title') }} {{ (int) date("m", strtotime($time)) }} / {{ date("Y", strtotime($time)) }}</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -15,13 +15,13 @@
                             <form action="{{ route('admin.getViewStatisticRevenue', $time) }}" method="GET">
                                 @csrf
                                 <div class="col-lg-2 form-group">
-                                    <h4>Chọn thời gian</h4>
+                                    <h4>{{ trans('admin.revenue_statistic.choose_month') }}</h4>
                                 </div>
                                 <div class="col-lg-3 form-group">
                                     <input type="month" class="form-control" name="time" min="2020-01" value="{{ date($time) }}">
                                 </div>
                                 <div class="col-lg-2 form-group">
-                                    <input type="submit" class="btn btn-primary" value="Tìm kiếm">
+                                    <input type="submit" class="btn btn-primary" value="{{ trans('admin.button_search') }}">
                                 </div>
                             </form>
                         </div>

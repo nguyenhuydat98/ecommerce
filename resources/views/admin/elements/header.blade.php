@@ -57,7 +57,7 @@
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li>
-                    <a href="{{ route('admin.profile') }}"><i class="fa fa-user fa-fw"></i> Thông tin cá nhân</a>
+                    <a href="{{ route('admin.profile') }}"><i class="fa fa-user fa-fw"></i> {{ trans('admin.header.profile') }}</a>
                 </li>
                 <li>
                     <a href="{{ route('admin.getChangePassword') }}"><i class="fa fa-key" aria-hidden="true"></i> {{ trans('admin.login.change_password') }}</a>

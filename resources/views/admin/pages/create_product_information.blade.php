@@ -51,10 +51,8 @@
                             <input type="file" class="form-control" name="images[]" multiple>
                         </div> --}}
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="{{ trans('admin.product_management.create.submit') }}">
-                            <a href="{{ route('admin.product_informations.index') }}" class="btn btn-success">
-                                {{ trans('admin.product_management.create.back') }}
-                            </a>
+                            <input type="submit" class="btn btn-primary" value="{{ trans('admin.button_create_new') }}">
+                            <a href="{{ route('admin.product_informations.index') }}" class="btn btn-success">{{ trans('admin.button_back') }}</a>
                         </div>
                     </div>
                 </form>

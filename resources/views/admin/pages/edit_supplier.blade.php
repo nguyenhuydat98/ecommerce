@@ -36,10 +36,8 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="{{ trans('admin.supplier_management.edit.submit') }}">
-                            <a href="{{ route('admin.suppliers.index') }}" class="btn btn-success">
-                                {{ trans('admin.supplier_management.edit.back') }}
-                            </a>
+                            <input type="submit" class="btn btn-primary" value="{{ trans('admin.button_save') }}">
+                            <a href="{{ route('admin.suppliers.index') }}" class="btn btn-success">{{ trans('admin.button_back') }}</a>
                         </div>
                     </form>
                 </div>

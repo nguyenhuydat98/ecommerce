@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-7">
-                    <h1 class="page-header">Danh sách khuyến mãi</h1>
+                    <h1 class="page-header">{{ trans('admin.voucher_management.list.title') }}</h1>
                 </div>
                 <div class="col-lg-5" id="flash">
                     @if (session('success'))
@@ -17,7 +17,7 @@
                     @endif
                 </div>
             </div>
-            <a href="{{ route('admin.vouchers.create') }}" class="btn btn-primary">Thêm khuyến mãi</a>
+            <a href="{{ route('admin.vouchers.create') }}" class="btn btn-primary">{{ trans('admin.button_create_new') }}</a>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -27,12 +27,12 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Code</th>
-                                            <th>Tên khuyến mãi</th>
-                                            <th>Mức giảm</th>
-                                            <th>Đơn hàng từ</th>
-                                            <th>Bắt đầu</th>
-                                            <th>Kết thúc</th>
+                                            <th>{{ trans('admin.voucher_management.list.code') }}</th>
+                                            <th>{{ trans('admin.voucher_management.list.name') }}</th>
+                                            <th>{{ trans('admin.voucher_management.list.value') }}</th>
+                                            <th>{{ trans('admin.voucher_management.list.order_value_from') }}</th>
+                                            <th>{{ trans('admin.voucher_management.list.start_time') }}</th>
+                                            <th>{{ trans('admin.voucher_management.list.end_time') }}</th>
                                             <th></th>
                                         </tr>
                                     </thead>

@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-7">
-                    <h1 class="page-header">Danh Sách Đơn Hàng</h1>
+                    <h1 class="page-header">{{ trans('admin.order_management.list.title') }}</h1>
                 </div>
                 <div class="col-lg-5" id="message-status">
                     @if (session('message_rejected'))
@@ -36,10 +36,10 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Tên người nhận</th>
-                                            <th>Địa chỉ</th>
-                                            <th>Trạng thái</th>
-                                            <th>Giá trị đơn hàng</th>
+                                            <th>{{ trans('admin.order_management.list.name') }}</th>
+                                            <th>{{ trans('admin.order_management.list.address') }}</th>
+                                            <th>{{ trans('admin.order_management.list.status') }}</th>
+                                            <th>{{ trans('admin.order_management.list.order_value') }}</th>
                                             <th></th>
                                         </tr>
                                     </thead>

@@ -3,7 +3,7 @@
         <div class="row product-btn d-flex justify-content-end align-items-end">
             <div class="col-xl-12">
                 <div class="section-tittle mb-30">
-                    <h4 class="title">Sản phẩm đánh giá cao</h4>
+                    <h4 class="title">{{ trans('user.home.highly_rated_product') }}</h4>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                         </h4>
                         <div class="product-caption">
                             @if ($productInformation->rate == null)
-                                <span class="product-rate">chưa có đánh giá</span>
+                                <span class="product-rate">{{ trans('user.product.rate_empty') }}</span>
                             @else
                                 @for($star = 1; $star <= 5; $star++)
                                     <span class="fa fa-star @if ($star <= $productInformation->rate) checked @endif"></span>

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-tittle">
-                    <h4 class="title">Danh Mục</h4>
+                    <h4 class="title">{{ trans('user.home.category') }}</h4>
                 </div>
             </div>
         </div>

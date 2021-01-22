@@ -62,7 +62,7 @@
                                                             <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1">
                                                         </div>
                                                     </div>
-                                                    <input type="submit" class="btn_1" id="btn-update" value="Cập nhật">
+                                                    <input type="submit" class="btn_1" id="btn-update" value="{{ trans('user.cart.update') }}">
                                                 </form>
                                             </td>
                                             <td class="td-color">

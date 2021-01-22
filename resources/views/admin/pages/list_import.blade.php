@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-7">
-                    <h1 class="page-header">Danh sách đơn nhập hàng</h1>
+                    <h1 class="page-header">{{ trans('admin.import_product.list.title') }}</h1>
                 </div>
                 <div class="col-lg-5" id="flash">
                     @if (session('success'))
@@ -26,13 +26,13 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Nhân viên</th>
-                                            <th>Nhà cung cấp</th>
-                                            <th>Tên sản phẩm</th>
-                                            <th>Màu</th>
-                                            <th>Số lượng</th>
-                                            <th>Đơn giá</th>
-                                            <th>Thời gian nhập</th>
+                                            <th>{{ trans('admin.import_product.list.admin') }}</th>
+                                            <th>{{ trans('admin.import_product.list.supplier') }}</th>
+                                            <th>{{ trans('admin.import_product.list.name_product') }}</th>
+                                            <th>{{ trans('admin.import_product.list.color') }}</th>
+                                            <th>{{ trans('admin.import_product.list.quantity') }}</th>
+                                            <th>{{ trans('admin.import_product.list.unit_price') }}</th>
+                                            <th>{{ trans('admin.import_product.list.time') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>

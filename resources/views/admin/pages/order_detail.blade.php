@@ -6,13 +6,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Chi Tiết Đơn Hàng</h1>
+                    <h1 class="page-header">{{ trans('admin.order_detail.title') }}</h1>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-8" id="btn-support">
-                    <a href="{{ route('admin.orders.index') }}" class="btn btn-success">Quay lại</a>
+                    <a href="{{ route('admin.orders.index') }}" class="btn btn-success">{{ trans('admin.button_back') }}</a>
                 </div>
                 <div class="col-lg-4">
                     @if ($order->status == config('setting.status.pending'))
@@ -22,19 +22,19 @@
                 </div>
                 <div class="col-lg-10">
                     <div class="group-order">
-                        <span class="title">Tên người nhận</span>
+                        <span class="title">{{ trans('admin.order_detail.name') }}</span>
                         <span class="content">{{ $order->name }}</span>
                     </div>
                     <div class="group-order">
-                        <span class="title">Địa chỉ nhận hàng</span>
+                        <span class="title">{{ trans('admin.order_detail.address') }}</span>
                         <span class="content">{{ $order->address }}</span>
                     </div>
                     <div class="group-order">
-                        <span class="title">Số điện thoại</span>
+                        <span class="title">{{ trans('admin.order_detail.phone') }}</span>
                         <span class="content">{{ $order->phone }}</span>
                     </div>
                     <div class="group-order">
-                        <span class="title">Trạng thái đơn hàng</span>
+                        <span class="title">{{ trans('admin.order_detail.status') }}</span>
                         <span class="content">
                             @switch ($order->status)
                                 @case (config('setting.status.pending'))
@@ -58,11 +58,11 @@
                     </div>
                     @if ($voucher)
                         <div class="group-order">
-                            <span class="title">Mã giảm giá</span>
+                            <span class="title">{{ trans('admin.order_detail.voucher_code') }}</span>
                             <span class="content">{{ $voucher->code }}</span>
                         </div>
                         <div class="group-order">
-                            <span class="title">Đã giảm giá</span>
+                            <span class="title">{{ trans('admin.order_detail.voucher_value') }}</span>
                             <span class="content">
                                 @if ($voucher->formality == config('setting.formality.percent'))
                                     {{ $voucher->value . " %" }}
@@ -73,20 +73,20 @@
                         </div>
                     @endif
                     <div class="group-order">
-                        <span class="title">Giá trị đơn hàng</span>
+                        <span class="title">{{ trans('admin.order_detail.order_value') }}</span>
                         <span class="content" id="total-payment">{{ number_format($order->total_payment) . " đ" }}</span>
                     </div>
                     <div class="group-order">
-                        <span class="title">Ghi chú</span>
+                        <span class="title">{{ trans('admin.order_detail.note') }}</span>
                         <span class="content">{{ $order->note }}</span>
                     </div>
                     <div class="group-order">
-                        <span class="title">Thời gian đặt hàng</span>
+                        <span class="title">{{ trans('admin.order_detail.created_at') }}</span>
                         <span class="content">{{ $order->created_at->format(config('setting.format_date')) }}</span>
                     </div>
                     @if ($order->status != config('setting.status.pending'))
                         <div class="group-order">
-                            <span class="title">Cập nhật lần cuối</span>
+                            <span class="title">{{ trans('admin.order_detail.last_updated') }}</span>
                             <span class="content">{{ $order->updated_at->format(config('setting.format_date')) }}</span>
                         </div>
                     @endif
@@ -95,12 +95,12 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <th>#</th>
-                            <th>Hình ảnh</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Màu sắc</th>
-                            <th>Số lượng</th>
-                            <th>Giá bán</th>
-                            <th>Thành tiền</th>
+                            <th>{{ trans('admin.order_detail.table.image') }}</th>
+                            <th>{{ trans('admin.order_detail.table.name') }}</th>
+                            <th>{{ trans('admin.order_detail.table.color') }}</th>
+                            <th>{{ trans('admin.order_detail.table.quantity') }}</th>
+                            <th>{{ trans('admin.order_detail.table.unit_price') }}</th>
+                            <th>{{ trans('admin.order_detail.table.total') }}</th>
                         </thead>
                         <tbody>
                             @php

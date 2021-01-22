@@ -6,18 +6,18 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Xóa quản trị viên</h4>
+                    <h4 class="modal-title">{{ trans('admin.admin_management.delete.title') }}</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <h4>Bạn có chắc muốn xóa quản trị viên này không?</h4>
+                    <h4>{{ trans('admin.admin_management.delete.confirm') }}</h4>
                 </div>
                 <div class="modal-footer">
                     <form action="{{ route('admin.admins.destroy', $admin->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <input type="submit" class="btn btn-danger" value="Xác nhận xóa">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Quay lại</button>
+                        <input type="submit" class="btn btn-danger" value="{{ trans('admin.button_confirm_delete') }}">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">{{ trans('admin.button_back') }}</button>
                     </form>
                 </div>
             </div>

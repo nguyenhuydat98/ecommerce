@@ -22,7 +22,7 @@
                                             <th>{{ trans('admin.user_management.name') }}</th>
                                             <th>{{ trans('admin.user_management.address') }}</th>
                                             <th>{{ trans('admin.user_management.phone') }}</th>
-                                            <th>Ngày đăng ký</th>
+                                            <th>{{ trans('admin.user_management.start_date') }}</th>
                                             <th></th>
                                         </tr>
                                     </thead>

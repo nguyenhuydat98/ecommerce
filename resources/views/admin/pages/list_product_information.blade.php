@@ -17,7 +17,7 @@
                     @endif
                 </div>
             </div>
-            <a href="{{ route('admin.product_informations.create') }}" class="btn btn-primary">{{ trans('admin.product_management.list.create_new') }}</a>
+            <a href="{{ route('admin.product_informations.create') }}" class="btn btn-primary">{{ trans('admin.button_create_new') }}</a>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">

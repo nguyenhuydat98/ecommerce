@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Thống kê đơn hàng</h1>
+                        <h1 class="page-header">{{ trans('admin.order_statistic.filter.title') }}</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -14,19 +14,19 @@
                         <div class="col-lg-12">
                             <form action="{{ route('admin.chartOrderByTime') }}" method="GET">
                                 <div class="col-lg-1 form-group">
-                                    <label>Từ ngày</label>
+                                    <label>{{ trans('admin.order_statistic.from_date') }}</label>
                                 </div>
                                 <div class="col-lg-2 form-group">
                                     <input type="date" class="form-control" name="from_date" value="{{ $fromDate }}" required>
                                 </div>
                                 <div class="col-lg-1 form-group">
-                                    <label>Đến ngày</label>
+                                    <label>{{ trans('admin.order_statistic.to_date') }}</label>
                                 </div>
                                 <div class="col-lg-2 form-group">
                                     <input type="date" class="form-control" name="to_date" value="{{ $toDate }}" required>
                                 </div>
                                 <div class="col-lg-2 form-group">
-                                    <input type="submit" class="btn btn-primary" value="Tìm kiếm">
+                                    <input type="submit" class="btn btn-primary" value="{{ trans('admin.button_search') }}">
                                 </div>
                             </form>
                         </div>

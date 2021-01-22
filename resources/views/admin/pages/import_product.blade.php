@@ -6,21 +6,21 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Nhập sản phẩm</h1>
+                        <h1 class="page-header">{{ trans('admin.import_product.title') }}</h1>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="group-supplier">
-                            <span class="title">Nhà cung cấp</span>
+                            <span class="title">{{ trans('admin.import_product.name') }}</span>
                             <span class="content">{{ $supplier->name }}</span>
                         </div>
                         <div class="group-supplier">
-                            <span class="title">Địa chỉ</span>
+                            <span class="title">{{ trans('admin.import_product.address') }}</span>
                             <span class="content">{{ $supplier->address }}</span>
                         </div>
                         <div class="group-supplier">
-                            <span class="title">Điên thoại</span>
+                            <span class="title">{{ trans('admin.import_product.phone') }}</span>
                             <span class="content">{{ $supplier->phone }}</span>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                             <thead>
                                 <tr>
                                     <th id="th-stt">#</th>
-                                    <th>Tên sản phẩm</th>
+                                    <th>{{ trans('admin.import_product.name_product') }}</th>
                                     <th id="th-btn"></th>
                                 </tr>
                             </thead>

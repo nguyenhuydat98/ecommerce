@@ -55,17 +55,17 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.chartOrder') }}">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('admin.menu.chart_order') }}
+                        <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('admin.menu.statistic_order') }}
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Thống kê sản phẩm
+                        <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('admin.menu.statistic_product') }}
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.getViewStatisticRevenue') }}">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Thống kê doanh thu
+                        <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('admin.menu.statistic_revenue') }}
                     </a>
                 </li>
                 {{-- <li>

@@ -6,7 +6,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Nhập sản phẩm</h4>
+                    <h4 class="modal-title">{{ trans('admin.import_product.modal.title') }}</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
 
@@ -15,13 +15,13 @@
                     <input type="hidden" name="product_information_id" value="{{ $productInformation->id }}">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Tên sản phẩm</label>
+                            <label>{{ trans('admin.import_product.modal.name') }}</label>
                             <input type="text" class="form-control" value="{{ $productInformation->name }}" readonly>
                         </div>
                         <div class="form-group">
-                            <label>Chọn màu sắc <span class="text-danger">*</span></label>
+                            <label>{{ trans('admin.import_product.modal.color') }} <span class="text-danger">*</span></label>
                             <select class="form-control" name="color_id" required>
-                                <option value="">Chọn màu</option>
+                                <option value="">{{ trans('admin.import_product.modal.choose_color') }}</option>
                                 @foreach ($productInformation->products as $product)
                                     <option value="{{ $product->color_id }}">{{ $product->color->name }}</option>
                                 @endforeach
@@ -31,14 +31,14 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Giá nhập (VND / 1SP) <span class="text-danger">*</span></label>
+                            <label>{{ trans('admin.import_product.modal.import_price') }} (VND / 1SP) <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="import_price" value="{{ $product->import_price }}" readonly>
                             @error('import_price')
                                 <span class="text text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Số lượng <span class="text-danger">*</span></label>
+                            <label>{{ trans('admin.import_product.modal.quantity') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="quantity" required>
                             @error('quantity')
                                 <span class="text text-danger">{{ $message }}</span>
@@ -46,8 +46,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-danger" value="Nhập sản phẩm">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Quay lại</button>
+                        <input type="submit" class="btn btn-danger" value="{{ trans('admin.import_product.modal.button_import') }}">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">{{ trans('admin.button_back') }}</button>
                     </div>
                 </form>
             </div>

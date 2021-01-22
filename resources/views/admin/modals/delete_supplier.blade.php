@@ -6,19 +6,19 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">{{ trans('admin.modal_delete_supplier.title') }}</h4>
+                    <h4 class="modal-title">{{ trans('admin.supplier_management.delete.title') }}</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <h4>{{ trans('admin.modal_delete_supplier.confirm_delete') }}</h4>
+                    <h4>{{ trans('admin.supplier_management.delete.confirm_delete') }}</h4>
                 </div>
                 <div class="modal-footer">
                     <form action="{{ route('admin.suppliers.destroy', $supplier->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
                         <input type="hidden" name="id" value="{{ $supplier->id }}">
-                        <input type="submit" class="btn btn-danger" value="{{ trans('admin.modal_delete_supplier.delete') }}">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">{{ trans('admin.modal_delete_supplier.back') }}</button>
+                        <input type="submit" class="btn btn-danger" value="{{ trans('admin.button_confirm_delete') }}">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">{{ trans('admin.button_back') }}</button>
                     </form>
                 </div>
             </div>

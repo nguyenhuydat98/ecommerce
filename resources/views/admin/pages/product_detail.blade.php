@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="col-lg-12" id="btn-support">
-                    <a href="{{ route('admin.product_informations.index') }}" class="btn btn-success">{{ trans('admin.product_detail.back') }}</a>
+                    <a href="{{ route('admin.product_informations.index') }}" class="btn btn-success">{{ trans('admin.button_back') }}</a>
                 </div>
                 <div class="col-lg-9" id="information">
                     <div class="group-product">
@@ -66,9 +66,9 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Màu sắc</th>
-                                            <th>Số lượng</th>
-                                            <th>Đơn giá</th>
+                                            <th>{{ trans('admin.product_detail.color') }}</th>
+                                            <th>{{ trans('admin.product_detail.quantity') }}</th>
+                                            <th>{{ trans('admin.product_detail.unit_price') }}</th>
                                             <th></th>
                                         </tr>
                                     </thead>

@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-7">
-                    <h1 class="page-header">Danh sách quản trị viên</h1>
+                    <h1 class="page-header">{{ trans('admin.admin_management.list.title') }}</h1>
                 </div>
                 <div class="col-lg-5" id="flash">
                     @if (session('done'))
@@ -22,7 +22,7 @@
                     @endif
                 </div>
             </div>
-            <a href="{{ route('admin.admins.create') }}" class="btn btn-primary">Thêm quản trị viên mới</a>
+            <a href="{{ route('admin.admins.create') }}" class="btn btn-primary">{{ trans('admin.button_create_new') }}</a>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -32,10 +32,10 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Email</th>
-                                            <th>Họ tên</th>
-                                            <th>Quyền</th>
-                                            <th>Ngày bắt đầu</th>
+                                            <th>{{ trans('admin.admin_management.list.email') }}</th>
+                                            <th>{{ trans('admin.admin_management.list.name') }}</th>
+                                            <th>{{ trans('admin.admin_management.list.role') }}</th>
+                                            <th>{{ trans('admin.admin_management.list.start_date') }}</th>
                                             <th></th>
                                         </tr>
                                     </thead>

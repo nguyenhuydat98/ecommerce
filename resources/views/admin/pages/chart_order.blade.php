@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-7">
-                        <h1 class="page-header">Thống kê đơn hàng trong năm 2020</h1>
+                        <h1 class="page-header">{{ trans('admin.order_statistic.title') }} 2020</h1>
                     </div>
                     <div class="col-lg-5" style="margin-top:35px;">
                         @if (session('error_date'))
@@ -22,19 +22,19 @@
                         <div class="col-lg-12">
                             <form action="{{ route('admin.chartOrderByTime') }}" method="GET">
                                 <div class="col-lg-1 form-group">
-                                    <label>Từ ngày</label>
+                                    <label>{{ trans('admin.order_statistic.from_date') }}</label>
                                 </div>
                                 <div class="col-lg-2 form-group">
                                     <input type="date" class="form-control" name="from_date" required>
                                 </div>
                                 <div class="col-lg-1 form-group">
-                                    <label>Đến ngày</label>
+                                    <label>{{ trans('admin.order_statistic.to_date') }}</label>
                                 </div>
                                 <div class="col-lg-2 form-group">
                                     <input type="date" class="form-control" name="to_date" required>
                                 </div>
                                 <div class="col-lg-2 form-group">
-                                    <input type="submit" class="btn btn-primary" value="Tìm kiếm">
+                                    <input type="submit" class="btn btn-primary" value="{{ trans('admin.button_search') }}">
                                 </div>
                             </form>
                         </div>

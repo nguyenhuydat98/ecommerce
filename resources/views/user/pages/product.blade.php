@@ -39,7 +39,7 @@
                                             <div class="product-info">
                                                 <div class="product-name">{{ $productInformation->name }}</div>
                                                 @if ($productInformation->rate == null)
-                                                    <span class="product-rate">chưa có đánh giá</span>
+                                                    <span class="product-rate">{{ trans('user.product.rate_empty') }}</span>
                                                 @else
                                                     @php
                                                         $rate = $productInformation->rate;

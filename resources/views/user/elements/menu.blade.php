@@ -37,8 +37,8 @@
                                 <div class="form-box f-right ">
                                     <form action="{{ route('searchProduct') }}" method="GET">
                                         @csrf
-                                        <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm" id="input-search" required>
-                                        <input type="submit" value="Tìm kiếm" id="btn-search">
+                                        <input type="text" name="keyword" placeholder="{{ trans('user.menu.search_product') }}" id="input-search" required>
+                                        <input type="submit" value="{{ trans('user.menu.search') }}" id="btn-search">
                                     </form>
                                 </div>
                              </li>
@@ -63,7 +63,7 @@
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">{{ trans('user.menu.my_profile') }}</a>
                                     {{-- <a class="dropdown-item" href="#">{{ trans('user.menu.change_password') }}</a> --}}
-                                    <a class="dropdown-item" href="{{ route('orderHistory') }}">Lịch sử mua hàng</a>
+                                    <a class="dropdown-item" href="{{ route('orderHistory') }}">{{ trans('user.menu.order_history') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">{{ trans('user.menu.logout') }}</a>
                                 </div>
                             @else

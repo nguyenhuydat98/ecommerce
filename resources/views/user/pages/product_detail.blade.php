@@ -41,10 +41,10 @@
                             <span class="content name">{{ $productInformation->name }}</span>
                         </div>
                         <div class="group-info">
-                            <span class="text">Đánh giá</span>
+                            <span class="text">{{ trans('user.product_detail.rate') }}</span>
                             <span class="content">
                                 @if ($productInformation->rate == null)
-                                    Chưa có
+                                    {{ trans('user.product.rate_empty') }}
                                 @else
                                     {{ $productInformation->rate }}
                                 @endif
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                     <div class="col-xl-12" id="rating-product">
-                        <h2 class="title-rating">Đánh giá sản phẩm <small>({{ count($comments) }} đánh giá)</small></h2>
+                        <h2 class="title-rating">{{ trans('user.product_detail.list_comment') }} <small>({{ count($comments) }} {{ trans('user.product_detail.comment') }})</small></h2>
                         @foreach ($comments as $comment)
                             <div class="comment">
                                 <div class="avatar">

@@ -1,5 +1,5 @@
 <div class="modal-vouchers">
-    <button class="btn_3" data-toggle="modal" id="list-voucher" data-target="#vouchers">Chọn Voucher</button>
+    <button class="btn_3" data-toggle="modal" id="list-voucher" data-target="#vouchers">{{ trans('user.checkout.choose_voucher') }}</button>
     <div class="wrap-modal-vouchers">
         <div id="vouchers" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">

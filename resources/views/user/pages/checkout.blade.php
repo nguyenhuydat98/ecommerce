@@ -104,7 +104,7 @@
                                                 <span class="choose-voucher">{{ number_format($chooseVoucher->value) . " đ" }}</span>
                                             @endif
                                         @else
-                                            Chưa chọn Voucher
+                                            {{ trans('user.checkout.not_select_voucher') }}
                                         @endif
                                     </div>
                                 </div>

@@ -1,0 +1,33 @@
+.wrap-profile-user-page {
+    font-size: 20px;
+}
+
+.wrap-profile-user-page .group .title {
+    float: left;
+    width: 30%;
+    margin: 12px auto;
+}
+
+.wrap-profile-user-page .group .content {
+    float: left;
+    width: 70%;
+    margin: 12px auto;
+}
+
+.wrap-profile-user-page .empty {
+    color: #ff0000;
+}
+
+.wrap-profile-user-page .btn_3 {
+    padding: 10px 20px;
+    margin-top: 40px;
+    text-transform: none !important;
+    background-color: #2577fd;
+    color: #fff;
+}
+
+.wrap-profile-user-page .btn_3:hover {
+    cursor: pointer;
+    color: #2577fd;
+    background-color: #fff;
+}

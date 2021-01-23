@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admin.getProductStatistic')}}">
                         <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('admin.menu.statistic_product') }}
                     </a>
                 </li>

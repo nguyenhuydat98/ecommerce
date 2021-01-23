@@ -51,6 +51,8 @@ Route::group(['middleware' => 'localization'], function() {
                 Route::get('read-at/{id}', 'NotificationController@readAt')->name('readNotification');
                 Route::get('statistic-revenue', 'StatisticRevenueController@getViewStatisticRevenue')->name('getViewStatisticRevenue');
                 Route::get('revenue-in-month/{time?}', 'StatisticRevenueController@getStatisticRevenueInMonth')->name('getStatisticRevenueInMonth');
+                Route::get('product-statistic', 'ProductStatisticController@getProductStatistic')->name('getProductStatistic');
+                Route::get('data-product-statistic', 'ProductStatisticController@getDataProductStatistic')->name('getDataProductStatistic');
 
             });
         });

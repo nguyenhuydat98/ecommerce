@@ -197,6 +197,8 @@
     "admin.product_management.list.original_price": "Original price",
     "admin.product_management.list.title": "List Product",
 
+    "admin.product_statistic.title": "Product Statistic",
+
     "admin.profile.address": "Address",
     "admin.profile.created_at": "Created at",
     "admin.profile.email": "Email",

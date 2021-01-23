@@ -56,5 +56,6 @@ mix.styles([
     'resources/css/user/rating.css',
     'resources/css/user/custom_products.css',
     'resources/css/user/home_page.css',
+    'resources/css/user/profile.css',
     ], 'public/css/all.css'
 );

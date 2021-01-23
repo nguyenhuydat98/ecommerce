@@ -78,6 +78,9 @@ Route::group(['middleware' => 'localization'], function() {
     Route::get('search-product', 'ProductController@search')->name('searchProduct');
     Route::get('recommender', 'RecommenderSystemController@recommender')->name('recommender');
     Route::group(['middleware' => 'checkUserLogin'], function() {
+        Route::get('profile', 'ProfileController@getProfileUser')->name('profile');
+        Route::post('change-profile', 'ProfileController@changeProfile')->name('changeProfile');
+        Route::post('change-password', 'ChangePasswordController@changePassword')->name('changePassword');
         Route::post('buynow', 'CartController@buyNow')->name('buyNow');
         Route::get('checkout/{idVoucher?}', 'OrderController@getListItem')->name('getListItem');
         Route::post('checkout', 'OrderController@checkout')->name('checkout');

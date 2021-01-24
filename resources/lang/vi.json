@@ -197,6 +197,8 @@
     "admin.product_management.list.original_price": "Giá gốc",
     "admin.product_management.list.title": "Danh sách sản phẩm",
 
+    "admin.product_statistic.title": "Thống kê sản phẩm",
+
     "admin.profile.address": "Địa chỉ",
     "admin.profile.created_at": "Ngày tham gia",
     "admin.profile.email": "Email",

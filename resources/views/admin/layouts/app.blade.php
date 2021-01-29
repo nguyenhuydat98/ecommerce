@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>{{ trans('admin.title') }}</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('bower_components/bower_ecommerce/admin/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bower_components/bower_ecommerce/admin/css/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bower_components/bower_ecommerce/admin/css/timeline.css') }}" rel="stylesheet">
@@ -32,6 +33,20 @@
     <script src="{{ asset('bower_components/bower_ecommerce/admin/js/dataTables/dataTables.bootstrap.min.js') }}"></script>
     <script src="{{ asset('bower_components/chart.js/dist/Chart.min.js') }}"></script>
 
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        Echo.channel('my-channel').listen('.event-new-order', (notification) => {
+            numberNotification = parseInt($('#number-notification').text()) + 1;
+            $('#number-notification').text(numberNotification);
+            var content = notification.content;
+            var newNotificationHtml = `
+                <a class="dropdown-item unread" href="read-at/${notification.order_id}">
+                    ${content}
+                </a>
+            `;
+            $('.notification-list').prepend(newNotificationHtml);
+        });
+    </script>
     @yield('js')
 </body>
 </html>

@@ -9,9 +9,11 @@ use App\Models\Voucher;
 use App\Models\Admin;
 use App\Http\Requests\CheckoutRequest;
 use App\Notifications\NewOrderNotification;
+use App\Events\NewOrderEvent;
 use Auth;
 use Session;
 use DB;
+use Pusher\Pusher;
 
 class OrderController extends Controller
 {
@@ -85,6 +87,7 @@ class OrderController extends Controller
                 'content' => 'notification.new_order',
             ];
             $admins->each->notify(new NewOrderNotification($notification));
+            event(new NewOrderEvent($notification));
 
             $cart = Session::get('cart');
             foreach ($cart as $key => $item) {

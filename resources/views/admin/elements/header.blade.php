@@ -21,7 +21,7 @@
         <li class="dropdown navbar-inverse">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-bell fa-fw"></i>
-                <span class="badge badge-pill badge-primary">
+                <span class="badge badge-pill badge-primary" id="number-notification">
                     {{ count(Auth::guard('admin')->user()->notifications()->where('type', 'App\Notifications\NewOrderNotification')->where('read_at', null)->get()) }}
                 </span>
             </a>
